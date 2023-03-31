@@ -1,0 +1,49 @@
+/// Integration tests for METAR.
+
+use std::{path::PathBuf, process::Command, fs::File, io::BufReader};
+
+use anyhow::Result;
+use rweather_decoder::metar::Metar;
+use tempfile::NamedTempFile;
+
+fn run_decode_metar(input: &PathBuf, output: &PathBuf) -> Result<()> {
+    let binary_path = env!("CARGO_BIN_EXE_decode-metar");
+
+    let status = Command::new(&binary_path)
+        .args(&[input, output])
+        .status()?;
+    assert!(status.success());
+
+    Ok(())
+}
+
+fn it_metar_template(input: &str, given_output: &str) -> Result<()> {
+    let input_path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("tests").join("data").join("metar").join(input);
+    let given_output_path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("tests").join("data").join("metar").join(given_output);
+
+    let test_output = NamedTempFile::new_in(env!("CARGO_TARGET_TMPDIR"))?.into_temp_path();
+    let test_output_path = test_output.to_path_buf();
+
+    run_decode_metar(&input_path, &test_output_path)?;
+
+    let file = File::open(&test_output_path)?;
+    let buf_reader = BufReader::new(file);
+    let test_data: Vec<Metar> = serde_json::from_reader(buf_reader)?;
+
+    let file = File::open(&given_output_path)?;
+    let buf_reader = BufReader::new(file);
+    let given_data: Vec<Metar> = serde_json::from_reader(buf_reader)?;
+
+    assert_eq!(test_data.len(), given_data.len());
+
+    for (test_metar, given_metar) in test_data.iter().zip(given_data.iter()) {
+        assert_eq!(test_metar, given_metar);
+    }
+
+    Ok(())
+}
+
+#[test]
+fn it_metar_header() -> Result<()> {
+    it_metar_template("it_header_input.txt", "it_header_output.json")
+}

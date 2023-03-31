@@ -1,0 +1,24 @@
+[package]
+name = "rweather-decoder"
+description = "Decoders of various weather reports"
+version = "0.1.0"
+repository = "https://github.com/meandair/rweather-decoder"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.69"
+chrono = "0.4.23"
+chronoutil = "0.2.3"
+encoding_rs = "0.8.32"
+encoding_rs_io = "0.1.7"
+env_logger = "0.10.0"
+glob = "0.3.1"
+lazy_static = "1.4.0"
+log = "0.4.17"
+regex = "1.7.1"
+serde = { version = "1.0.152", features = ["derive"] }
+serde_json = "1.0.93"
+structopt = "0.3.26"
+tempfile = "3.5.0"
