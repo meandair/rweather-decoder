@@ -14,8 +14,8 @@ docs:
 	cargo doc
 
 install: release test docs
-	mkdir ~/bin
-	cp target/release/decode-metar ~/bin/.
+	mkdir install
+	cp target/release/decode-metar install/.
 
 clean:
 	cargo clean
