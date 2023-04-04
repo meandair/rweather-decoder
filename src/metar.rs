@@ -70,7 +70,7 @@ lazy_static! {
         ^(?P<intensity>[-\+])?
         (?P<vicinity>VC)?
         (?P<descriptor>MI|BC|PR|DR|BL|SH|TS|FZ)?
-        (?P<phenomena>(DZ|RA|SN|SG|PL|GR|GS|UP|BR|FG|FU|VA|DU|SA|HZ|PO|SQ|FC|SS|DS|IC)+)?
+        (?P<phenomena>(DZ|RA|SN|SG|PL|GR|GS|UP|BR|FG|FU|VA|DU|SA|HZ|PO|SQ|FC|SS|DS|IC|PY)+)?
         (?P<end>\s)
     ").unwrap();
 
@@ -98,7 +98,7 @@ lazy_static! {
         ^RE(?P<intensity>[-\+])?
         (?P<vicinity>VC)?
         (?P<descriptor>MI|BC|PR|DR|BL|SH|TS|FZ)?
-        (?P<phenomena>(DZ|RA|SN|SG|PL|GR|GS|UP|BR|FG|FU|VA|DU|SA|HZ|PO|SQ|FC|SS|DS|IC)+)?
+        (?P<phenomena>(DZ|RA|SN|SG|PL|GR|GS|UP|BR|FG|FU|VA|DU|SA|HZ|PO|SQ|FC|SS|DS|IC|PY)+)?
         (?P<end>\s)
     ").unwrap();
 
@@ -621,12 +621,17 @@ struct Visibility {
     directional_visibilites: Vec<DirectionalVisibility>,
 }
 
-fn handle_visibility(text: &str) -> Option<(Visibility, usize)> {
+fn handle_visibility(text: &str) -> Option<(Visibility, bool, usize)> {
     VISIBILITY_RE.captures(text)
         .map(|capture| {
+            let mut is_cavok = false;
+
             let mut prevailing_visibility_value = match &capture["prevailing"] {
                 "////" => None,
-                "CAVOK" => Some(Value::Above(10000.0)),
+                "CAVOK" => {
+                    is_cavok = true;
+                    Some(Value::Above(10000.0))
+                },
                 s => Some(Value::from_str(s).unwrap()),
             };
 
@@ -658,7 +663,7 @@ fn handle_visibility(text: &str) -> Option<(Visibility, usize)> {
 
             let visibility = Visibility { prevailing_visibility, minimum_visibility, directional_visibilites };
 
-            (visibility, end)
+            (visibility, is_cavok, end)
         })
 }
 
@@ -794,6 +799,7 @@ enum WeatherPhenomena {
     Sandstorm,
     Duststorm,
     IceCrystals,
+    Spray,
 }
 
 impl FromStr for WeatherPhenomena {
@@ -822,6 +828,7 @@ impl FromStr for WeatherPhenomena {
             "SS" => Ok(WeatherPhenomena::Sandstorm),
             "DS" => Ok(WeatherPhenomena::Duststorm),
             "IC" => Ok(WeatherPhenomena::IceCrystals),
+            "PY" => Ok(WeatherPhenomena::Spray),
             _ => Err(anyhow!("Invalid weather phenomena, given {}", s))
         }
     }
@@ -884,6 +891,7 @@ enum CloudCover {
     Broken,
     Overcast,
     VerticalVisibility,
+    CeilingOk,
 }
 
 impl FromStr for CloudCover {
@@ -1133,8 +1141,14 @@ pub fn decode_metar(report: &str, anchor_time: Option<&NaiveDateTime>) -> Result
                 }
 
                 if visibility.is_none() {
-                    if let Some((vis, relative_end)) = handle_visibility(sub_report) {
+                    if let Some((vis, is_cavok, relative_end)) = handle_visibility(sub_report) {
                         visibility = Some(vis);
+
+                        if is_cavok {
+                            let cl = CloudLayer { cover: Some(CloudCover::CeilingOk) , height: None, cloud_type: None };
+                            clouds.push(cl);
+                        }
+
                         idx += relative_end;
                         continue;
                     }

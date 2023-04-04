@@ -13,7 +13,8 @@ fn run_decode_metar(input: &PathBuf, output: &PathBuf, file_format: &str) -> Res
         .args(&[
             input.as_os_str().to_str().unwrap(),
             output.as_os_str().to_str().unwrap(),
-            "-f",
+            "--quiet",
+            "--file-format",
             file_format
         ])
         .status()?;
@@ -56,4 +57,9 @@ fn it_metar_daytime() -> Result<()> {
 #[test]
 fn it_metar_header() -> Result<()> {
     it_metar_template("it_header_input.txt", "it_header_output.json", "noaa-metar-cycles")
+}
+
+#[test]
+fn it_metar_wind() -> Result<()> {
+    it_metar_template("it_wind_input.txt", "it_wind_output.json", "noaa-metar-cycles")
 }
