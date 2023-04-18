@@ -8,7 +8,9 @@ use chronoutil::RelativeDuration;
 use lazy_static::lazy_static;
 use log::debug;
 use regex::Regex;
-use serde::{de, Serialize, Deserialize, Deserializer, ser::SerializeTuple};
+use serde::{Serialize, Deserialize};
+
+use crate::datetime::{UtcDateTime, UtcDayTime, UtcTime};
 
 lazy_static! {
     static ref WHITESPACE_REPLACE_RE: Regex = Regex::new(r"\s+").unwrap();
@@ -159,82 +161,6 @@ fn handle_section(text: &str) -> Option<(Section, usize)> {
 
             (section, end)
         })
-}
-
-#[non_exhaustive]
-#[derive(Debug, Clone, Copy, PartialEq)]
-struct UtcDateTime(NaiveDateTime);
-
-impl Serialize for UtcDateTime {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where
-        S: serde::Serializer,
-    {
-        serializer.serialize_str(&self.0.format("%Y-%m-%dT%H:%M:%SZ").to_string())
-    }
-}
-
-impl<'de> Deserialize<'de> for UtcDateTime {
-    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        Ok(Self(NaiveDateTime::parse_from_str(&s, "%Y-%m-%dT%H:%M:%SZ").map_err(de::Error::custom)?))
-    }
-}
-
-#[non_exhaustive]
-#[derive(Debug, PartialEq)]
-struct UtcDayTime(u32, NaiveTime);
-
-impl Serialize for UtcDayTime {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where
-        S: serde::Serializer,
-    {
-        let time = self.1.format("%H:%M:%SZ").to_string();
-
-        let mut tup = serializer.serialize_tuple(2)?;
-        tup.serialize_element(&self.0)?;
-        tup.serialize_element(&time)?;
-        tup.end()
-    }
-}
-
-impl<'de> Deserialize<'de> for UtcDayTime {
-    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let (d, time) = <(u32, String)>::deserialize(deserializer)?;
-        let nt = NaiveTime::parse_from_str(&time, "%H:%M:%SZ").map_err(de::Error::custom)?;
-
-        Ok(Self(d, nt))
-    }
-}
-
-#[non_exhaustive]
-#[derive(Debug, PartialEq)]
-struct UtcTime(NaiveTime);
-
-impl Serialize for UtcTime {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where
-        S: serde::Serializer,
-    {
-        serializer.serialize_str(&self.0.format("%H:%M:%SZ").to_string())
-    }
-}
-
-impl<'de> Deserialize<'de> for UtcTime {
-    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        Ok(Self(NaiveTime::parse_from_str(&s, "%H:%M:%SZ").map_err(de::Error::custom)?))
-    }
 }
 
 #[non_exhaustive]
