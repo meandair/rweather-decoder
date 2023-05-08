@@ -4,6 +4,9 @@ use anyhow::Result;
 use chrono::{NaiveTime, NaiveDateTime};
 use serde::{de, Serialize, Deserialize, Deserializer, ser::SerializeTuple};
 
+const UTC_DATE_TIME_FORMAT: &str = "%Y-%m-%dT%H:%M:%SZ";
+const UTC_TIME_FORMAT: &str = "%H:%M:%SZ";
+
 /// UTC datetime wrapper around chrono `NaiveDateTime`.
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq)]
@@ -14,7 +17,7 @@ impl Serialize for UtcDateTime {
     where
         S: serde::Serializer,
     {
-        serializer.serialize_str(&self.0.format("%Y-%m-%dT%H:%M:%SZ").to_string())
+        serializer.serialize_str(&self.0.format(UTC_DATE_TIME_FORMAT).to_string())
     }
 }
 
@@ -23,12 +26,12 @@ impl<'de> Deserialize<'de> for UtcDateTime {
     where
         D: Deserializer<'de>,
     {
-        Ok(Self(NaiveDateTime::parse_from_str(&String::deserialize(deserializer)?, "%Y-%m-%dT%H:%M:%SZ")
+        Ok(Self(NaiveDateTime::parse_from_str(&String::deserialize(deserializer)?, UTC_DATE_TIME_FORMAT)
             .map_err(de::Error::custom)?))
     }
 }
 
-/// UTC day-time wrapper around day and chrono `NaiveTime`.
+/// UTC day-time wrapper around integer day and chrono `NaiveTime`.
 #[non_exhaustive]
 #[derive(Debug, PartialEq)]
 pub struct UtcDayTime(pub u32, pub NaiveTime);
@@ -38,7 +41,7 @@ impl Serialize for UtcDayTime {
     where
         S: serde::Serializer,
     {
-        let time = self.1.format("%H:%M:%SZ").to_string();
+        let time = self.1.format(UTC_TIME_FORMAT).to_string();
 
         let mut tup = serializer.serialize_tuple(2)?;
         tup.serialize_element(&self.0)?;
@@ -53,7 +56,7 @@ impl<'de> Deserialize<'de> for UtcDayTime {
         D: Deserializer<'de>,
     {
         let (d, time) = <(u32, String)>::deserialize(deserializer)?;
-        let nt = NaiveTime::parse_from_str(&time, "%H:%M:%SZ")
+        let nt = NaiveTime::parse_from_str(&time, UTC_TIME_FORMAT)
             .map_err(de::Error::custom)?;
 
         Ok(Self(d, nt))
@@ -70,7 +73,7 @@ impl Serialize for UtcTime {
     where
         S: serde::Serializer,
     {
-        serializer.serialize_str(&self.0.format("%H:%M:%SZ").to_string())
+        serializer.serialize_str(&self.0.format(UTC_TIME_FORMAT).to_string())
     }
 }
 
@@ -80,6 +83,6 @@ impl<'de> Deserialize<'de> for UtcTime {
         D: Deserializer<'de>,
     {
         let s = String::deserialize(deserializer)?;
-        Ok(Self(NaiveTime::parse_from_str(&s, "%H:%M:%SZ").map_err(de::Error::custom)?))
+        Ok(Self(NaiveTime::parse_from_str(&s, UTC_TIME_FORMAT).map_err(de::Error::custom)?))
     }
 }

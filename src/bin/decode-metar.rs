@@ -1,4 +1,4 @@
-/// Decode METAR reports stored in files and save them in a JSON file.
+/// Decode METAR reports stored in various file formats and save them into a JSON file.
 
 use std::{
     collections::HashSet,
@@ -10,18 +10,20 @@ use std::{
 
 use anyhow::{anyhow, Error, Result};
 use chrono::{NaiveDateTime, ParseError};
-use env_logger;
 use glob::glob;
 use log::{info, warn};
-use serde_json;
 use structopt::StructOpt;
 use encoding_rs::WINDOWS_1252;
 use encoding_rs_io::DecodeReaderBytesBuilder;
 
 use rweather_decoder::metar;
 
+/// METAR file formats.
 enum MetarFileFormat {
+    /// NOAA METAR cycle format as used at
+    /// https://tgftp.nws.noaa.gov/data/observations/metar/cycles/.
     NoaaMetarCycles,
+    /// Plain TXT format where each row represents one METAR report.
     Plain,
 }
 
@@ -37,6 +39,7 @@ impl FromStr for MetarFileFormat {
     }
 }
 
+/// Decode METAR reports in a file with NOAA METAR cycle format.
 fn decode_noaa_metar_cycles_file(path: &Path) -> Result<Vec<metar::Metar>> {
     let file = File::open(path)?;
     let enc_reader = DecodeReaderBytesBuilder::new()
@@ -75,6 +78,7 @@ fn decode_noaa_metar_cycles_file(path: &Path) -> Result<Vec<metar::Metar>> {
     Ok(all_metar_data)
 }
 
+/// Decode METAR reports in a file with plain format.
 fn decode_plain_file(path: &Path, anchor_time: Option<&NaiveDateTime>) -> Result<Vec<metar::Metar>> {
     let file = File::open(path)?;
     let buf_reader = BufReader::new(file);
@@ -108,10 +112,13 @@ struct Cli {
     /// METAR file format (noaa-metar-cycles, plain)
     #[structopt(short, long, default_value = "noaa-metar-cycles")]
     file_format: MetarFileFormat,
-    /// Enable pretty-printing of output
+    /// Enable pretty-printing of output JSON file
     #[structopt(short, long)]
     pretty_print: bool,
-    /// Anchor time (YYYY-MM-DD)
+    /// Anchor time (YYYY-MM-DD) for the plain file format.
+    /// Specifies the day when the reports were collected.
+    /// If given, the METAR day will be matched against it
+    /// to create a proper datetime representation.
     #[structopt(short, long, parse(try_from_str = naive_date_time_from_yyyy_mm_dd_str))]
     anchor_time: Option<NaiveDateTime>,
     /// Input files (glob patterns separated by space)

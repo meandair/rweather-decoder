@@ -166,17 +166,17 @@ fn handle_section(text: &str) -> Option<(Section, usize)> {
 #[non_exhaustive]
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "value_type", content = "value", rename_all = "snake_case")]
-enum Time {
+enum MetarTime {
     DateTime(UtcDateTime),
     DayTime(UtcDayTime),
     Time(UtcTime),
 }
 
-impl Time {
-    fn to_date_time(&self, anchor_time: &NaiveDateTime) -> Time {
+impl MetarTime {
+    fn to_date_time(&self, anchor_time: &NaiveDateTime) -> MetarTime {
         match self {
-            Time::DateTime(utc_dt) => Time::DateTime(*utc_dt),
-            Time::DayTime(utc_d_t) => {
+            MetarTime::DateTime(utc_dt) => MetarTime::DateTime(*utc_dt),
+            MetarTime::DayTime(utc_d_t) => {
                 let first_guess_opt = anchor_time.date().with_day(utc_d_t.0).map(|nd| nd.and_time(utc_d_t.1));
                 let second_guess_opt = (*anchor_time + RelativeDuration::months(-1)).date().with_day(utc_d_t.0).map(|nd| nd.and_time(utc_d_t.1));
                 let third_guess_opt = (*anchor_time + RelativeDuration::months(1)).date().with_day(utc_d_t.0).map(|nd| nd.and_time(utc_d_t.1));
@@ -195,12 +195,12 @@ impl Time {
                 }
 
                 match final_guess_opt {
-                    Some(final_guess) => Time::DateTime(UtcDateTime(final_guess)),
+                    Some(final_guess) => MetarTime::DateTime(UtcDateTime(final_guess)),
                     // TODO: Make date guessing more robust and correctly handle the error.
                     None => panic!("{}", format!("Date guessing failed, given time {:?} and anchor time {}", self, anchor_time))
                 }
             },
-            Time::Time(utc_t) => {
+            MetarTime::Time(utc_t) => {
                 let first_guess = anchor_time.date().and_time(utc_t.0);
                 let second_guess = first_guess + Duration::days(-1);
                 let third_guess = first_guess + Duration::days(1);
@@ -216,7 +216,7 @@ impl Time {
                     }
                 }
 
-                Time::DateTime(UtcDateTime(final_guess))
+                MetarTime::DateTime(UtcDateTime(final_guess))
             },
         }
     }
@@ -226,7 +226,7 @@ impl Time {
 #[derive(Debug, PartialEq, Default, Serialize, Deserialize)]
 struct Header {
     station_id: Option<String>,
-    observation_time: Option<Time>,
+    observation_time: Option<MetarTime>,
     is_corrected: Option<bool>,
     is_automated: Option<bool>,
 }
@@ -240,7 +240,7 @@ fn handle_header(text: &str, anchor_time: Option<&NaiveDateTime>) -> Option<(Hea
             let hour = capture["hour"].parse().unwrap();
             let minute = capture["minute"].parse().unwrap();
 
-            let mut time = Some(Time::DayTime(UtcDayTime(day, NaiveTime::from_hms_opt(hour, minute, 0).unwrap())));
+            let mut time = Some(MetarTime::DayTime(UtcDayTime(day, NaiveTime::from_hms_opt(hour, minute, 0).unwrap())));
 
             if let Some(at) = anchor_time {
                 time = time.map(|t| t.to_date_time(at));
@@ -331,11 +331,11 @@ impl FromStr for ValueInRange {
     type Err = Error;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        if s.starts_with('P') {
-            let value = parse_value(&s[1..]).unwrap();
+        if let Some(stripped) = s.strip_prefix('P') {
+            let value = parse_value(stripped).unwrap();
             Ok(ValueInRange::Above(value))
-        } else if s.starts_with('M') {
-            let value = parse_value(&s[1..]).unwrap();
+        } else if let Some(stripped) = s.strip_prefix('M') {
+            let value = parse_value(stripped).unwrap();
             Ok(ValueInRange::Below(value))
         } else {
             let value = parse_value(s).unwrap();
@@ -385,11 +385,11 @@ impl FromStr for Value {
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         if s == "VRB" {
             Ok(Value::Variable)
-        } else if s.starts_with('P') {
-            let value = parse_value(&s[1..]).unwrap();
+        } else if let Some(stripped) = s.strip_prefix('P') {
+            let value = parse_value(stripped).unwrap();
             Ok(Value::Above(value))
-        } else if s.starts_with('M') {
-            let value = parse_value(&s[1..]).unwrap();
+        } else if let Some(stripped) = s.strip_prefix('M') {
+            let value = parse_value(stripped).unwrap();
             Ok(Value::Below(value))
         } else if s.contains('V') {
             let mut split = s.split('V');
@@ -572,7 +572,7 @@ fn handle_visibility(text: &str) -> Option<(Visibility, bool, usize)> {
             let minimum_visibility_value = capture.name("minimum").map(|c| Value::from_str(c.as_str()).unwrap());
 
             let directional_visibilites = capture.name("directional")
-                .map(|c| c.as_str().split(' ').into_iter()
+                .map(|c| c.as_str().split(' ')
                     .map(|group| DIRECTIONAL_VISIBILITY_RE.captures(group))
                     .filter(|capture| capture.is_some())
                     .map(|capture| DirectionalVisibility {
