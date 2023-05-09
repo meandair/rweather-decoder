@@ -9,6 +9,7 @@ categories = ["command-line-utilities", "parser-implementations"]
 readme = "README.md"
 repository = "https://github.com/meandair/rweather-decoder"
 edition = "2021"
+exclude = ["/tests"]
 
 [dependencies]
 anyhow = "1.0.69"
