@@ -1,0 +1,203 @@
+[
+  {
+    "station_id": "KCKN",
+    "observation_time": {
+      "value_type": "day_time",
+      "value": [
+        2,
+        "12:15:00Z"
+      ]
+    },
+    "is_corrected": false,
+    "is_automated": true,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 150.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 5.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 10.0,
+      "units": "mi"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [],
+    "clouds": [
+      {
+        "cover": "clear",
+        "height": null,
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "unlimited",
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": -21.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": -23.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 29.99,
+      "units": "inHg"
+    },
+    "recent_weather": [],
+    "report": "KCKN 021215Z AUTO 15005KT 10SM CLR M21/M23 A2999 RMK AO2"
+  },
+  {
+    "station_id": "SPRU",
+    "observation_time": {
+      "value_type": "day_time",
+      "value": [
+        31,
+        "20:00:00Z"
+      ]
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 180.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 10.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 9000.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [],
+    "clouds": [
+      {
+        "cover": "nil_significant_cloud",
+        "height": null,
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "unlimited",
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 30.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 24.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1009.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "report": "SPRU 312000Z 18010KT 9000 NSC 30/24 Q1009 RMK PP000"
+  },
+  {
+    "station_id": "KEDJ",
+    "observation_time": {
+      "value_type": "day_time",
+      "value": [
+        1,
+        "01:15:00Z"
+      ]
+    },
+    "is_corrected": false,
+    "is_automated": true,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 200.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 15.0,
+      "units": "kt"
+    },
+    "wind_gust": {
+      "value_type": "exact",
+      "value": 22.0,
+      "units": "kt"
+    },
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 10.0,
+      "units": "mi"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [],
+    "clouds": [
+      {
+        "cover": "broken",
+        "height": {
+          "value_type": "exact",
+          "value": 1300.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      },
+      {
+        "cover": "overcast",
+        "height": {
+          "value_type": "exact",
+          "value": 7500.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 1300.0,
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 14.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 14.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 29.66,
+      "units": "inHg"
+    },
+    "recent_weather": [],
+    "report": "KEDJ 010115Z AUTO 20015G22KT 10SM BKN013 OVC075 14/14 A2966 RMK A01"
+  }
+]
