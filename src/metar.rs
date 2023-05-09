@@ -377,6 +377,8 @@ enum Value {
     Below(f32),
     Range(ValueInRange, ValueInRange),
     Exact(f32),
+    Unlimited,
+    Indefinite,
 }
 
 impl FromStr for Value {
@@ -413,6 +415,8 @@ impl Div<f32> for Value {
             Value::Below(x) => Value::Below(x / rhs),
             Value::Range(x, y) => Value::Range(x / rhs, y / rhs),
             Value::Exact(x) => Value::Exact(x / rhs),
+            Value::Unlimited => Value::Unlimited,
+            Value::Indefinite => Value::Indefinite,
         }
     }
 }
@@ -427,6 +431,8 @@ impl Mul<f32> for Value {
             Value::Below(x) => Value::Below(x * rhs),
             Value::Range(x, y) => Value::Range(x * rhs, y * rhs),
             Value::Exact(x) => Value::Exact(x * rhs),
+            Value::Unlimited => Value::Unlimited,
+            Value::Indefinite => Value::Indefinite,
         }
     }
 }
@@ -891,6 +897,7 @@ impl FromStr for CloudType {
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 struct CloudLayer {
     cover: Option<CloudCover>,
+    /// Height above ground level (AGL).
     height: Option<Quantity>,
     cloud_type: Option<CloudType>,
 }
@@ -927,6 +934,50 @@ fn handle_cloud_layer(text: &str) -> Option<(CloudLayer, usize)> {
 
             (cloud_layer, end)
         })
+}
+
+fn calculate_ceiling(cloud_layers: &[CloudLayer]) -> Option<Quantity> {
+    const UNDEFINED_CEILING: f32 = 999999.9;
+
+    let mut min_ceiling = UNDEFINED_CEILING;
+    let mut is_unlimited_opt = None;
+
+    for cloud_layer in cloud_layers {
+        match cloud_layer.cover {
+            Some(CloudCover::Clear) | Some(CloudCover::SkyClear) | Some(CloudCover::NilSignificantCloud)
+                    | Some(CloudCover::NoCloudDetected) | Some(CloudCover::Few) | Some(CloudCover::Scattered)
+                    | Some(CloudCover::CeilingOk) => {
+                if is_unlimited_opt.is_none() {
+                    is_unlimited_opt = Some(true);
+                }
+            },
+            Some(CloudCover::Broken) | Some(CloudCover::Overcast) | Some(CloudCover::VerticalVisibility) => {
+                if let Some(height_quantity) = &cloud_layer.height {
+                    let height = match height_quantity.value {
+                        Value::Exact(h) => h,
+                        _ => unreachable!(),
+                    };
+
+                    min_ceiling = min_ceiling.min(height);
+                }
+
+                is_unlimited_opt = Some(false);
+            },
+            None => (),
+        }
+    }
+
+    match is_unlimited_opt {
+        Some(is_unlimited) => match is_unlimited {
+            true => Some(Quantity::new(Value::Unlimited, Unit::Foot)),
+            false => if min_ceiling < 999999.0 {
+                Some(Quantity::new(Value::Exact(min_ceiling), Unit::Foot))
+            } else {
+                Some(Quantity::new(Value::Indefinite, Unit::Foot))
+            },
+        }
+        None => None
+    }
 }
 
 #[non_exhaustive]
@@ -1011,6 +1062,7 @@ pub struct Metar {
     runway_visual_ranges: Vec<RunwayVisualRange>,
     present_weather: Vec<WeatherCondition>,
     clouds: Vec<CloudLayer>,
+    ceiling: Option<Quantity>,
     #[serde(flatten)]
     temperature: Temperature,
     #[serde(flatten)]
@@ -1149,6 +1201,8 @@ pub fn decode_metar(report: &str, anchor_time: Option<&NaiveDateTime>) -> Result
         debug!("Unparsed data: {}, report: {}", unparsed_groups.join(" "), report);
     }
 
+    let ceiling = calculate_ceiling(&clouds);
+
     Ok(Metar {
         header: header.unwrap_or_default(),
         wind: wind.unwrap_or_default(),
@@ -1156,6 +1210,7 @@ pub fn decode_metar(report: &str, anchor_time: Option<&NaiveDateTime>) -> Result
         present_weather: present_weather_conditions,
         runway_visual_ranges,
         clouds,
+        ceiling,
         temperature: temperature.unwrap_or_default(),
         pressure: pressure.unwrap_or_default(),
         recent_weather: recent_weather_conditions,

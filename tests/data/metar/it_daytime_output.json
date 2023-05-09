@@ -38,6 +38,10 @@
         "cloud_type": null
       }
     ],
+    "ceiling": {
+      "value_type": "unlimited",
+      "units": "ft"
+    },
     "temperature": {
       "value_type": "exact",
       "value": -21.0,
@@ -95,6 +99,10 @@
         "cloud_type": null
       }
     ],
+    "ceiling": {
+      "value_type": "unlimited",
+      "units": "ft"
+    },
     "temperature": {
       "value_type": "exact",
       "value": 30.0,
@@ -169,6 +177,11 @@
         "cloud_type": null
       }
     ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 1300.0,
+      "units": "ft"
+    },
     "temperature": {
       "value_type": "exact",
       "value": 14.0,
