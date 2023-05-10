@@ -1,4 +1,4 @@
-/// Custom datetime module.
+//! Custom datetime module representing dates and times in the UTC standard.
 
 use anyhow::Result;
 use chrono::{NaiveTime, NaiveDateTime};
@@ -7,7 +7,7 @@ use serde::{de, Serialize, Deserialize, Deserializer, ser::SerializeTuple};
 const UTC_DATE_TIME_FORMAT: &str = "%Y-%m-%dT%H:%M:%SZ";
 const UTC_TIME_FORMAT: &str = "%H:%M:%SZ";
 
-/// UTC datetime wrapper around chrono `NaiveDateTime`.
+/// UTC datetime wrapper around [chrono]'s [`NaiveDateTime`].
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub struct UtcDateTime(pub NaiveDateTime);
@@ -31,7 +31,7 @@ impl<'de> Deserialize<'de> for UtcDateTime {
     }
 }
 
-/// UTC day-time wrapper around integer day and chrono `NaiveTime`.
+/// UTC day-time wrapper around integer day and [chrono]'s [`NaiveTime`].
 #[non_exhaustive]
 #[derive(Debug, PartialEq)]
 pub struct UtcDayTime(pub u32, pub NaiveTime);
@@ -63,7 +63,7 @@ impl<'de> Deserialize<'de> for UtcDayTime {
     }
 }
 
-/// UTC time wrapper around chrono `NaiveTime`.
+/// UTC time wrapper around [chrono]'s [`NaiveTime`].
 #[non_exhaustive]
 #[derive(Debug, PartialEq)]
 pub struct UtcTime(pub NaiveTime);

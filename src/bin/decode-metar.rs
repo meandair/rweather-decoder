@@ -1,4 +1,4 @@
-/// Decode METAR reports stored in various file formats and save them into a JSON file.
+//! Decode METAR reports stored in various file formats and save them into a JSON file.
 
 use std::{
     collections::HashSet,
@@ -21,7 +21,7 @@ use rweather_decoder::metar;
 /// METAR file formats.
 enum MetarFileFormat {
     /// NOAA METAR cycle format as used at
-    /// https://tgftp.nws.noaa.gov/data/observations/metar/cycles/.
+    /// <https://tgftp.nws.noaa.gov/data/observations/metar/cycles/>.
     NoaaMetarCycles,
     /// Plain TXT format where each row represents one METAR report.
     Plain,

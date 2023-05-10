@@ -1,4 +1,4 @@
-/// METAR decoding module.
+//! METAR decoding module.
 
 use std::{ops::{Div, Mul}, str::FromStr};
 
@@ -1050,6 +1050,7 @@ fn handle_color(text: &str) -> Option<usize> {
         })
 }
 
+/// A decoded METAR report.
 #[non_exhaustive]
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 pub struct Metar {
@@ -1071,6 +1072,11 @@ pub struct Metar {
     pub report: String,
 }
 
+/// Decodes METAR report into [Metar] struct.
+///
+/// The optional `anchor_time` specifies the day when the report was collected.
+/// If given, the decoded METAR day and time will be matched against it to create [UtcDateTime]
+/// struct which fully describes date and time.
 pub fn decode_metar(report: &str, anchor_time: Option<&NaiveDateTime>) -> Result<Metar> {
     let mut sanitized = report.to_uppercase().trim().replace('\x00', "");
     sanitized = WHITESPACE_REPLACE_RE.replace_all(&sanitized, *WHITESPACE_REPLACE_OUT).to_string();
