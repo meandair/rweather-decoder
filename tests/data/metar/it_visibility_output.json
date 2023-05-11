@@ -1,0 +1,1841 @@
+[
+  {
+    "station_id": "KC62",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T12:15:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": true,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 300.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 7.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 10.0,
+      "units": "mi"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [],
+    "clouds": [
+      {
+        "cover": "overcast",
+        "height": {
+          "value_type": "exact",
+          "value": 1600.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 1600.0,
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 2.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 0.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 29.85,
+      "units": "inHg"
+    },
+    "recent_weather": [],
+    "report": "KC62 021215Z AUTO 30007KT 10SM OVC016 02/00 A2985 RMK AO2 T00200003"
+  },
+  {
+    "station_id": "PTKK",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T11:51:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 40.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 7.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 15.0,
+      "units": "mi"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [],
+    "clouds": [
+      {
+        "cover": "few",
+        "height": {
+          "value_type": "exact",
+          "value": 1400.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      },
+      {
+        "cover": "scattered",
+        "height": {
+          "value_type": "exact",
+          "value": 30000.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "unlimited",
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 27.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 23.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 29.81,
+      "units": "inHg"
+    },
+    "recent_weather": [],
+    "report": "PTKK 021151Z 04007KT 15SM FEW014 SCT300 27/23 A2981 RMK SLP098 8/101 T02740234 10294 20274 52015"
+  },
+  {
+    "station_id": "KEZP",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T11:45:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": true,
+    "wind_from_direction": null,
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 0.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 8.0,
+      "units": "mi"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [],
+    "clouds": [
+      {
+        "cover": "scattered",
+        "height": {
+          "value_type": "exact",
+          "value": 1400.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "unlimited",
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 23.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 22.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 29.78,
+      "units": "inHg"
+    },
+    "recent_weather": [],
+    "report": "KEZP 021145Z AUTO 00000KT 8SM SCT014 23/22 A2978 RMK A01"
+  },
+  {
+    "station_id": "CYHU",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T11:47:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": true,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 40.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 10.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 3.0,
+      "units": "mi"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [
+      {
+        "intensity": "light",
+        "is_in_vicinity": false,
+        "descriptor": null,
+        "phenomena": [
+          "snow"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "broken",
+        "height": {
+          "value_type": "exact",
+          "value": 500.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      },
+      {
+        "cover": "overcast",
+        "height": {
+          "value_type": "exact",
+          "value": 2200.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 500.0,
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": -0.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": -1.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 29.68,
+      "units": "inHg"
+    },
+    "recent_weather": [],
+    "report": "CYHU 021147Z AUTO 04010KT 3SM -SN BKN005 OVC022 M00/M01 A2968 RMK SLP052"
+  },
+  {
+    "station_id": "KPTK",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T12:08:00Z"
+    },
+    "is_corrected": true,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 290.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 11.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 1.0,
+      "units": "mi"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [
+      {
+        "intensity": "moderate",
+        "is_in_vicinity": false,
+        "descriptor": null,
+        "phenomena": [
+          "mist"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "overcast",
+        "height": {
+          "value_type": "exact",
+          "value": 400.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 400.0,
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 1.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 1.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 29.77,
+      "units": "inHg"
+    },
+    "recent_weather": [],
+    "report": "KPTK 021208Z COR 29011KT 1 SM BR OVC004 01/01 A2977 RMK AO2 SFC VIS 1 3/4 T00110006"
+  },
+  {
+    "station_id": "KLDJ",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T11:55:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": true,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 360.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 4.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 1.25,
+      "units": "mi"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [
+      {
+        "intensity": "moderate",
+        "is_in_vicinity": false,
+        "descriptor": null,
+        "phenomena": [
+          "mist"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "overcast",
+        "height": {
+          "value_type": "exact",
+          "value": 300.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 300.0,
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 5.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 4.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 29.73,
+      "units": "inHg"
+    },
+    "recent_weather": [],
+    "report": "KLDJ 021155Z AUTO 36004KT 1 1/4SM BR OVC003 05/04 A2973 RMK AO2 T00450040 10056 20043"
+  },
+  {
+    "station_id": "KNFE",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T11:45:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": true,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 230.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 5.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 2.5,
+      "units": "mi"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [
+      {
+        "intensity": "heavy",
+        "is_in_vicinity": false,
+        "descriptor": null,
+        "phenomena": [
+          "rain"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "few",
+        "height": {
+          "value_type": "exact",
+          "value": 800.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      },
+      {
+        "cover": "broken",
+        "height": {
+          "value_type": "exact",
+          "value": 4300.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      },
+      {
+        "cover": "overcast",
+        "height": {
+          "value_type": "exact",
+          "value": 6000.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 4300.0,
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 18.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 15.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 29.79,
+      "units": "inHg"
+    },
+    "recent_weather": [],
+    "report": "KNFE 021145Z AUTO 23005KT 2 1/2SM +RA FEW008 BKN043 OVC060 18/15 A2979 RMK AO2 TSE23 P0021 T01780150 $"
+  },
+  {
+    "station_id": "KSWF",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T11:45:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": null,
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 0.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 0.5,
+      "units": "mi"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [
+      {
+        "runway": "09",
+        "visual_range": {
+          "value_type": "exact",
+          "value": 5000.0,
+          "units": "ft"
+        },
+        "trend": null
+      }
+    ],
+    "present_weather": [
+      {
+        "intensity": "light",
+        "is_in_vicinity": false,
+        "descriptor": null,
+        "phenomena": [
+          "rain"
+        ]
+      },
+      {
+        "intensity": "moderate",
+        "is_in_vicinity": false,
+        "descriptor": null,
+        "phenomena": [
+          "fog"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "overcast",
+        "height": {
+          "value_type": "exact",
+          "value": 300.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 300.0,
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 2.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 2.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 29.67,
+      "units": "inHg"
+    },
+    "recent_weather": [],
+    "report": "KSWF 021145Z 00000KT 1/2SM R09/5000FT -RA FG OVC003 02/02 A2967 RMK PRESFR"
+  },
+  {
+    "station_id": "CYKF",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T11:52:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": true,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 320.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 7.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 0.625,
+      "units": "mi"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [
+      {
+        "intensity": "moderate",
+        "is_in_vicinity": false,
+        "descriptor": null,
+        "phenomena": [
+          "mist"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "overcast",
+        "height": {
+          "value_type": "exact",
+          "value": 300.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 300.0,
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": -3.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": -3.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 29.74,
+      "units": "inHg"
+    },
+    "recent_weather": [],
+    "report": "CYKF 021152Z AUTO 32007KT 5/8SM BR OVC003 M03/M03 A2974 RMK SLP087"
+  },
+  {
+    "station_id": "KINF",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T11:55:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": true,
+    "wind_from_direction": null,
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 0.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "below",
+      "value": 0.25,
+      "units": "mi"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [
+      {
+        "intensity": "light",
+        "is_in_vicinity": false,
+        "descriptor": null,
+        "phenomena": [
+          "rain"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "overcast",
+        "height": {
+          "value_type": "exact",
+          "value": 100.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 100.0,
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 16.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 16.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 30.01,
+      "units": "inHg"
+    },
+    "recent_weather": [],
+    "report": "KINF 021155Z AUTO 00000KT M1/4SM -RA OVC001 16/16 A3001 RMK AO2"
+  },
+  {
+    "station_id": "YPTN",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T11:45:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": true,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 330.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 9.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "above",
+      "value": 10000.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [],
+    "clouds": [
+      {
+        "cover": "broken",
+        "height": {
+          "value_type": "exact",
+          "value": 1400.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      },
+      {
+        "cover": "overcast",
+        "height": {
+          "value_type": "exact",
+          "value": 3900.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 1400.0,
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 26.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 24.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1004.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "report": "YPTN 021145Z AUTO 33009KT 9999 // BKN014 OVC039 26/24 Q1004"
+  },
+  {
+    "station_id": "OJAI",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T12:00:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 270.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 4.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 5000.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [
+      {
+        "intensity": "moderate",
+        "is_in_vicinity": false,
+        "descriptor": null,
+        "phenomena": [
+          "haze"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "nil_significant_cloud",
+        "height": null,
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "unlimited",
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 26.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": -2.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1016.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "report": "OJAI 021200Z 27004KT 5000 HZ NSC 26/M02 Q1016 NOSIG"
+  },
+  {
+    "station_id": "EDBC",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T11:50:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 350.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 7.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 450.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [
+      {
+        "visibility": {
+          "value_type": "exact",
+          "value": 400.0,
+          "units": "m"
+        },
+        "direction": "south"
+      }
+    ],
+    "runway_visual_ranges": [
+      {
+        "runway": "07",
+        "visual_range": {
+          "value_type": "exact",
+          "value": 600.0,
+          "units": "m"
+        },
+        "trend": "increasing"
+      }
+    ],
+    "present_weather": [
+      {
+        "intensity": "moderate",
+        "is_in_vicinity": false,
+        "descriptor": "freezing",
+        "phenomena": [
+          "fog"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "vertical_visibility",
+        "height": null,
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "indefinite",
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": -1.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": -1.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1024.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "report": "EDBC 021150Z 35007KT 0450 0400S R07/0600U FZFG VV/// M01/M01 Q1024"
+  },
+  {
+    "station_id": "LIBQ",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T11:55:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 260.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": {
+      "value_type": "range",
+      "value": [
+        {
+          "value_type": "exact",
+          "value": 220.0
+        },
+        {
+          "value_type": "exact",
+          "value": 290.0
+        }
+      ],
+      "units": "degT"
+    },
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 6.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 0.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [
+      {
+        "intensity": "light",
+        "is_in_vicinity": false,
+        "descriptor": null,
+        "phenomena": [
+          "snow"
+        ]
+      },
+      {
+        "intensity": "moderate",
+        "is_in_vicinity": false,
+        "descriptor": null,
+        "phenomena": [
+          "fog"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "vertical_visibility",
+        "height": null,
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "indefinite",
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 2.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 0.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1013.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "report": "LIBQ 021155Z 26006KT 220V290 0000 -SN FG VV/// 02/00 Q1013"
+  },
+  {
+    "station_id": "KEMV",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T11:55:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": true,
+    "wind_from_direction": null,
+    "wind_from_direction_range": null,
+    "wind_speed": null,
+    "wind_gust": null,
+    "prevailing_visibility": null,
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [],
+    "clouds": [],
+    "ceiling": null,
+    "temperature": null,
+    "dew_point": null,
+    "pressure": null,
+    "recent_weather": [],
+    "report": "KEMV 021155Z AUTO RMK AO2 6//// 7//// 10145 20071 PWINO PNO TSNO"
+  },
+  {
+    "station_id": "LFKF",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T12:00:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": true,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 230.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 7.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 9000.0,
+      "units": "m"
+    },
+    "minimum_visibility": {
+      "value_type": "exact",
+      "value": 4400.0,
+      "units": "m"
+    },
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [
+      {
+        "intensity": "moderate",
+        "is_in_vicinity": false,
+        "descriptor": null,
+        "phenomena": [
+          "rain"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "broken",
+        "height": {
+          "value_type": "exact",
+          "value": 3600.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      },
+      {
+        "cover": "overcast",
+        "height": {
+          "value_type": "exact",
+          "value": 4400.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      },
+      {
+        "cover": null,
+        "height": null,
+        "cloud_type": "towering_cumulus"
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 3600.0,
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 11.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 8.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1012.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "report": "LFKF 021200Z AUTO 23007KT 9000 4400 RA BKN036/// OVC044/// ///TCU 11/08 Q1012 TEMPO 4500 SHRA BKN030 SCT045CB OVC060"
+  },
+  {
+    "station_id": "EFVA",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T12:20:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": true,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 340.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 5.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 2100.0,
+      "units": "m"
+    },
+    "minimum_visibility": {
+      "value_type": "exact",
+      "value": 1100.0,
+      "units": "m"
+    },
+    "directional_visibilites": [],
+    "runway_visual_ranges": [
+      {
+        "runway": "34",
+        "visual_range": {
+          "value_type": "exact",
+          "value": 2000.0,
+          "units": "m"
+        },
+        "trend": "decreasing"
+      }
+    ],
+    "present_weather": [
+      {
+        "intensity": "light",
+        "is_in_vicinity": false,
+        "descriptor": "shower",
+        "phenomena": [
+          "snow"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "overcast",
+        "height": {
+          "value_type": "exact",
+          "value": 700.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 700.0,
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 1.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": -0.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1004.0,
+      "units": "hPa"
+    },
+    "recent_weather": [
+      {
+        "intensity": "moderate",
+        "is_in_vicinity": false,
+        "descriptor": "shower",
+        "phenomena": [
+          "rain"
+        ]
+      }
+    ],
+    "report": "EFVA 021220Z AUTO 34005KT 2100 1100 R34/2000D -SHSN OVC007 01/M00 Q1004 RESHRA"
+  },
+  {
+    "station_id": "EDGS",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T11:50:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 70.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": {
+      "value_type": "range",
+      "value": [
+        {
+          "value_type": "exact",
+          "value": 30.0
+        },
+        {
+          "value_type": "exact",
+          "value": 90.0
+        }
+      ],
+      "units": "degT"
+    },
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 9.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "above",
+      "value": 10000.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [],
+    "clouds": [
+      {
+        "cover": "ceiling_ok",
+        "height": null,
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "unlimited",
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 5.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": -5.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1019.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "report": "EDGS 021150Z 07009KT 030V090 CAVOK 05/M05 Q1019"
+  },
+  {
+    "station_id": "LFMY",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T12:00:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": true,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 350.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": {
+      "value_type": "range",
+      "value": [
+        {
+          "value_type": "exact",
+          "value": 320.0
+        },
+        {
+          "value_type": "exact",
+          "value": 20.0
+        }
+      ],
+      "units": "degT"
+    },
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 9.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "above",
+      "value": 10000.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [],
+    "clouds": [
+      {
+        "cover": "ceiling_ok",
+        "height": null,
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "unlimited",
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 12.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 2.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1015.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "report": "LFMY 021200Z AUTO 35009KT 320V020 CAVOK 12/02 Q1015 NOSIG"
+  },
+  {
+    "station_id": "ENDU",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T11:50:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 230.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": {
+      "value_type": "range",
+      "value": [
+        {
+          "value_type": "exact",
+          "value": 170.0
+        },
+        {
+          "value_type": "exact",
+          "value": 270.0
+        }
+      ],
+      "units": "degT"
+    },
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 5.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 9000.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [
+      {
+        "visibility": {
+          "value_type": "exact",
+          "value": 4000.0,
+          "units": "m"
+        },
+        "direction": "north"
+      }
+    ],
+    "runway_visual_ranges": [],
+    "present_weather": [
+      {
+        "intensity": "light",
+        "is_in_vicinity": false,
+        "descriptor": "shower",
+        "phenomena": [
+          "snow",
+          "rain"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "few",
+        "height": {
+          "value_type": "exact",
+          "value": 800.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      },
+      {
+        "cover": "broken",
+        "height": {
+          "value_type": "exact",
+          "value": 2000.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 2000.0,
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 1.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": -1.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 997.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "report": "ENDU 021150Z 23005KT 170V270 9000 4000N -SHSNRA FEW008 BKN020 01/M01 Q0997 TEMPO 1000 SHSN VV007 RMK WIND 1100FT 23010KT WIND 2200FT 26019KT"
+  },
+  {
+    "station_id": "SPJC",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T12:00:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 190.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 3.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "above",
+      "value": 10000.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [
+      {
+        "visibility": {
+          "value_type": "exact",
+          "value": 3300.0,
+          "units": "m"
+        },
+        "direction": "south_east"
+      }
+    ],
+    "runway_visual_ranges": [],
+    "present_weather": [],
+    "clouds": [
+      {
+        "cover": "nil_significant_cloud",
+        "height": null,
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "unlimited",
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 21.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 19.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1010.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "report": "SPJC 021200Z 19003KT 9999 3300SE NSC 21/19 Q1010 NOSIG RMK TN20.9 FU W PP000"
+  },
+  {
+    "station_id": "SKRG",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T12:00:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 360.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 3.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "above",
+      "value": 10000.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [
+      {
+        "visibility": {
+          "value_type": "exact",
+          "value": 5000.0,
+          "units": "m"
+        },
+        "direction": "south"
+      }
+    ],
+    "runway_visual_ranges": [],
+    "present_weather": [
+      {
+        "intensity": "moderate",
+        "is_in_vicinity": false,
+        "descriptor": "patches",
+        "phenomena": [
+          "fog"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "few",
+        "height": {
+          "value_type": "exact",
+          "value": 1000.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      },
+      {
+        "cover": "broken",
+        "height": {
+          "value_type": "exact",
+          "value": 8000.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 8000.0,
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 14.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 14.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1024.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "report": "SKRG 021200Z 36003KT 9999 5000S BCFG FEW010 BKN080 14/14 Q1024 BECMG AT1240 9999 NSW SCT013 RMK A3025"
+  },
+  {
+    "station_id": "LQBK",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T12:00:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "variable",
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 1.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 2500.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [
+      {
+        "visibility": {
+          "value_type": "exact",
+          "value": 1000.0,
+          "units": "m"
+        },
+        "direction": "north"
+      }
+    ],
+    "runway_visual_ranges": [
+      {
+        "runway": "16",
+        "visual_range": {
+          "value_type": "exact",
+          "value": 400.0,
+          "units": "m"
+        },
+        "trend": "no_change"
+      }
+    ],
+    "present_weather": [
+      {
+        "intensity": "moderate",
+        "is_in_vicinity": false,
+        "descriptor": null,
+        "phenomena": [
+          "mist"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "scattered",
+        "height": {
+          "value_type": "exact",
+          "value": 200.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      },
+      {
+        "cover": "overcast",
+        "height": {
+          "value_type": "exact",
+          "value": 500.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 500.0,
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 4.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 4.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1020.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "report": "LQBK 021200Z VRB01KT 2500 1000N R16/0400N BR SCT002 OVC005 04/04 Q1020 NOSIG"
+  },
+  {
+    "station_id": "ENSK",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T12:20:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 280.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 11.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 4000.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [
+      {
+        "visibility": {
+          "value_type": "exact",
+          "value": 2000.0,
+          "units": "m"
+        },
+        "direction": "north_east"
+      }
+    ],
+    "runway_visual_ranges": [],
+    "present_weather": [
+      {
+        "intensity": "light",
+        "is_in_vicinity": false,
+        "descriptor": null,
+        "phenomena": [
+          "snow"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "vertical_visibility",
+        "height": {
+          "value_type": "exact",
+          "value": 900.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 900.0,
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 0.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": -0.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1001.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "report": "ENSK 021220Z 28011KT 4000 2000NE -SN VV009 00/M00 Q1001"
+  }
+]

@@ -47,6 +47,7 @@ lazy_static! {
     static ref VISIBILITY_RE: Regex = Regex::new(r"(?x)
         ^(?P<prevailing>[MP]?(\d+\s)?\d/\d|[MP]?\d{1,4}|////|CAVOK)
         (NDV)?
+        \s?
         (?P<units>SM)?
         (\s(?P<minimum>[MP]?\d{1,4}))?
         (?P<directional>(\s[MP]?\d{1,4}[NESW][EW]?)+)?
