@@ -62,7 +62,7 @@ decode-metar 16Z.TXT 16Z.json -p
 Decoded reports will be saved to the file `16Z.json` and the option `-p` will enable pretty-printing of the output,
 so it is more readable for humans (see below). If input reports are repeated, they will be deduplicated.
 
-The output file contains a list of decoded reports. Here's an example for the LFBD airport (Bordeaux–Mérignac Airport):
+The output file contains an array of decoded reports. Here is an example for the LFBD airport (Bordeaux–Mérignac Airport):
 
 ```json
   {
@@ -219,4 +219,4 @@ The output file contains a list of decoded reports. Here's an example for the LF
   },
 ```
 
-If you wish to decode reports from another source, you can use the option `-f plain` which accepts input files with one METAR report per row.
+If you wish to decode reports from an another source, you can use the option `-f plain` which accepts input files with one METAR report per row.
