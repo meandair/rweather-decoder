@@ -5,6 +5,7 @@
 * document more public items
 * include tests for the visibility section, #3
 * fix bug when visibility units are separated from the number, e.g. `1 SM`
+* extend README
 
 ## v0.1.0
 * decode the main section of a METAR weather report

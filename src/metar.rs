@@ -1075,7 +1075,7 @@ pub struct Metar {
 
 /// Decodes METAR report into [Metar] struct.
 ///
-/// The optional `anchor_time` specifies the day when the report was collected.
+/// The optional `anchor_time` specifies a day close the the one when the report was collected.
 /// If given, the decoded METAR day and time will be matched against it to create [UtcDateTime]
 /// struct which fully describes date and time.
 pub fn decode_metar(report: &str, anchor_time: Option<&NaiveDateTime>) -> Result<Metar> {

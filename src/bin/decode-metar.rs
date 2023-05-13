@@ -116,15 +116,15 @@ struct Cli {
     #[structopt(short, long)]
     pretty_print: bool,
     /// Anchor time (YYYY-MM-DD) for the plain file format.
-    /// Specifies the day when the reports were collected.
-    /// If given, the METAR day will be matched against it
+    /// Specifies a day close to the one when the reports were collected.
+    /// If given, the individual METAR day will be matched against it
     /// to create a proper datetime representation.
     #[structopt(short, long, parse(try_from_str = naive_date_time_from_yyyy_mm_dd_str))]
     anchor_time: Option<NaiveDateTime>,
     /// Input files (glob patterns separated by space)
     #[structopt(required = true)]
     input_globs: Vec<String>,
-    /// Output JSON file
+    /// Output JSON file. Same input reports will be deduplicated.
     output: PathBuf,
 }
 
