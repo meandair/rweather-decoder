@@ -56,7 +56,7 @@ Check for latest METAR reports at https://tgftp.nws.noaa.gov/data/observations/m
 We will download the file `16Z.TXT` (cycle 16Z) and run the `decode-metar` tool as follows:
 
 ```
-decode-metar 16Z.TXT 16Z.json -p
+decode-metar -p 16Z.TXT 16Z.json
 ```
 
 Decoded reports will be saved to the file `16Z.json` and the option `-p` will enable pretty-printing of the output,
