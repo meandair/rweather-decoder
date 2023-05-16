@@ -68,3 +68,8 @@ fn it_metar_wind() -> Result<()> {
 fn it_metar_visibility() -> Result<()> {
     it_metar_template("it_visibility_input.txt", "it_visibility_output.json", "noaa-metar-cycles")
 }
+
+#[test]
+fn it_metar_rvr() -> Result<()> {
+    it_metar_template("it_rvr_input.txt", "it_rvr_output.json", "noaa-metar-cycles")
+}
