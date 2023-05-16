@@ -30,7 +30,7 @@ lazy_static! {
         (?P<day>\d\d)
         (?P<hour>\d\d)
         (?P<minute>\d\d)Z?
-        (\s(?P<corrected>COR))?
+        (\s(?P<corrected>COR|CC[A-Z]))?
         (\s(?P<auto>AUTO))?
         (?P<end>\s)
     ").unwrap();
