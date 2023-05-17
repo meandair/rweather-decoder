@@ -3,6 +3,7 @@
 ## v0.1.2
 * include tests for the RVR section, #4
 * fix bug when CCA-CCZ group does not flag corrected report
+* further improve README
 
 ## v0.1.1
 * move `tempfile` into [dev-dependencies]
