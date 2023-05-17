@@ -104,7 +104,7 @@ fn naive_date_time_from_yyyy_mm_dd_str(s: &str) -> Result<NaiveDateTime, ParseEr
 }
 
 #[derive(StructOpt)]
-/// CLI decoder of METAR files
+/// CLI decoder of METAR reports
 struct Cli {
     /// Quiet
     #[structopt(short, long)]

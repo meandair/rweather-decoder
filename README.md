@@ -1,8 +1,8 @@
 # rweather-decoder
 
-Decoders of various weather reports.
+Decoders for various weather reports.
 
-The decoders are binary applications storing decoded reports in JSON files which are suitable for further machine processing.
+The decoders are binary applications that store decoded reports in JSON files, which are suitable for further machine processing.
 
 ## Roadmap
 
@@ -16,18 +16,24 @@ The decoders are binary applications storing decoded reports in JSON files which
 
 ## Installation
 
-Install the decoders by running:
+To use this crate, you need to have Rust and Cargo installed on your machine. To install Rust, visit the official Rust website at https://www.rust-lang.org/learn/get-started and follow the installation instructions for your operating system. Rust provides an installer that will install both Rust and Cargo.
 
+After, you can easily install the decoders by running the following command:
+
+```shell
+[filip@fractal ~]$ cargo install rweather-decoder
 ```
-cargo install rweather-decoder
-```
+
+Cargo will download the crate from the Rust package repository and compile it on your system. After the installation is complete, you can start using the command-line decoder tools.
 
 ## Usage
 
-```
+To decode METAR reports, use the `decode-metar` binary application, see its help:
+
+```shell
 [filip@fractal ~]$ decode-metar -h
-rweather-decoder 0.1.1
-CLI decoder of METAR files
+rweather-decoder 0.1.2
+CLI decoder of METAR reports
 
 USAGE:
     decode-metar [FLAGS] [OPTIONS] <input-globs>... <output>
@@ -49,20 +55,20 @@ ARGS:
     <output>            Output JSON file. Same input reports will be deduplicated
 ```
 
-## Example
+The tool supports two METAR file formats:
 
-Check for latest METAR reports at https://tgftp.nws.noaa.gov/data/observations/metar/cycles/.
+1. **noaa-metar-cycles** (default) - METAR reports in files downloaded from the NOAA METAR cycles page located at https://tgftp.nws.noaa.gov/data/observations/metar/cycles/.
+2. **plain** - METAR reports in files with one report per row.
 
-We will download the file `16Z.TXT` (cycle 16Z) and run the `decode-metar` tool as follows:
+## Examples
 
+To check for the latest METAR reports, visit https://tgftp.nws.noaa.gov/data/observations/metar/cycles/. You can download a specific file, such as `16Z.TXT` (cycle 16Z), and use the `decode-metar` command-line tool as follows:
+
+```shell
+[filip@fractal ~]$ decode-metar -p 16Z.TXT 16Z.json
 ```
-decode-metar -p 16Z.TXT 16Z.json
-```
 
-Decoded reports will be saved to the file `16Z.json` and the option `-p` will enable pretty-printing of the output,
-so it is more readable for humans (see below). If input reports are repeated, they will be deduplicated.
-
-The output file contains an array of decoded reports. Here is an example for the LFBD airport (Bordeaux–Mérignac Airport):
+The decoded reports will be saved in the JSON file `16Z.json`. The `-p` option enables pretty-printing of the output JSON file for improved readability. The output file contains an array of decoded reports. Here is an example of a decoded METAR report for the LFBD airport (Bordeaux–Mérignac Airport):
 
 ```json
   {
@@ -218,5 +224,3 @@ The output file contains an array of decoded reports. Here is an example for the
     "report": "LFBD 121600Z AUTO 33016G32KT 270V040 9999 0600 R23/1100D R05/P2300 R29/1800D +TSRA BCFG FEW024/// BKN038/// BKN044/// ///CB 15/11 Q1018 TEMPO 3000 SHRA BKN010 SCT020CB BKN030TCU"
   },
 ```
-
-If you wish to decode reports from an another source, you can use the option `-f plain` which accepts input files with one METAR report per row.
