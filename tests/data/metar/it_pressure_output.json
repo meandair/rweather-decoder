@@ -1,0 +1,578 @@
+[
+  {
+    "station_id": "KQEQ",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-05-12T20:50:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": true,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 190.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 1.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "below",
+      "value": 400.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [
+      {
+        "intensity": "light",
+        "is_in_vicinity": false,
+        "descriptor": "shower",
+        "phenomena": [
+          "rain"
+        ]
+      },
+      {
+        "intensity": "moderate",
+        "is_in_vicinity": false,
+        "descriptor": null,
+        "phenomena": [
+          "fog"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "few",
+        "height": {
+          "value_type": "exact",
+          "value": 100.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      },
+      {
+        "cover": "broken",
+        "height": {
+          "value_type": "exact",
+          "value": 300.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      },
+      {
+        "cover": "overcast",
+        "height": {
+          "value_type": "exact",
+          "value": 1400.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 300.0,
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 14.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 16.0,
+      "units": "degC"
+    },
+    "pressure": null,
+    "recent_weather": [],
+    "report": "KQEQ 122050Z AUTO 19001KT M0400 -SHRA FG FEW001 BKN003 OVC014 14/16 / RMK A02 TSNO"
+  },
+  {
+    "station_id": "ENFB",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-05-12T20:50:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": true,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 330.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 7.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "above",
+      "value": 10000.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [],
+    "clouds": [
+      {
+        "cover": "broken",
+        "height": {
+          "value_type": "exact",
+          "value": 1100.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 1100.0,
+      "units": "ft"
+    },
+    "temperature": null,
+    "dew_point": null,
+    "pressure": null,
+    "recent_weather": [],
+    "report": "ENFB 122050Z AUTO 33007KT 9999NDV BKN011/// ///// Q//// W///S3"
+  },
+  {
+    "station_id": "CYUA",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-05-12T21:00:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": true,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 310.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 9.0,
+      "units": "kt"
+    },
+    "wind_gust": {
+      "value_type": "exact",
+      "value": 18.0,
+      "units": "kt"
+    },
+    "prevailing_visibility": null,
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [],
+    "clouds": [
+      {
+        "cover": "overcast",
+        "height": {
+          "value_type": "exact",
+          "value": 3600.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 3600.0,
+      "units": "ft"
+    },
+    "temperature": null,
+    "dew_point": null,
+    "pressure": null,
+    "recent_weather": [],
+    "report": "CYUA 122100Z AUTO 31009G18KT ////SM OVC036 ///// A////"
+  },
+  {
+    "station_id": "SCRM",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-05-12T21:00:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 260.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 27.0,
+      "units": "kt"
+    },
+    "wind_gust": {
+      "value_type": "exact",
+      "value": 37.0,
+      "units": "kt"
+    },
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 8000.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [],
+    "clouds": [
+      {
+        "cover": "broken",
+        "height": {
+          "value_type": "exact",
+          "value": 1500.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 1500.0,
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": -1.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": -5.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 982.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "report": "SCRM 122100Z 26027G37KT 8000 BKN015 M01/M05 Q0982 NOSIG"
+  },
+  {
+    "station_id": "YPPH",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-05-12T20:46:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 70.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 7.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 9000.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [
+      {
+        "intensity": "light",
+        "is_in_vicinity": false,
+        "descriptor": "shower",
+        "phenomena": [
+          "rain"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "few",
+        "height": {
+          "value_type": "exact",
+          "value": 400.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      },
+      {
+        "cover": "broken",
+        "height": {
+          "value_type": "exact",
+          "value": 1500.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      },
+      {
+        "cover": "broken",
+        "height": {
+          "value_type": "exact",
+          "value": 2300.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 1500.0,
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 13.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 12.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1018.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "report": "YPPH 122046Z 07007KT 9000 -SHRA FEW004 BKN015 BKN023 13/12 Q1018"
+  },
+  {
+    "station_id": "KJXI",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-05-12T20:55:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": true,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 170.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 8.0,
+      "units": "kt"
+    },
+    "wind_gust": {
+      "value_type": "exact",
+      "value": 14.0,
+      "units": "kt"
+    },
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 10.0,
+      "units": "mi"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [],
+    "clouds": [
+      {
+        "cover": "clear",
+        "height": null,
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "unlimited",
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 30.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 20.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 29.95,
+      "units": "inHg"
+    },
+    "recent_weather": [],
+    "report": "KJXI 122055Z AUTO 17008G14KT 10SM CLR 30/20 A2995 RMK AO2 T02990197"
+  },
+  {
+    "station_id": "KHSA",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-05-12T20:47:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 130.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 9.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 10.0,
+      "units": "mi"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [],
+    "clouds": [
+      {
+        "cover": "broken",
+        "height": {
+          "value_type": "exact",
+          "value": 2300.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      },
+      {
+        "cover": "broken",
+        "height": {
+          "value_type": "exact",
+          "value": 2900.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 2300.0,
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 28.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 22.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 30.04,
+      "units": "inHg"
+    },
+    "recent_weather": [],
+    "report": "KHSA 122047Z 13009KT 10SM BKN023 BKN029 28/22 A3004"
+  },
+  {
+    "station_id": "MHTG",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-05-12T21:00:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 230.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 5.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 7000.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [
+      {
+        "intensity": "moderate",
+        "is_in_vicinity": true,
+        "descriptor": "shower",
+        "phenomena": [
+          "thunderstorm"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "scattered",
+        "height": {
+          "value_type": "exact",
+          "value": 3400.0,
+          "units": "ft"
+        },
+        "cloud_type": "towering_cumulus"
+      },
+      {
+        "cover": "few",
+        "height": {
+          "value_type": "exact",
+          "value": 3600.0,
+          "units": "ft"
+        },
+        "cloud_type": "cumulonimbus"
+      },
+      {
+        "cover": "scattered",
+        "height": {
+          "value_type": "exact",
+          "value": 8000.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "unlimited",
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 27.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 19.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1015.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "report": "MHTG 122100Z 23005KT 7000 TSVCSH SCT034TCU FEW036CB SCT080 27/19 Q1015 A2997 NOSIG"
+  }
+]
