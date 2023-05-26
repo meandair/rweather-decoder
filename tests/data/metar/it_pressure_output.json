@@ -31,7 +31,9 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": "shower",
+        "descriptors": [
+          "shower"
+        ],
         "phenomena": [
           "rain"
         ]
@@ -39,7 +41,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "fog"
         ]
@@ -294,7 +296,9 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": "shower",
+        "descriptors": [
+          "shower"
+        ],
         "phenomena": [
           "rain"
         ]
@@ -518,10 +522,11 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": true,
-        "descriptor": "shower",
-        "phenomena": [
-          "thunderstorm"
-        ]
+        "descriptors": [
+          "thunderstorm",
+          "shower"
+        ],
+        "phenomena": []
       }
     ],
     "clouds": [

@@ -152,7 +152,9 @@ The decoded reports will be saved in the JSON file `16Z.json`. The `-p` option e
       {
         "intensity": "heavy",
         "is_in_vicinity": false,
-        "descriptor": "thunderstorm",
+        "descriptors": [
+          "thunderstorm"
+        ],
         "phenomena": [
           "rain"
         ]
@@ -160,7 +162,9 @@ The decoded reports will be saved in the JSON file `16Z.json`. The `-p` option e
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": "patches",
+        "descriptors": [
+          "patches"
+        ],
         "phenomena": [
           "fog"
         ]

@@ -71,9 +71,7 @@ lazy_static! {
 
     static ref PRESENT_WEATHER_RE: Regex = Regex::new(r"(?x)
         ^(?P<intensity>[-\+])?
-        (?P<vicinity>VC)?
-        (?P<descriptor>MI|BC|PR|DR|BL|SH|TS|FZ)?
-        (?P<phenomena>(DZ|RA|SN|SG|PL|GR|GS|UP|BR|FG|FU|VA|DU|SA|HZ|PO|SQ|FC|SS|DS|IC|PY)+)?
+        (?P<code>(VC|MI|BC|PR|DR|BL|SH|TS|FZ|DZ|RA|SN|SG|PL|GR|GS|UP|BR|FG|FU|VA|DU|SA|HZ|PO|SQ|FC|SS|DS|IC|PY)+)
         (?P<end>\s)
     ").unwrap();
 
@@ -99,9 +97,7 @@ lazy_static! {
 
     static ref RECENT_WEATHER_RE: Regex = Regex::new(r"(?x)
         ^RE(?P<intensity>[-\+])?
-        (?P<vicinity>VC)?
-        (?P<descriptor>MI|BC|PR|DR|BL|SH|TS|FZ)?
-        (?P<phenomena>(DZ|RA|SN|SG|PL|GR|GS|UP|BR|FG|FU|VA|DU|SA|HZ|PO|SQ|FC|SS|DS|IC|PY)+)?
+        (?P<code>(VC|MI|BC|PR|DR|BL|SH|TS|FZ|DZ|RA|SN|SG|PL|GR|GS|UP|BR|FG|FU|VA|DU|SA|HZ|PO|SQ|FC|SS|DS|IC|PY)+)
         (?P<end>\s)
     ").unwrap();
 
@@ -772,7 +768,7 @@ impl FromStr for WeatherPhenomena {
 struct WeatherCondition {
     intensity: WeatherIntensity,
     is_in_vicinity: bool,
-    descriptor: Option<WeatherDescriptor>,
+    descriptors: Vec<WeatherDescriptor>,
     phenomena: Vec<WeatherPhenomena>,
 }
 
@@ -783,21 +779,29 @@ fn handle_weather(weather_re: &Regex, text: &str) -> Option<(WeatherCondition, u
                 .map(|c| WeatherIntensity::from_str(c.as_str()).unwrap())
                 .unwrap_or(WeatherIntensity::Moderate);
 
-            let is_in_vicinity = capture.name("vicinity").is_some();
+            let groups = capture["code"].chars()
+                .collect::<Vec<_>>()
+                .chunks(2)
+                .map(String::from_iter)
+                .collect::<Vec<_>>();
 
-            let descriptor = capture.name("descriptor")
-                .map(|c| WeatherDescriptor::from_str(c.as_str()).unwrap());
+            let mut is_in_vicinity = false;
+            let mut descriptors = Vec::new();
+            let mut phenomena = Vec::new();
 
-            let phenomena = capture.name("phenomena")
-                .map(|c| c.as_str().chars().collect::<Vec<_>>()
-                    .chunks(2)
-                    .map(|chunk| WeatherPhenomena::from_str(&chunk.iter().collect::<String>()).unwrap())
-                    .collect())
-                .unwrap_or_default();
+            for group in groups.iter() {
+                if group == "VC" {
+                    is_in_vicinity = true;
+                } else if let Ok(wd) = WeatherDescriptor::from_str(group) {
+                    descriptors.push(wd);
+                } else if let Ok(wp) = WeatherPhenomena::from_str(group) {
+                    phenomena.push(wp);
+                }
+            }
 
             let end = capture.name("end").unwrap().end();
 
-            let weather = WeatherCondition { intensity, is_in_vicinity, descriptor, phenomena };
+            let weather = WeatherCondition { intensity, is_in_vicinity, descriptors, phenomena };
 
             (weather, end)
         })
