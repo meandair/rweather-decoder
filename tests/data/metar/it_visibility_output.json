@@ -223,7 +223,7 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "snow"
         ]
@@ -304,7 +304,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "mist"
         ]
@@ -376,7 +376,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "mist"
         ]
@@ -448,7 +448,7 @@
       {
         "intensity": "heavy",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "rain"
         ]
@@ -544,7 +544,7 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "rain"
         ]
@@ -552,7 +552,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "fog"
         ]
@@ -624,7 +624,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "mist"
         ]
@@ -692,7 +692,7 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "rain"
         ]
@@ -836,7 +836,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "haze"
         ]
@@ -922,7 +922,9 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": "freezing",
+        "descriptors": [
+          "freezing"
+        ],
         "phenomena": [
           "fog"
         ]
@@ -1002,7 +1004,7 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "snow"
         ]
@@ -1010,7 +1012,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "fog"
         ]
@@ -1106,7 +1108,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "rain"
         ]
@@ -1206,7 +1208,9 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": "shower",
+        "descriptors": [
+          "shower"
+        ],
         "phenomena": [
           "snow"
         ]
@@ -1247,7 +1251,9 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": "shower",
+        "descriptors": [
+          "shower"
+        ],
         "phenomena": [
           "rain"
         ]
@@ -1451,7 +1457,9 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": "shower",
+        "descriptors": [
+          "shower"
+        ],
         "phenomena": [
           "snow",
           "rain"
@@ -1609,7 +1617,9 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": "patches",
+        "descriptors": [
+          "patches"
+        ],
         "phenomena": [
           "fog"
         ]
@@ -1708,7 +1718,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "mist"
         ]
@@ -1798,7 +1808,7 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "snow"
         ]

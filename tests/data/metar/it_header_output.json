@@ -35,7 +35,7 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "snow"
         ]
@@ -121,7 +121,7 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "rain"
         ]
@@ -129,7 +129,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "fog"
         ]
@@ -201,7 +201,7 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "rain"
         ]
@@ -349,7 +349,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "rain"
         ]
@@ -439,7 +439,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "mist"
         ]

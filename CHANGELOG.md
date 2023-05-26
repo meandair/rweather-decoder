@@ -1,9 +1,12 @@
 # CHANGELOG
 
-## v0.1.2
+## v0.2.0
 * include tests for the RVR section, #4
 * fix bug when CCA-CCZ group does not flag corrected report
 * further improve README
+* include tests for temperature section, #7
+* include tests for pressure section, #8
+* allow multiple descriptors in weather section
 
 ## v0.1.1
 * move `tempfile` into [dev-dependencies]

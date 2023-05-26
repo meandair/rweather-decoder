@@ -41,7 +41,9 @@
       {
         "intensity": "heavy",
         "is_in_vicinity": false,
-        "descriptor": "thunderstorm",
+        "descriptors": [
+          "thunderstorm"
+        ],
         "phenomena": [
           "rain"
         ]
@@ -141,7 +143,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "fog"
         ]
@@ -223,7 +225,7 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "snow"
         ]
@@ -231,7 +233,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "mist"
         ]
@@ -317,7 +319,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "fog"
         ]
@@ -479,7 +481,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "mist"
         ]
@@ -574,7 +576,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "mist"
         ]
@@ -665,7 +667,9 @@
       {
         "intensity": "heavy",
         "is_in_vicinity": false,
-        "descriptor": "thunderstorm",
+        "descriptors": [
+          "thunderstorm"
+        ],
         "phenomena": [
           "rain"
         ]
@@ -756,7 +760,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "fog"
         ]
@@ -847,7 +851,7 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "rain"
         ]
@@ -855,7 +859,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "mist"
         ]
@@ -964,7 +968,9 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": "patches",
+        "descriptors": [
+          "patches"
+        ],
         "phenomena": [
           "fog"
         ]
@@ -1054,7 +1060,9 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": "patches",
+        "descriptors": [
+          "patches"
+        ],
         "phenomena": [
           "fog"
         ]
@@ -1161,7 +1169,9 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": "shower",
+        "descriptors": [
+          "shower"
+        ],
         "phenomena": [
           "rain"
         ]
@@ -1292,7 +1302,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "fog"
         ]
@@ -1387,7 +1397,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "fog"
         ]
@@ -1482,7 +1492,7 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "snow"
         ]
@@ -1595,7 +1605,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "fog"
         ]
@@ -1695,7 +1705,7 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "rain"
         ]
@@ -1781,7 +1791,9 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": "patches",
+        "descriptors": [
+          "patches"
+        ],
         "phenomena": [
           "fog"
         ]
@@ -1889,7 +1901,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "fog"
         ]
@@ -1967,7 +1979,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "fog"
         ]
@@ -2040,7 +2052,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "fog"
         ]
@@ -2117,7 +2129,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "haze"
         ]
@@ -2203,7 +2215,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "fog"
         ]
@@ -2298,7 +2310,9 @@
       {
         "intensity": "heavy",
         "is_in_vicinity": false,
-        "descriptor": "thunderstorm",
+        "descriptors": [
+          "thunderstorm"
+        ],
         "phenomena": [
           "rain"
         ]
@@ -2420,7 +2434,7 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "drizzle"
         ]
@@ -2428,7 +2442,9 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": "patches",
+        "descriptors": [
+          "patches"
+        ],
         "phenomena": [
           "fog"
         ]
@@ -2519,7 +2535,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "mist"
         ]
@@ -2606,7 +2622,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "fog"
         ]
@@ -2688,7 +2704,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "fog"
         ]
@@ -2787,7 +2803,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "mist"
         ]
@@ -2887,7 +2903,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "rain"
         ]
@@ -2983,7 +2999,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "mist"
         ]
@@ -3086,7 +3102,9 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": "shower",
+        "descriptors": [
+          "shower"
+        ],
         "phenomena": [
           "rain"
         ]
@@ -3094,7 +3112,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "mist"
         ]
@@ -3239,7 +3257,9 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": "shower",
+        "descriptors": [
+          "shower"
+        ],
         "phenomena": [
           "rain"
         ]
@@ -3247,7 +3267,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "mist"
         ]
