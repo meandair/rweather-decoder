@@ -75,6 +75,11 @@ fn it_metar_rvr() -> Result<()> {
 }
 
 #[test]
+fn it_metar_present_weather() -> Result<()> {
+    it_metar_template("it_present_weather_input.txt", "it_present_weather_output.json", "noaa-metar-cycles")
+}
+
+#[test]
 fn it_metar_temperature() -> Result<()> {
     it_metar_template("it_temperature_input.txt", "it_temperature_output.json", "noaa-metar-cycles")
 }

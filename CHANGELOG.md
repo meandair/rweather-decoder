@@ -7,6 +7,7 @@
 * include tests for temperature section, #7
 * include tests for pressure section, #8
 * allow multiple descriptors in weather section
+* include tests for present weather section, #5
 
 ## v0.1.1
 * move `tempfile` into [dev-dependencies]
