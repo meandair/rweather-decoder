@@ -70,13 +70,18 @@ fn it_metar_visibility() -> Result<()> {
 }
 
 #[test]
+fn it_metar_present_weather() -> Result<()> {
+    it_metar_template("it_present_weather_input.txt", "it_present_weather_output.json", "noaa-metar-cycles")
+}
+
+#[test]
 fn it_metar_rvr() -> Result<()> {
     it_metar_template("it_rvr_input.txt", "it_rvr_output.json", "noaa-metar-cycles")
 }
 
 #[test]
-fn it_metar_present_weather() -> Result<()> {
-    it_metar_template("it_present_weather_input.txt", "it_present_weather_output.json", "noaa-metar-cycles")
+fn it_metar_cloud() -> Result<()> {
+    it_metar_template("it_cloud_input.txt", "it_cloud_output.json", "noaa-metar-cycles")
 }
 
 #[test]

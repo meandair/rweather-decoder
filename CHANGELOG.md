@@ -8,9 +8,10 @@
 * include tests for pressure section, #8
 * allow multiple descriptors in weather section
 * include tests for present and recent weather sections, #5
+* include tests for cloud and ceiling sections, #6
 
 ## v0.1.1
-* move `tempfile` into [dev-dependencies]
+* move `tempfile` into `[dev-dependencies]`
 * document more public items
 * include tests for the visibility section, #3
 * fix bug when visibility units are separated from the number, e.g. `1 SM`
