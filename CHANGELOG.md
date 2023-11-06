@@ -10,6 +10,7 @@
 * include tests for present and recent weather sections, #5
 * include tests for cloud and ceiling sections, #6
 * standardize `Makefile`
+* improve performance of CLI tools
 
 ## v0.1.1
 * move `tempfile` into `[dev-dependencies]`
