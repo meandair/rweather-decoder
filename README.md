@@ -13,6 +13,8 @@ The decoders are binary applications that store decoded reports in JSON files, w
   * [ ] REMARK section
 * [ ] TAF
 * [ ] SYNOP
+* [ ] ACARS
+* [ ] ISD
 
 ## Installation
 
