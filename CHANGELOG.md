@@ -9,6 +9,7 @@
 * allow multiple descriptors in weather section
 * include tests for present and recent weather sections, #5
 * include tests for cloud and ceiling sections, #6
+* standardize `Makefile`
 
 ## v0.1.1
 * move `tempfile` into `[dev-dependencies]`
