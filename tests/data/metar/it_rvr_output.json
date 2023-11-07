@@ -81,6 +81,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "KCBM 122049Z 14006KT 1 1/4SM R13C/6000FT +TSRA BKN024 20/19 A3010 RMK VIS 1 1/4V4 RAE07RAB16 TSB49 CIG 023 RWY31C PRESRR SLP196 ALSTG/SLP ESTMD"
   },
   {
@@ -181,6 +182,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "CYHZ 130900Z 14007KT 1/8SM R23/1600FT/N R14/2200V2600FT/N FG VV002 06/06 A2984 RMK FG8 SLP110"
   },
   {
@@ -271,6 +273,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "CYRB 131000Z 13013KT 3/4SM R35/6000FT/D -SN BR OVC020 M07/M08 A2976 RMK SN5SC3 SLP089"
   },
   {
@@ -357,6 +360,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "CYQY 131200Z 18011G18KT 1/2SM R06/6000FT/U FG VV002 08/08 A2987 RMK FG8 SLP120"
   },
   {
@@ -429,6 +433,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "PAKU 122045Z VRB01KT 10SM R06/P6000FT BKN015 M04/M08 A3009"
   },
   {
@@ -519,6 +524,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "CYHZ 131135Z VRB04KT 1SM R23/P6000FT/U R14/P6000FT/N BR OVC003 07/07 A2985 RMK SC8 PRESRR SLP113"
   },
   {
@@ -614,6 +620,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "CYSJ 130900Z 24003KT 200V300 1SM R23/P6000FT/D BR OVC002 08/08 A2984 RMK SC8 SLP108"
   },
   {
@@ -707,6 +714,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "KWRB 122113Z 30007KT 1/4SM R33/1600V3500FT +TSRA OVC024 19/19 A3013 RMK AO2A TSB03 SLP204"
   },
   {
@@ -798,6 +806,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "KBMI 131056Z 21003KT M1/4SM R20/0600V0800FT FG OVC003 19/19 A3006 RMK AO2 SLP171 T01940194"
   },
   {
@@ -915,6 +924,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "KRST 122054Z 09011KT 2SM R31/4000VP6000FT -RA BR FEW028 BKN035 OVC050 17/16 A3003 RMK AO2 SLP168 P0012 60012 T01670161 53004"
   },
   {
@@ -1007,6 +1017,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "CYXE 131100Z 21003KT 10SM R09/2600V5000FT/N BCFG SCT300 05/04 A3049 RMK CI3 SLP340"
   },
   {
@@ -1099,6 +1110,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "CYXE 131000Z 16003KT 15SM R09/4500VP6000FT/N BCFG FEW300 05/05 A3047 RMK CI2 SLP335"
   },
   {
@@ -1227,6 +1239,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "CYQB 121732Z CCA 23016G23KT 200V260 30SM R06/5000V6000FT/D -SHRA FEW032TCU SCT037 BKN090 20/13 A2989 RMK TCU1SC3AC2 CVCTV CLD EMBD SLP124 DENSITY ALT 900FT"
   },
   {
@@ -1340,6 +1353,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "CYHZ 130200Z 16011G16KT 1/4SM R23/2600V4000FT/D R14/5000VP6000FT/D FG VV002 07/07 A2996 RMK FG8 SLP149"
   },
   {
@@ -1435,6 +1449,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "CYQY 131300Z 18012G19KT 1/2SM R06/4000V5000FT/U FG OVC002 09/09 A2986 RMK FG6ST2 SLP115"
   },
   {
@@ -1530,6 +1545,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "CYVP 131300Z 36018G28KT 8SM R07/5500VP6000FT/U -SN OVC010 M01/M03 A2994 RMK SC8 CIG RAG VIS LWR S-W SLP145"
   },
   {
@@ -1652,6 +1668,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "EIDW 130730Z 05004KT 010V090 0300 R28L/0750 R10/0600 R28R/0450 FG BKN001 OVC002 09/09 Q1029 BECMG 3000"
   },
   {
@@ -1743,6 +1760,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "ENHD 122120Z AUTO 35014KT 0200 R13/0700N R31/1300N -RA VV001 07/06 Q1027"
   },
   {
@@ -1826,6 +1844,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "LFBG 122300Z AUTO 26002KT 4400 0900 R23/1300D BCFG NSC 10/09 Q1020"
   },
   {
@@ -1939,6 +1958,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "EIDW 130700Z 02004KT 330V070 0300 R28L/1100U R10R/0450D R28R/0450N FG BKN002 09/09 Q1029 BECMG 3000"
   },
   {
@@ -2012,6 +2032,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "LFBX 130530Z AUTO 00000KT 0200 R29/M0200 FG VV/// 08/08 Q1019"
   },
   {
@@ -2085,6 +2106,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "LFBX 130600Z AUTO 00000KT 0200 R29/M0200N FG VV/// 08/08 Q1020"
   },
   {
@@ -2162,6 +2184,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "LEJR 130200Z AUTO 36007KT 1000 R20/P2000 HZ NCD 15/02 Q1013"
   },
   {
@@ -2253,6 +2276,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "EKVG 131050Z AUTO 18009KT 0900 R12/P1500U R30/P1500N FG OVC000/// 09/09 Q1020 RMK OVC000/// WIND SKEID VRB04G14KT"
   },
   {
@@ -2368,6 +2392,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "MUHG 122303Z 12007KT 080V160 1500 R05/P2000D +TSRA FEW020CB SCT027 BKN105 24/23 Q1015 RMK CB AT III/IV QUAD"
   },
   {
@@ -2482,6 +2507,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "LTCG 130134Z 31003KT 290V350 1200 R11/P1500U R29/P1500D -DZ BCFG OVC002 12/12 Q1016 NOSIG"
   },
   {
@@ -2573,6 +2599,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "ETOU 130950Z AUTO 06007KT 1600 R07/1300VP1500 BR OVC110 18/18 A3009 RMK AO2 VIS 1600V2400 SLP192 $"
   },
   {
@@ -2655,6 +2682,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "ETIK 122250Z AUTO 00000KT 0200 R24/0250V0700 FG CLR 05/05 A3006 RMK AO2 SLP185 FZRANO $"
   },
   {
@@ -2741,6 +2769,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "YSCB 121859Z AUTO 00000KT 0900 R17/0550V0750N FG SCT001 00/00 Q1031"
   },
   {
@@ -2850,6 +2879,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "RJCC 131400Z 16006KT 1600 R19R/P2000N R19L/1500VP2000N BR SCT001 BKN002 08/08 Q1019"
   },
   {
@@ -2950,6 +2980,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "SCPQ 122100Z 36008KT 0500 R35/1500VP2000D RA SCT002 OVC005 13/12 Q1014"
   },
   {
@@ -3036,6 +3067,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "YSCB 121930Z AUTO 00000KT 3800 R17/0650V1200D BR SCT001 01/01 Q1032"
   },
   {
@@ -3168,6 +3200,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "RJNY 130734Z 05007KT 010V080 5000 R09/1200VP1800U SHRA BR FEW005 SCT010 BKN015 16/15 Q1018 RMK 1ST005 4CU010 5CU015 A3008 R1700 VIS E-S 3500M"
   },
   {
@@ -3323,6 +3356,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "RJTT 130230Z 17015KT 9999 R16R/0650VP2000U R22/0900VP2000U R16L/P2000N R23/P2000N SHRA BR FEW010 BKN015 BKN060 17/15 Q1020 BECMG TL0300 -SHRA"
   }
 ]

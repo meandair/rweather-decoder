@@ -60,6 +60,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "KC62 021215Z AUTO 30007KT 10SM OVC016 02/00 A2985 RMK AO2 T00200003"
   },
   {
@@ -131,6 +132,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "PTKK 021151Z 04007KT 15SM FEW014 SCT300 27/23 A2981 RMK SLP098 8/101 T02740234 10294 20274 52015"
   },
   {
@@ -189,6 +191,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "KEZP 021145Z AUTO 00000KT 8SM SCT014 23/22 A2978 RMK A01"
   },
   {
@@ -270,6 +273,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "CYHU 021147Z AUTO 04010KT 3SM -SN BKN005 OVC022 M00/M01 A2968 RMK SLP052"
   },
   {
@@ -342,6 +346,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "KPTK 021208Z COR 29011KT 1 SM BR OVC004 01/01 A2977 RMK AO2 SFC VIS 1 3/4 T00110006"
   },
   {
@@ -414,6 +419,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "KLDJ 021155Z AUTO 36004KT 1 1/4SM BR OVC003 05/04 A2973 RMK AO2 T00450040 10056 20043"
   },
   {
@@ -504,6 +510,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "KNFE 021145Z AUTO 23005KT 2 1/2SM +RA FEW008 BKN043 OVC060 18/15 A2979 RMK AO2 TSE23 P0021 T01780150 $"
   },
   {
@@ -590,6 +597,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "KSWF 021145Z 00000KT 1/2SM R09/5000FT -RA FG OVC003 02/02 A2967 RMK PRESFR"
   },
   {
@@ -662,6 +670,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "CYKF 021152Z AUTO 32007KT 5/8SM BR OVC003 M03/M03 A2974 RMK SLP087"
   },
   {
@@ -730,6 +739,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "KINF 021155Z AUTO 00000KT M1/4SM -RA OVC001 16/16 A3001 RMK AO2"
   },
   {
@@ -802,6 +812,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "YPTN 021145Z AUTO 33009KT 9999 // BKN014 OVC039 26/24 Q1004"
   },
   {
@@ -869,6 +880,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "OJAI 021200Z 27004KT 5000 HZ NSC 26/M02 Q1016 NOSIG"
   },
   {
@@ -957,6 +969,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "EDBC 021150Z 35007KT 0450 0400S R07/0600U FZFG VV/// M01/M01 Q1024"
   },
   {
@@ -1045,6 +1058,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "LIBQ 021155Z 26006KT 220V290 0000 -SN FG VV/// 02/00 Q1013"
   },
   {
@@ -1070,6 +1084,7 @@
     "dew_point": null,
     "pressure": null,
     "recent_weather": [],
+    "wind_shears": [],
     "report": "KEMV 021155Z AUTO RMK AO2 6//// 7//// 10145 20071 PWINO PNO TSNO"
   },
   {
@@ -1160,6 +1175,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "LFKF 021200Z AUTO 23007KT 9000 4400 RA BKN036/// OVC044/// ///TCU 11/08 Q1012 TEMPO 4500 SHRA BKN030 SCT045CB OVC060"
   },
   {
@@ -1259,6 +1275,7 @@
         ]
       }
     ],
+    "wind_shears": [],
     "report": "EFVA 021220Z AUTO 34005KT 2100 1100 R34/2000D -SHSN OVC007 01/M00 Q1004 RESHRA"
   },
   {
@@ -1330,6 +1347,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "EDGS 021150Z 07009KT 030V090 CAVOK 05/M05 Q1019"
   },
   {
@@ -1401,6 +1419,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "LFMY 021200Z AUTO 35009KT 320V020 CAVOK 12/02 Q1015 NOSIG"
   },
   {
@@ -1507,6 +1526,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "ENDU 021150Z 23005KT 170V270 9000 4000N -SHSNRA FEW008 BKN020 01/M01 Q0997 TEMPO 1000 SHSN VV007 RMK WIND 1100FT 23010KT WIND 2200FT 26019KT"
   },
   {
@@ -1574,6 +1594,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "SPJC 021200Z 19003KT 9999 3300SE NSC 21/19 Q1010 NOSIG RMK TN20.9 FU W PP000"
   },
   {
@@ -1666,6 +1687,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "SKRG 021200Z 36003KT 9999 5000S BCFG FEW010 BKN080 14/14 Q1024 BECMG AT1240 9999 NSW SCT013 RMK A3025"
   },
   {
@@ -1765,6 +1787,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "LQBK 021200Z VRB01KT 2500 1000N R16/0400N BR SCT002 OVC005 04/04 Q1020 NOSIG"
   },
   {
@@ -1846,6 +1869,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "ENSK 021220Z 28011KT 4000 2000NE -SN VV009 00/M00 Q1001"
   }
 ]

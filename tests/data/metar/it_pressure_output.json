@@ -93,6 +93,7 @@
     },
     "pressure": null,
     "recent_weather": [],
+    "wind_shears": [],
     "report": "KQEQ 122050Z AUTO 19001KT M0400 -SHRA FG FEW001 BKN003 OVC014 14/16 / RMK A02 TSNO"
   },
   {
@@ -144,6 +145,7 @@
     "dew_point": null,
     "pressure": null,
     "recent_weather": [],
+    "wind_shears": [],
     "report": "ENFB 122050Z AUTO 33007KT 9999NDV BKN011/// ///// Q//// W///S3"
   },
   {
@@ -195,6 +197,7 @@
     "dew_point": null,
     "pressure": null,
     "recent_weather": [],
+    "wind_shears": [],
     "report": "CYUA 122100Z AUTO 31009G18KT ////SM OVC036 ///// A////"
   },
   {
@@ -262,6 +265,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "SCRM 122100Z 26027G37KT 8000 BKN015 M01/M05 Q0982 NOSIG"
   },
   {
@@ -354,6 +358,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "YPPH 122046Z 07007KT 9000 -SHRA FEW004 BKN015 BKN023 13/12 Q1018"
   },
   {
@@ -416,6 +421,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "KJXI 122055Z AUTO 17008G14KT 10SM CLR 30/20 A2995 RMK AO2 T02990197"
   },
   {
@@ -488,6 +494,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "KHSA 122047Z 13009KT 10SM BKN023 BKN029 28/22 A3004"
   },
   {
@@ -578,6 +585,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "MHTG 122100Z 23005KT 7000 TSVCSH SCT034TCU FEW036CB SCT080 27/19 Q1015 A2997 NOSIG"
   }
 ]

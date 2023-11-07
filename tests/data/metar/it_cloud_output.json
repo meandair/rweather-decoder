@@ -45,6 +45,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "LFMC 130630Z AUTO VRB01KT 8000 ////// 11/10 Q1016"
   },
   {
@@ -103,6 +104,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "KDPL 122105Z AUTO 19005KT 7SM CLR 28/14 A3014 RMK AO2"
   },
   {
@@ -161,6 +163,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "MMVR 121643Z 17007KT 4SM SKC 35/24 A2979 RMK HZY"
   },
   {
@@ -219,6 +222,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "DRRN 122100Z 23003KT CAVOK 31/20 Q1011 NOSIG"
   },
   {
@@ -290,6 +294,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "GGOV 122100Z 26005KT 210V320 8000 NSC 27/23 Q1010 NOSIG"
   },
   {
@@ -361,6 +366,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "LSMD 122050Z AUTO 10003KT 040V170 9999NDV NCD 12/08 Q1015 RMK"
   },
   {
@@ -443,6 +449,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "PATC 122055Z AUTO 20017KT M1/4SM -SN FZFG VV002 M05/M06 A2994"
   },
   {
@@ -518,6 +525,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "LIVR 122055Z 14007KT 0000 -SN FG VV/// 01/M00 Q1016"
   },
   {
@@ -596,6 +604,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "USDA 122100Z AUTO 20009MPS 1000 0600NW R22/0600N // ///003/// M15/M17 Q1012 RMK QFE758/1011"
   },
   {
@@ -658,6 +667,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "KW40 122105Z AUTO 18008KT 10SM SCT060 27/15 A3013 RMK AO2 T02740148"
   },
   {
@@ -754,6 +764,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "WAPP 122100Z 17010KT 120V210 2000 TSRA FEW015CB BKN016 26/24 Q1010 NOSIG RMK CB TO E AND S"
   },
   {
@@ -831,6 +842,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "TNCM 122100Z 09010KT 9999 FEW016 FEW///CB BKN030 28/21 Q1016 NOSIG RMK CB W+NNW"
   },
   {
@@ -930,6 +942,7 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "SBPL 122100Z 27002KT 9999 -RA SCT025 SCT035 FEW037TCU BKN070 28/21 Q1013"
   },
   {
@@ -1033,6 +1046,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "K1EN 121550Z AUTO 06015G21KT 10SM FEW006 SCT021 BKN028 BKN100 BKN120 13/11 A2982 RMK AO2 CIG 028V100 BKN028 V SCT SLP110 $"
   },
   {
@@ -1164,6 +1178,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "KHLR 130552Z AUTO 28011G20KT 6SM -TSRA BR FEW003 SCT019 BKN026 BKN031 BKN041 OVC055 19/17 A3002 RMK AO2 RAB38 TSB52 CIG 026V042 SLP156"
   }
 ]

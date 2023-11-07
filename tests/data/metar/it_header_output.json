@@ -91,6 +91,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "PASI 021223Z COR 17017G22KT 1 3/4SM -SN SCT011 BKN036 OVC065 01/M02 A2917 RMK AO2 P0000 T00111017 $"
   },
   {
@@ -167,6 +168,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "KMMU 021145Z COR 00000KT 1/2SM -RA FG VV002 03/03 A2972"
   },
   {
@@ -257,6 +259,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "KBAF 021153Z COR 33008KT 8SM -RA FEW011 BKN023 OVC070 01/00 A2972 RMK AO2 SLP071 P0007 60022 70023 T00060000 10006 20000 56014"
   },
   {
@@ -315,6 +318,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "KCKN 021215Z AUTO 15005KT 10SM CLR M21/M23 A2999 RMK AO2"
   },
   {
@@ -405,6 +409,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "KEDE 021150Z AUTO 07004KT 3SM RA SCT013 BKN060 OVC110 18/18 A2975 RMK AO2 P0012 60012 70012 T01770177 10186 20170"
   },
   {
@@ -472,6 +477,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "KHOE 021155Z AUTO 16005KT 2 1/2SM BR CLR 17/17 A2996 RMK AO2 T01780171"
   },
   {
@@ -534,6 +540,7 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
     "report": "EGUL 021220Z COR AUTO 05012KT 9999 SCT028 07/02 A3030 RMK AO2 SLP264 $ COR 1238"
   }
 ]

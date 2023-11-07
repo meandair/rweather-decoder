@@ -101,6 +101,13 @@ lazy_static! {
         (?P<end>\s)
     ").unwrap();
 
+    static ref WIND_SHEAR_RE: Regex = Regex::new(r"(?x)
+        ^WS
+        \s
+        (?P<runway>R\d\d[A-Z]?|ALL\sRWY)
+        (?P<end>\s)
+    ").unwrap();
+
     static ref COLOR_RE: Regex = Regex::new(r"(?x)
         ^(BLACK|BLU\+?|GRN|WHT|RED|AMB|YLO)+
         (?P<end>\s)
@@ -1046,6 +1053,28 @@ fn handle_pressure(text: &str) -> Option<(Pressure, usize)> {
         })
 }
 
+#[non_exhaustive]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+struct WindShear {
+    runway: String,
+}
+
+fn handle_wind_shear(text: &str) -> Option<(WindShear, usize)> {
+    WIND_SHEAR_RE.captures(text)
+        .map(|capture| {
+            let runway = match &capture["runway"] {
+                "ALL RWY" => "all".to_string(),
+                s => s[1..].to_string(),
+            };
+
+            let end = capture.name("end").unwrap().end();
+
+            let ws = WindShear { runway };
+
+            (ws, end)
+        })
+}
+
 fn handle_color(text: &str) -> Option<usize> {
     COLOR_RE.captures(text)
         .map(|capture| {
@@ -1074,6 +1103,7 @@ pub struct Metar {
     #[serde(flatten)]
     pressure: Pressure,
     recent_weather: Vec<WeatherCondition>,
+    wind_shears: Vec<WindShear>,
     pub report: String,
 }
 
@@ -1097,6 +1127,7 @@ pub fn decode_metar(report: &str, anchor_time: Option<&NaiveDateTime>) -> Result
     let mut temperature = None;
     let mut pressure = None;
     let mut recent_weather_conditions = Vec::new();
+    let mut wind_shears = Vec::new();
 
     let mut unparsed_groups = Vec::new();
 
@@ -1185,6 +1216,12 @@ pub fn decode_metar(report: &str, anchor_time: Option<&NaiveDateTime>) -> Result
                     continue;
                 }
 
+                if let Some((ws, relative_end)) = handle_wind_shear(sub_report) {
+                    wind_shears.push(ws);
+                    idx += relative_end;
+                    continue;
+                }
+
                 if let Some(relative_end) = handle_color(sub_report) {
                     idx += relative_end;
                     continue;
@@ -1225,6 +1262,7 @@ pub fn decode_metar(report: &str, anchor_time: Option<&NaiveDateTime>) -> Result
         temperature: temperature.unwrap_or_default(),
         pressure: pressure.unwrap_or_default(),
         recent_weather: recent_weather_conditions,
+        wind_shears,
         report,
     })
 }

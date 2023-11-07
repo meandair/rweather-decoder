@@ -11,6 +11,7 @@
 * include tests for cloud and ceiling sections, #6
 * standardize `Makefile`
 * improve performance of CLI tools
+* add decoding and tests for wind shear, #9
 
 ## v0.1.1
 * move `tempfile` into `[dev-dependencies]`
