@@ -64,6 +64,7 @@
         "runway": "07"
       }
     ],
+    "sea": null,
     "report": "GCTS 121600Z 07023KT 9999 FEW030 24/14 Q1015 WS R07 NOSIG"
   },
   {
@@ -144,6 +145,7 @@
         "runway": "32R"
       }
     ],
+    "sea": null,
     "report": "LEMD 121600Z 04011KT 340V120 9999 FEW050TCU 16/03 Q1016 WS R32R NOSIG"
   },
   {
@@ -220,6 +222,7 @@
         "runway": "all"
       }
     ],
+    "sea": null,
     "report": "UUBW 131400Z 01004MPS 300V050 CAVOK 23/02 Q1019 WS ALL RWY R30/010060 NOSIG"
   },
   {
@@ -300,6 +303,7 @@
         "runway": "36R"
       }
     ],
+    "sea": null,
     "report": "LTAI 130936Z 33010KT 260V010 9999 FEW030 28/12 Q1013 WS R36R BECMG TL1100 19012KT"
   }
 ]

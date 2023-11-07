@@ -12,6 +12,7 @@
 * standardize `Makefile`
 * improve performance of CLI tools
 * add decoding and tests for wind shear, #9
+* add decoding and tests for sea state, #10
 
 ## v0.1.1
 * move `tempfile` into `[dev-dependencies]`

@@ -35,6 +35,7 @@
     },
     "recent_weather": [],
     "wind_shears": [],
+    "sea": null,
     "report": "KFME 122049Z AUTO 15005KT A3007 RMK AO1"
   },
   {
@@ -90,6 +91,7 @@
     },
     "recent_weather": [],
     "wind_shears": [],
+    "sea": null,
     "report": "SVMG 122100Z 09015KT 9999 SCT060 ///// Q1011"
   },
   {
@@ -158,6 +160,7 @@
     },
     "recent_weather": [],
     "wind_shears": [],
+    "sea": null,
     "report": "NZSP 121750Z 07005KT 9999 IC FEW018 M66/ A2804 RMK CLN AIR 06008KT ALL WNDS GRID"
   },
   {
@@ -213,6 +216,7 @@
     },
     "recent_weather": [],
     "wind_shears": [],
+    "sea": null,
     "report": "PAKV 131253Z AUTO 23004KT 10SM CLR M01/ A2991 RMK AO2 SLP132 T1011 TSNO $"
   },
   {
@@ -278,6 +282,7 @@
     },
     "recent_weather": [],
     "wind_shears": [],
+    "sea": null,
     "report": "PAEH 121555Z AUTO 00000KT M1/4SM FG VV003 00/ A2998"
   },
   {
@@ -347,6 +352,7 @@
     },
     "recent_weather": [],
     "wind_shears": [],
+    "sea": null,
     "report": "EHDV 122055Z AUTO 02022KT 0800 HZ VV000 08/// Q1026"
   },
   {
@@ -385,6 +391,7 @@
     "pressure": null,
     "recent_weather": [],
     "wind_shears": [],
+    "sea": null,
     "report": "CWGB 122100Z AUTO 06006KT 18/ RMK AO1 SLP237 T0182 58006"
   },
   {
@@ -448,6 +455,7 @@
     },
     "recent_weather": [],
     "wind_shears": [],
+    "sea": null,
     "report": "DAUH 122100Z VRB08G26KT 5000 BKN033 37/// Q1004"
   },
   {
@@ -527,6 +535,7 @@
     },
     "recent_weather": [],
     "wind_shears": [],
+    "sea": null,
     "report": "USDA 122130Z AUTO 20009MPS 1400 0800NW R22/0800U // ///003/// M15/M16 Q1011 RMK QFE758/1010"
   },
   {
@@ -591,6 +600,7 @@
     },
     "recent_weather": [],
     "wind_shears": [],
+    "sea": null,
     "report": "ENSB 122050Z 12012KT 9999 BKN028 M05/M09 Q1012 RMK WIND 1400FT 19003KT"
   },
   {
@@ -672,6 +682,7 @@
     },
     "recent_weather": [],
     "wind_shears": [],
+    "sea": null,
     "report": "CYLA 122100Z 01009KT 3SM -RA BR OVC004 00/00 A2962 RMK FG1ST7 LAST STFD OBS/ NXT 131200Z SLP036"
   },
   {
@@ -731,6 +742,7 @@
     },
     "recent_weather": [],
     "wind_shears": [],
+    "sea": null,
     "report": "KMYL 122051Z AUTO 36010KT 10SM CLR 19/M03 A3025 RMK AO2 SLP227 T01891028 57001"
   },
   {
@@ -822,6 +834,7 @@
     },
     "recent_weather": [],
     "wind_shears": [],
+    "sea": null,
     "report": "KRRL 122055Z AUTO 20005KT 10SM -RA SCT035 SCT050 OVC070 17/13 A3012 RMK AO2 T01680133 TSNO"
   }
 ]

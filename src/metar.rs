@@ -108,6 +108,14 @@ lazy_static! {
         (?P<end>\s)
     ").unwrap();
 
+    static ref SEA_RE: Regex = Regex::new(r"(?x)
+        ^W(?P<temperature>M?\d\d|//)
+        /
+        (S(?P<state>\d|/))?
+        (H(?P<height>\d\d\d|///))?
+        (?P<end>\s)
+    ").unwrap();
+
     static ref COLOR_RE: Regex = Regex::new(r"(?x)
         ^(BLACK|BLU\+?|GRN|WHT|RED|AMB|YLO)+
         (?P<end>\s)
@@ -115,7 +123,8 @@ lazy_static! {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
 enum Trend {
     NoSignificantChange,
     Temporary,
@@ -136,7 +145,8 @@ impl FromStr for Trend {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
 enum Section {
     Main,
     Trend(Trend),
@@ -1075,6 +1085,86 @@ fn handle_wind_shear(text: &str) -> Option<(WindShear, usize)> {
         })
 }
 
+#[non_exhaustive]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+/// Sea state from WMO Code Table 3700.
+enum SeaState {
+    Glassy,
+    Rippled,
+    Smooth,
+    Slight,
+    Moderate,
+    Rough,
+    VeryRough,
+    High,
+    VeryHigh,
+    Phenomenal,
+}
+
+impl FromStr for SeaState {
+    type Err = Error;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s {
+            "0" => Ok(SeaState::Glassy),
+            "1" => Ok(SeaState::Rippled),
+            "2" => Ok(SeaState::Smooth),
+            "3" => Ok(SeaState::Slight),
+            "4" => Ok(SeaState::Moderate),
+            "5" => Ok(SeaState::Rough),
+            "6" => Ok(SeaState::VeryRough),
+            "7" => Ok(SeaState::High),
+            "8" => Ok(SeaState::VeryHigh),
+            "9" => Ok(SeaState::Phenomenal),
+            _ => Err(anyhow!("Invalid sea state, given {}", s))
+        }
+    }
+}
+
+#[non_exhaustive]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+struct Sea {
+    temperature: Option<Quantity>,
+    state: Option<SeaState>,
+    height: Option<Quantity>,
+}
+
+impl Sea {
+    fn has_some(&self) -> bool {
+        self.temperature.is_some() || self.state.is_some() || self.height.is_some()
+    }
+}
+
+fn handle_sea(text: &str) -> Option<(Sea, usize)> {
+    SEA_RE.captures(text)
+        .map(|capture| {
+            let temperature_value = match &capture["temperature"] {
+                "//" => None,
+                s => Some(Value::from_str(&s.replace('M', "-")).unwrap()),
+            };
+
+            let state = capture.name("state").and_then(|c| match c.as_str() {
+                "/" => None,
+                s => Some(SeaState::from_str(s).unwrap()),
+            });
+
+            let height_value = capture.name("height").and_then(|c| match c.as_str() {
+                "///" => None,
+                s => Some(Value::from_str(s).unwrap() / 10.0),
+            });
+
+            let temperature = Quantity::new_opt(temperature_value, Unit::DegreeCelsius);
+            let height = Quantity::new_opt(height_value, Unit::Metre);
+
+            let end = capture.name("end").unwrap().end();
+
+            let sea = Sea { temperature, state, height };
+
+            (sea, end)
+        })
+}
+
 fn handle_color(text: &str) -> Option<usize> {
     COLOR_RE.captures(text)
         .map(|capture| {
@@ -1104,6 +1194,7 @@ pub struct Metar {
     pressure: Pressure,
     recent_weather: Vec<WeatherCondition>,
     wind_shears: Vec<WindShear>,
+    sea: Option<Sea>,
     pub report: String,
 }
 
@@ -1128,6 +1219,7 @@ pub fn decode_metar(report: &str, anchor_time: Option<&NaiveDateTime>) -> Result
     let mut pressure = None;
     let mut recent_weather_conditions = Vec::new();
     let mut wind_shears = Vec::new();
+    let mut sea = None;
 
     let mut unparsed_groups = Vec::new();
 
@@ -1202,12 +1294,12 @@ pub fn decode_metar(report: &str, anchor_time: Option<&NaiveDateTime>) -> Result
                     }
                 }
 
-                if let Some((p, relative_end)) = handle_pressure(sub_report) {
-                    if pressure.is_none() {
+                if pressure.is_none() {
+                    if let Some((p, relative_end)) = handle_pressure(sub_report) {
                         pressure = Some(p);
+                        idx += relative_end;
+                        continue;
                     }
-                    idx += relative_end;
-                    continue;
                 }
 
                 if let Some((rw, relative_end)) = handle_recent_weather(sub_report) {
@@ -1220,6 +1312,16 @@ pub fn decode_metar(report: &str, anchor_time: Option<&NaiveDateTime>) -> Result
                     wind_shears.push(ws);
                     idx += relative_end;
                     continue;
+                }
+
+                if sea.is_none() {
+                    if let Some((s, relative_end)) = handle_sea(sub_report) {
+                        if s.has_some() {
+                            sea = Some(s);
+                        }
+                        idx += relative_end;
+                        continue;
+                    }
                 }
 
                 if let Some(relative_end) = handle_color(sub_report) {
@@ -1263,6 +1365,7 @@ pub fn decode_metar(report: &str, anchor_time: Option<&NaiveDateTime>) -> Result
         pressure: pressure.unwrap_or_default(),
         recent_weather: recent_weather_conditions,
         wind_shears,
+        sea,
         report,
     })
 }

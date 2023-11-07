@@ -103,6 +103,7 @@
       }
     ],
     "wind_shears": [],
+    "sea": null,
     "report": "LOWG 130550Z AUTO 08004KT 050V110 9999 -SHRA FEW005 BKN010 10/09 Q1019 REDZ TEMPO SCT005 BKN008"
   },
   {
@@ -198,6 +199,7 @@
       }
     ],
     "wind_shears": [],
+    "sea": null,
     "report": "LICB 130550Z AUTO 11006KT 090V150 9999 -RA BKN037/// 17/16 Q1014 RERA"
   },
   {
@@ -291,6 +293,7 @@
       }
     ],
     "wind_shears": [],
+    "sea": null,
     "report": "LTAR 130550Z 30006KT 9999 SCT003 BKN030 BKN080 08/07 Q1017 RESHRA"
   },
   {
@@ -388,6 +391,7 @@
       }
     ],
     "wind_shears": [],
+    "sea": null,
     "report": "EHAK 130555Z AUTO 02020KT 330V060 0150 -RA VV000 07/07 Q1027 RERAUPRA"
   },
   {
@@ -472,6 +476,7 @@
       }
     ],
     "wind_shears": [],
+    "sea": null,
     "report": "LTCK 130550Z 17006KT 9000 SCT030 BKN070 14/10 Q1013 RETSRA"
   },
   {
@@ -567,6 +572,7 @@
       }
     ],
     "wind_shears": [],
+    "sea": null,
     "report": "UTDD 130600Z 08003MPS 040V130 9999 SCT066CB BKN100 22/11 Q1019 RETS R09/CLRD// TEMPO TS RMK QFE696/0928"
   },
   {
@@ -667,6 +673,7 @@
       }
     ],
     "wind_shears": [],
+    "sea": null,
     "report": "DABC 121630Z 05005KT 9999 TS SCT016 FEW026CB SCT040 17/16 Q1011 REGRRA"
   },
   {
@@ -782,6 +789,7 @@
       }
     ],
     "wind_shears": [],
+    "sea": null,
     "report": "FKYS 122100Z 14004KT 090V160 6000 -TSRA FEW003 BKN006 SCT016CB 21/21 Q1019 RESQ NOSIG"
   },
   {
@@ -859,6 +867,7 @@
       }
     ],
     "wind_shears": [],
+    "sea": null,
     "report": "LIVP 122255Z 20009KT 0000 FG VV/// 00/M01 Q1016 RESN"
   },
   {
@@ -970,6 +979,7 @@
       }
     ],
     "wind_shears": [],
+    "sea": null,
     "report": "EHAK 130255Z AUTO 02018KT 320V070 0350 RA VV000 07/07 Q1026 REUP RERA REDZ"
   },
   {
@@ -1067,6 +1077,7 @@
       }
     ],
     "wind_shears": [],
+    "sea": null,
     "report": "EHAK 130055Z AUTO 02018KT 320V060 0450 RADZ VV000 07/07 Q1026 REUPRA"
   },
   {
@@ -1149,6 +1160,7 @@
       }
     ],
     "wind_shears": [],
+    "sea": null,
     "report": "EKVG 130120Z AUTO VRB04KT 1500 BR OVC002/// 09/08 Q1022 REDZRA RMK OVC001/// WIND SKEID VRB05G22KT"
   },
   {
@@ -1256,6 +1268,7 @@
       }
     ],
     "wind_shears": [],
+    "sea": null,
     "report": "LTCT 131250Z 10005KT 060V160 9999 FEW025CB BKN035 BKN080 20/10 Q1010 RESHRATS"
   },
   {
@@ -1338,6 +1351,7 @@
       }
     ],
     "wind_shears": [],
+    "sea": null,
     "report": "UTTT 131330Z 26004KT 9999 TS BKN066CB 26/11 Q1014 REDS R26R/CLRD70 NOSIG"
   },
   {
@@ -1430,6 +1444,7 @@
       }
     ],
     "wind_shears": [],
+    "sea": null,
     "report": "ESNN 122350Z AUTO VRB03KT 9999 -RA BKN076/// OVC094/// 10/08 Q1026 RESHUP"
   },
   {
@@ -1499,6 +1514,7 @@
       }
     ],
     "wind_shears": [],
+    "sea": null,
     "report": "HKEM 130000Z 21002KT 9999 BKN017 18/17 RESH"
   },
   {
@@ -1606,6 +1622,7 @@
       }
     ],
     "wind_shears": [],
+    "sea": null,
     "report": "LERS 121730Z 05011KT 6000 2000 TSRA FEW010 SCT020 SCT025CB 13/11 Q1014 RESHGR"
   }
 ]

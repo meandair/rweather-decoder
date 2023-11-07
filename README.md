@@ -7,7 +7,6 @@ The decoders are binary applications that store decoded reports in JSON files, w
 ## Roadmap
 
 * [x] METAR / SPECI
-  * [ ] sea waves
   * [ ] TREND forecast
   * [ ] REMARK section
 * [ ] TAF
