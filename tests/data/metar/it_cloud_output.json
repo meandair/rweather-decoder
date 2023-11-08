@@ -1225,5 +1225,165 @@
     "sea_state": null,
     "wave_height": null,
     "report": "KHLR 130552Z AUTO 28011G20KT 6SM -TSRA BR FEW003 SCT019 BKN026 BKN031 BKN041 OVC055 19/17 A3002 RMK AO2 RAB38 TSB52 CIG 026V042 SLP156"
+  },
+  {
+    "station_id": "SARL",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-05-02T12:00:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 270.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 6.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 8000.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [
+      {
+        "intensity": "light",
+        "is_in_vicinity": false,
+        "descriptors": [],
+        "phenomena": [
+          "rain"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "scattered",
+        "height": {
+          "value_type": "exact",
+          "value": 800.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      },
+      {
+        "cover": "overcast",
+        "height": {
+          "value_type": "exact",
+          "value": 3500.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 3500.0,
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 23.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 23.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1011.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "report": "SARL 021200Z 27006KT 8000 -RA SCT008 OVC35 23/23 Q1011"
+  },
+  {
+    "station_id": "VVCT",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-05-02T12:00:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 100.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 7.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 8000.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [],
+    "clouds": [
+      {
+        "cover": "few",
+        "height": {
+          "value_type": "exact",
+          "value": 1500.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      },
+      {
+        "cover": "few",
+        "height": {
+          "value_type": "exact",
+          "value": 1700.0,
+          "units": "ft"
+        },
+        "cloud_type": "towering_cumulus"
+      }
+    ],
+    "ceiling": {
+      "value_type": "unlimited",
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 27.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 21.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1012.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "report": "VVCT 021200Z 10007KT 8000 FEW015 FEW017TU 27/21 Q1012 NOSIG"
   }
 ]

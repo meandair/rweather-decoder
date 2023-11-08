@@ -862,5 +862,131 @@
     "sea_state": null,
     "wave_height": null,
     "report": "KRRL 122055Z AUTO 20005KT 10SM -RA SCT035 SCT050 OVC070 17/13 A3012 RMK AO2 T01680133 TSNO"
+  },
+  {
+    "station_id": "OPFA",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-05-02T12:00:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 310.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 4.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 5000.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [
+      {
+        "intensity": "moderate",
+        "is_in_vicinity": false,
+        "descriptors": [],
+        "phenomena": [
+          "smoke"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "scattered",
+        "height": {
+          "value_type": "exact",
+          "value": 4000.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      },
+      {
+        "cover": "broken",
+        "height": {
+          "value_type": "exact",
+          "value": 10000.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 10000.0,
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 23.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 1.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1020.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "report": "OPFA 021200Z 31004KT 5000 FU SCT040 BKN100 23/1 Q1020 NOSIG"
+  },
+  {
+    "station_id": "CWIL",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-05-02T12:00:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": true,
+    "wind_from_direction": null,
+    "wind_from_direction_range": null,
+    "wind_speed": null,
+    "wind_gust": null,
+    "prevailing_visibility": null,
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [],
+    "clouds": [],
+    "ceiling": null,
+    "temperature": {
+      "value_type": "exact",
+      "value": -31.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": -33.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 30.07,
+      "units": "inHg"
+    },
+    "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "report": "CWIL 021200Z AUTO ///// ////SM ////// M31/M33 A3007"
   }
 ]

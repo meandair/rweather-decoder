@@ -29,7 +29,7 @@ lazy_static! {
         \s
         (?P<day>\d\d)
         (?P<hour>\d\d)
-        (?P<minute>\d\d)Z?
+        (?P<minute>\d\d)\d?Z?
         (\s(?P<corrected>COR|CC[A-Z]))?
         (\s(?P<auto>AUTO))?
         (?P<end>\s)
@@ -45,10 +45,10 @@ lazy_static! {
     ").unwrap();
 
     static ref VISIBILITY_RE: Regex = Regex::new(r"(?x)
-        ^(?P<prevailing>[MP]?(\d+\s)?\d/\d|[MP]?\d{1,4}|////|CAVOK)
+        ^(?P<prevailing>[MP]?(\d+\s)?\d/\d{1,2}|[MP]?\d{1,4}|////|[CK]AVOK)
         (NDV)?
         \s?
-        (?P<units>SM)?
+        (?P<units>SM|KM)?
         (\s(?P<minimum>[MP]?\d{1,4}))?
         (?P<directional>(\s[MP]?\d{1,4}[NESW][EW]?)+)?
         (?P<end>\s)
@@ -77,15 +77,15 @@ lazy_static! {
 
     static ref CLOUD_RE: Regex = Regex::new(r"(?x)
         ^(?P<cover>CLR|SKC|NSC|NCD|FEW|SCT|BKN|OVC|VV|///)
-        (?P<height>\d\d\d|///)?
-        (?P<cloud>AC|ACC|ACSL|AS|CB|CBMAM|CC|CCSL|CI|CS|CU|NS|SC|SCSL|ST|TCU|///)?
+        (?P<height>\d{1,3}|///)?
+        (?P<cloud>AC|ACC|ACSL|AS|CB|CBMAM|CC|CCSL|CI|CS|CU|NS|SC|SCSL|ST|TC?U|///)?
         (?P<end>\s)
     ").unwrap();
 
     static ref TEMPERATURE_RE: Regex = Regex::new(r"(?x)
-        ^(?P<temperature>M?\d\d|//)
+        ^(?P<temperature>M?\d{1,2}|//)
         /
-        (?P<dew_point>M?\d\d|//)?
+        (?P<dew_point>M?\d{1,2}|//)?
         (?P<end>\s)
     ").unwrap();
 
@@ -109,10 +109,10 @@ lazy_static! {
     ").unwrap();
 
     static ref SEA_RE: Regex = Regex::new(r"(?x)
-        ^W(?P<temperature>M?\d\d|//)
+        ^W(?P<temperature>M?\d{1,2}|//)
         /
         (S(?P<state>\d|/))?
-        (H(?P<height>\d\d\d|///))?
+        (H(?P<height>\d{1,3}|///))?
         (?P<end>\s)
     ").unwrap();
 
@@ -281,6 +281,8 @@ enum Unit {
     Knot,
     #[serde(rename = "m/s")]
     MetrePerSecond,
+    #[serde(rename = "km")]
+    KiloMetre,
     #[serde(rename = "m")]
     Metre,
     #[serde(rename = "mi")]
@@ -302,6 +304,7 @@ impl FromStr for Unit {
         match s {
             "KT" => Ok(Unit::Knot),
             "MPS" => Ok(Unit::MetrePerSecond),
+            "KM" => Ok(Unit::KiloMetre),
             "SM" => Ok(Unit::StatuteMile),
             "FT" => Ok(Unit::Foot),
             "Q" => Ok(Unit::HectoPascal),
@@ -574,7 +577,7 @@ fn handle_visibility(text: &str) -> Option<(Visibility, bool, usize)> {
 
             let mut prevailing_visibility_value = match &capture["prevailing"] {
                 "////" => None,
-                "CAVOK" => {
+                "CAVOK" | "KAVOK" => {
                     is_cavok = true;
                     Some(Value::Above(10000.0))
                 },
@@ -909,7 +912,7 @@ impl FromStr for CloudType {
             "SC" => Ok(CloudType::Stratocumulus),
             "SCSL" => Ok(CloudType::StratocumulusLenticularis),
             "ST" => Ok(CloudType::Stratus),
-            "TCU" => Ok(CloudType::ToweringCumulus),
+            "TCU" | "TU" => Ok(CloudType::ToweringCumulus),
             _ => Err(anyhow!("Invalid cloud type, given {s}"))
         }
     }
@@ -1007,6 +1010,12 @@ fn calculate_ceiling(cloud_layers: &[CloudLayer]) -> Option<Quantity> {
 struct Temperature {
     temperature: Option<Quantity>,
     dew_point: Option<Quantity>,
+}
+
+impl Temperature {
+    fn is_empty(&self) -> bool {
+        self.temperature.is_none() && self.dew_point.is_none()
+    }
 }
 
 fn handle_temperature(text: &str) -> Option<(Temperature, usize)> {
@@ -1289,7 +1298,9 @@ pub fn decode_metar(report: &str, anchor_time: Option<&NaiveDateTime>) -> Result
 
                 if temperature.is_none() {
                     if let Some((temp, relative_end)) = handle_temperature(sub_report) {
-                        temperature = Some(temp);
+                        if !temp.is_empty() {
+                            temperature = Some(temp);
+                        }
                         idx += relative_end;
                         continue;
                     }

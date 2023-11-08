@@ -13,6 +13,7 @@
 * improve performance of CLI tools
 * add decoding and tests for wind shear, #9
 * add decoding and tests for sea state, #10
+* fix a set of known bugs, #11
 
 ## v0.1.1
 * move `tempfile` into `[dev-dependencies]`

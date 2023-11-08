@@ -563,5 +563,90 @@
     "sea_state": null,
     "wave_height": null,
     "report": "EGUL 021220Z COR AUTO 05012KT 9999 SCT028 07/02 A3030 RMK AO2 SLP264 $ COR 1238"
+  },
+  {
+    "station_id": "MNBL",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-12T21:00:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 50.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 8.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 7000.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [
+      {
+        "intensity": "moderate",
+        "is_in_vicinity": true,
+        "descriptors": [],
+        "phenomena": [
+          "rain"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "few",
+        "height": {
+          "value_type": "exact",
+          "value": 1600.0,
+          "units": "ft"
+        },
+        "cloud_type": "cumulonimbus"
+      },
+      {
+        "cover": "broken",
+        "height": {
+          "value_type": "exact",
+          "value": 2000.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "ceiling": {
+      "value_type": "exact",
+      "value": 2000.0,
+      "units": "ft"
+    },
+    "temperature": {
+      "value_type": "exact",
+      "value": 27.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 25.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1010.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "report": "MNBL 1221000Z 05008KT 7000 VCRA FEW016CB BKN020 27/25 Q1010 CBRA/NE/E"
   }
 ]
