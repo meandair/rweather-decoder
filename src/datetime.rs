@@ -9,7 +9,7 @@ const UTC_TIME_FORMAT: &str = "%H:%M:%SZ";
 
 /// UTC datetime wrapper around [chrono]'s [`NaiveDateTime`].
 #[non_exhaustive]
-#[derive(Debug, Clone, Copy, PartialEq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct UtcDateTime(pub NaiveDateTime);
 
 impl Serialize for UtcDateTime {
@@ -33,7 +33,7 @@ impl<'de> Deserialize<'de> for UtcDateTime {
 
 /// UTC day-time wrapper around integer day and [chrono]'s [`NaiveTime`].
 #[non_exhaustive]
-#[derive(Debug, PartialEq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct UtcDayTime(pub u32, pub NaiveTime);
 
 impl Serialize for UtcDayTime {
@@ -65,7 +65,7 @@ impl<'de> Deserialize<'de> for UtcDayTime {
 
 /// UTC time wrapper around [chrono]'s [`NaiveTime`].
 #[non_exhaustive]
-#[derive(Debug, PartialEq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct UtcTime(pub NaiveTime);
 
 impl Serialize for UtcTime {

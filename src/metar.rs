@@ -123,7 +123,7 @@ lazy_static! {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 enum Trend {
     NoSignificantChange,
@@ -145,7 +145,7 @@ impl FromStr for Trend {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 enum Section {
     Main,
@@ -178,7 +178,7 @@ fn handle_section(text: &str) -> Option<(Section, usize)> {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(tag = "value_type", content = "value", rename_all = "snake_case")]
 enum MetarTime {
     DateTime(UtcDateTime),
@@ -237,7 +237,7 @@ impl MetarTime {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Default, Serialize, Deserialize)]
 struct Header {
     station_id: Option<String>,
     observation_time: Option<MetarTime>,
@@ -273,7 +273,7 @@ fn handle_header(text: &str, anchor_time: Option<&NaiveDateTime>) -> Option<(Hea
 }
 
 #[non_exhaustive]
-#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 enum Unit {
     #[serde(rename = "degT")]
     DegreeTrue,
@@ -333,7 +333,7 @@ fn parse_value(s: &str) -> Result<f32> {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "value_type", content = "value", rename_all = "snake_case")]
 enum ValueInRange {
     Above(f32),
@@ -383,7 +383,7 @@ impl Mul<f32> for ValueInRange {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "value_type", content = "value", rename_all = "snake_case")]
 enum Value {
     Variable,
@@ -452,7 +452,7 @@ impl Mul<f32> for Value {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 struct Quantity {
     #[serde(flatten)]
@@ -471,7 +471,7 @@ impl Quantity {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Default, Serialize, Deserialize)]
 struct Wind {
     wind_from_direction: Option<Quantity>,
     wind_from_direction_range: Option<Quantity>,
@@ -521,7 +521,7 @@ fn handle_wind(text: &str) -> Option<(Wind, usize)> {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 enum DirectionOctant {
     North,
@@ -553,14 +553,14 @@ impl FromStr for DirectionOctant {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 struct DirectionalVisibility {
     visibility: Quantity,
     direction: DirectionOctant,
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Default, Serialize, Deserialize)]
 struct Visibility {
     prevailing_visibility: Option<Quantity>,
     minimum_visibility: Option<Quantity>,
@@ -614,7 +614,7 @@ fn handle_visibility(text: &str) -> Option<(Visibility, bool, usize)> {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 enum RunwayVisualRangeTrend {
     Increasing,
@@ -636,7 +636,7 @@ impl FromStr for RunwayVisualRangeTrend {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 struct RunwayVisualRange {
     runway: String,
     visual_range: Quantity,
@@ -668,7 +668,7 @@ fn handle_runway_visual_range(text: &str) -> Option<(RunwayVisualRange, usize)> 
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 enum WeatherIntensity {
     Light,
@@ -689,7 +689,7 @@ impl FromStr for WeatherIntensity {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 enum WeatherDescriptor {
     Shallow,
@@ -721,7 +721,7 @@ impl FromStr for WeatherDescriptor {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 enum WeatherPhenomena {
     Drizzle,
@@ -781,7 +781,7 @@ impl FromStr for WeatherPhenomena {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 struct WeatherCondition {
     intensity: WeatherIntensity,
     is_in_vicinity: bool,
@@ -833,7 +833,7 @@ fn handle_recent_weather(text: &str) -> Option<(WeatherCondition, usize)> {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 enum CloudCover {
     Clear,
@@ -868,7 +868,7 @@ impl FromStr for CloudCover {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 enum CloudType {
     Altocumulus,
@@ -916,7 +916,7 @@ impl FromStr for CloudType {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 struct CloudLayer {
     cover: Option<CloudCover>,
     /// Height above ground level (AGL).
@@ -925,8 +925,8 @@ struct CloudLayer {
 }
 
 impl CloudLayer {
-    fn has_some(&self) -> bool {
-        self.cover.is_some() || self.height.is_some() || self.cloud_type.is_some()
+    fn is_empty(&self) -> bool {
+        self.cover.is_none() && self.height.is_none() && self.cloud_type.is_none()
     }
 }
 
@@ -1003,7 +1003,7 @@ fn calculate_ceiling(cloud_layers: &[CloudLayer]) -> Option<Quantity> {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Default, Serialize, Deserialize)]
 struct Temperature {
     temperature: Option<Quantity>,
     dew_point: Option<Quantity>,
@@ -1034,7 +1034,7 @@ fn handle_temperature(text: &str) -> Option<(Temperature, usize)> {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Default, Serialize, Deserialize)]
 struct Pressure {
     pressure: Option<Quantity>,
 }
@@ -1064,7 +1064,7 @@ fn handle_pressure(text: &str) -> Option<(Pressure, usize)> {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 struct WindShear {
     runway: String,
 }
@@ -1086,7 +1086,7 @@ fn handle_wind_shear(text: &str) -> Option<(WindShear, usize)> {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 /// Sea state from WMO Code Table 3700.
 enum SeaState {
@@ -1123,7 +1123,7 @@ impl FromStr for SeaState {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 struct Sea {
     temperature: Option<Quantity>,
     state: Option<SeaState>,
@@ -1131,8 +1131,8 @@ struct Sea {
 }
 
 impl Sea {
-    fn has_some(&self) -> bool {
-        self.temperature.is_some() || self.state.is_some() || self.height.is_some()
+    fn is_empty(&self) -> bool {
+        self.temperature.is_none() && self.state.is_none() && self.height.is_none()
     }
 }
 
@@ -1176,7 +1176,7 @@ fn handle_color(text: &str) -> Option<usize> {
 
 /// A decoded METAR report.
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Metar {
     #[serde(flatten)]
     header: Header,
@@ -1279,7 +1279,7 @@ pub fn decode_metar(report: &str, anchor_time: Option<&NaiveDateTime>) -> Result
                 }
 
                 if let Some((cl, relative_end)) = handle_cloud_layer(sub_report) {
-                    if cl.has_some() {
+                    if !cl.is_empty() {
                         clouds.push(cl);
                     }
                     idx += relative_end;
@@ -1316,7 +1316,7 @@ pub fn decode_metar(report: &str, anchor_time: Option<&NaiveDateTime>) -> Result
 
                 if sea.is_none() {
                     if let Some((s, relative_end)) = handle_sea(sub_report) {
-                        if s.has_some() {
+                        if !s.is_empty() {
                             sea = Some(s);
                         }
                         idx += relative_end;
