@@ -59,7 +59,9 @@
     },
     "recent_weather": [],
     "wind_shears": [],
-    "sea": null,
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
     "report": "KCKN 021215Z AUTO 15005KT 10SM CLR M21/M23 A2999 RMK AO2"
   },
   {
@@ -122,7 +124,9 @@
     },
     "recent_weather": [],
     "wind_shears": [],
-    "sea": null,
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
     "report": "SPRU 312000Z 18010KT 9000 NSC 30/24 Q1009 RMK PP000"
   },
   {
@@ -203,7 +207,9 @@
     },
     "recent_weather": [],
     "wind_shears": [],
-    "sea": null,
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
     "report": "KEDJ 010115Z AUTO 20015G22KT 10SM BKN013 OVC075 14/14 A2966 RMK A01"
   }
 ]

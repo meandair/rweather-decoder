@@ -52,15 +52,13 @@
     },
     "recent_weather": [],
     "wind_shears": [],
-    "sea": {
-      "temperature": {
-        "value_type": "exact",
-        "value": 8.0,
-        "units": "degC"
-      },
-      "state": null,
-      "height": null
+    "sea_temperature": {
+      "value_type": "exact",
+      "value": 8.0,
+      "units": "degC"
     },
+    "sea_state": null,
+    "wave_height": null,
     "report": "ENHM 130350Z AUTO 33007KT //// NCD 06/06 Q1028 W08/S/"
   },
   {
@@ -125,11 +123,9 @@
     },
     "recent_weather": [],
     "wind_shears": [],
-    "sea": {
-      "temperature": null,
-      "state": "slight",
-      "height": null
-    },
+    "sea_temperature": null,
+    "sea_state": "slight",
+    "wave_height": null,
     "report": "ENLA 130350Z AUTO 35011KT 9999NDV OVC003/// 07/07 Q1027 W///S3"
   },
   {
@@ -198,15 +194,13 @@
     },
     "recent_weather": [],
     "wind_shears": [],
-    "sea": {
-      "temperature": {
-        "value_type": "exact",
-        "value": 10.0,
-        "units": "degC"
-      },
-      "state": "slight",
-      "height": null
+    "sea_temperature": {
+      "value_type": "exact",
+      "value": 10.0,
+      "units": "degC"
     },
+    "sea_state": "slight",
+    "wave_height": null,
     "report": "ENQA 130350Z AUTO 34016KT 0200NDV FG NCD 06/06 Q1028 W10/S3"
   }
 ]

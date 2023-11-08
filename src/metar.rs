@@ -1123,16 +1123,16 @@ impl FromStr for SeaState {
 }
 
 #[non_exhaustive]
-#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Default, Serialize, Deserialize)]
 struct Sea {
-    temperature: Option<Quantity>,
-    state: Option<SeaState>,
-    height: Option<Quantity>,
+    sea_temperature: Option<Quantity>,
+    sea_state: Option<SeaState>,
+    wave_height: Option<Quantity>,
 }
 
 impl Sea {
     fn is_empty(&self) -> bool {
-        self.temperature.is_none() && self.state.is_none() && self.height.is_none()
+        self.sea_temperature.is_none() && self.sea_state.is_none() && self.wave_height.is_none()
     }
 }
 
@@ -1144,7 +1144,7 @@ fn handle_sea(text: &str) -> Option<(Sea, usize)> {
                 s => Some(Value::from_str(&s.replace('M', "-")).unwrap()),
             };
 
-            let state = capture.name("state").and_then(|c| match c.as_str() {
+            let sea_state = capture.name("state").and_then(|c| match c.as_str() {
                 "/" => None,
                 s => Some(SeaState::from_str(s).unwrap()),
             });
@@ -1154,12 +1154,12 @@ fn handle_sea(text: &str) -> Option<(Sea, usize)> {
                 s => Some(Value::from_str(s).unwrap() / 10.0),
             });
 
-            let temperature = Quantity::new_opt(temperature_value, Unit::DegreeCelsius);
-            let height = Quantity::new_opt(height_value, Unit::Metre);
+            let sea_temperature = Quantity::new_opt(temperature_value, Unit::DegreeCelsius);
+            let wave_height = Quantity::new_opt(height_value, Unit::Metre);
 
             let end = capture.name("end").unwrap().end();
 
-            let sea = Sea { temperature, state, height };
+            let sea = Sea { sea_temperature, sea_state, wave_height };
 
             (sea, end)
         })
@@ -1194,7 +1194,8 @@ pub struct Metar {
     pressure: Pressure,
     recent_weather: Vec<WeatherCondition>,
     wind_shears: Vec<WindShear>,
-    sea: Option<Sea>,
+    #[serde(flatten)]
+    sea: Sea,
     pub report: String,
 }
 
@@ -1365,7 +1366,7 @@ pub fn decode_metar(report: &str, anchor_time: Option<&NaiveDateTime>) -> Result
         pressure: pressure.unwrap_or_default(),
         recent_weather: recent_weather_conditions,
         wind_shears,
-        sea,
+        sea: sea.unwrap_or_default(),
         report,
     })
 }

@@ -94,7 +94,9 @@
     "pressure": null,
     "recent_weather": [],
     "wind_shears": [],
-    "sea": null,
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
     "report": "KQEQ 122050Z AUTO 19001KT M0400 -SHRA FG FEW001 BKN003 OVC014 14/16 / RMK A02 TSNO"
   },
   {
@@ -147,11 +149,9 @@
     "pressure": null,
     "recent_weather": [],
     "wind_shears": [],
-    "sea": {
-      "temperature": null,
-      "state": "slight",
-      "height": null
-    },
+    "sea_temperature": null,
+    "sea_state": "slight",
+    "wave_height": null,
     "report": "ENFB 122050Z AUTO 33007KT 9999NDV BKN011/// ///// Q//// W///S3"
   },
   {
@@ -204,7 +204,9 @@
     "pressure": null,
     "recent_weather": [],
     "wind_shears": [],
-    "sea": null,
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
     "report": "CYUA 122100Z AUTO 31009G18KT ////SM OVC036 ///// A////"
   },
   {
@@ -273,7 +275,9 @@
     },
     "recent_weather": [],
     "wind_shears": [],
-    "sea": null,
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
     "report": "SCRM 122100Z 26027G37KT 8000 BKN015 M01/M05 Q0982 NOSIG"
   },
   {
@@ -367,7 +371,9 @@
     },
     "recent_weather": [],
     "wind_shears": [],
-    "sea": null,
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
     "report": "YPPH 122046Z 07007KT 9000 -SHRA FEW004 BKN015 BKN023 13/12 Q1018"
   },
   {
@@ -431,7 +437,9 @@
     },
     "recent_weather": [],
     "wind_shears": [],
-    "sea": null,
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
     "report": "KJXI 122055Z AUTO 17008G14KT 10SM CLR 30/20 A2995 RMK AO2 T02990197"
   },
   {
@@ -505,7 +513,9 @@
     },
     "recent_weather": [],
     "wind_shears": [],
-    "sea": null,
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
     "report": "KHSA 122047Z 13009KT 10SM BKN023 BKN029 28/22 A3004"
   },
   {
@@ -597,7 +607,9 @@
     },
     "recent_weather": [],
     "wind_shears": [],
-    "sea": null,
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
     "report": "MHTG 122100Z 23005KT 7000 TSVCSH SCT034TCU FEW036CB SCT080 27/19 Q1015 A2997 NOSIG"
   }
 ]
