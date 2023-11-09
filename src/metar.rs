@@ -120,6 +120,16 @@ lazy_static! {
         ^(BLACK|BLU\+?|GRN|WHT|RED|AMB|YLO)+
         (?P<end>\s)
     ").unwrap();
+
+    static ref RAINFALL_RE: Regex = Regex::new(r"(?x)
+        ^RF[\d/]{2}[\./][\d/]/[\d/]{3}[\./][\d/]
+        (?P<end>\s)
+    ").unwrap();
+
+    static ref RUNWAY_STATE_RE: Regex = Regex::new(r"(?x)
+        ^R\d\d[A-Z]?/([\d/]{6}|CLRD[\d/]{2})
+        (?P<end>\s)
+    ").unwrap();
 }
 
 #[non_exhaustive]
@@ -1177,9 +1187,21 @@ fn handle_sea(text: &str) -> Option<(Sea, usize)> {
 fn handle_color(text: &str) -> Option<usize> {
     COLOR_RE.captures(text)
         .map(|capture| {
-            let end = capture.name("end").unwrap().end();
+            capture.name("end").unwrap().end()
+        })
+}
 
-            end
+fn handle_rainfall(text: &str) -> Option<usize> {
+    RAINFALL_RE.captures(text)
+        .map(|capture| {
+            capture.name("end").unwrap().end()
+        })
+}
+
+fn handle_runway_state(text: &str) -> Option<usize> {
+    RUNWAY_STATE_RE.captures(text)
+        .map(|capture| {
+            capture.name("end").unwrap().end()
         })
 }
 
@@ -1336,7 +1358,23 @@ pub fn decode_metar(report: &str, anchor_time: Option<&NaiveDateTime>) -> Result
                     }
                 }
 
+                // Colour state, will not store,
+                // for more info see <https://en.wikipedia.org/wiki/Colour_state>
                 if let Some(relative_end) = handle_color(sub_report) {
+                    idx += relative_end;
+                    continue;
+                }
+
+                // Rainfall in last 10min / since 0900 local time, will not store,
+                // for more info see <http://www.bom.gov.au/aviation/Aerodrome/metar-speci.pdf>
+                if let Some(relative_end) = handle_rainfall(sub_report) {
+                    idx += relative_end;
+                    continue;
+                }
+
+                // Runway state (should be part of SNOWTAM), will not store,
+                // for more info see <https://www.icao.int/WACAF/Documents/Meetings/2021/GRF/2.%20Provisions%20on%20GRF.pdf>
+                if let Some(relative_end) = handle_runway_state(sub_report) {
                     idx += relative_end;
                     continue;
                 }
