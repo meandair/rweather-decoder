@@ -39,10 +39,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 24.0,
@@ -122,10 +118,6 @@
         "cloud_type": "towering_cumulus"
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 16.0,
@@ -201,10 +193,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 23.0,
@@ -284,10 +272,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 28.0,

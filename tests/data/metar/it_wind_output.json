@@ -29,7 +29,6 @@
     "runway_visual_ranges": [],
     "present_weather": [],
     "clouds": [],
-    "ceiling": null,
     "temperature": {
       "value_type": "exact",
       "value": -6.0,
@@ -88,10 +87,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": -1.0,
@@ -163,10 +158,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 26.0,
@@ -224,10 +215,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 8.0,
@@ -289,11 +276,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 2700.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 5.0,
@@ -364,11 +346,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 3000.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 12.0,
@@ -450,11 +427,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 800.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 13.0,
@@ -531,11 +503,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 300.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 16.0,
@@ -611,11 +578,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 1200.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 1.0,
@@ -674,11 +636,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 2000.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 14.0,
@@ -733,10 +690,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 31.0,
@@ -787,10 +740,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 24.0,
@@ -853,11 +802,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 4700.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 6.0,
@@ -916,10 +860,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 19.0,
@@ -1000,11 +940,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 1100.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 22.0,
@@ -1080,11 +1015,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 600.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 3.0,
@@ -1169,11 +1099,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 6500.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 2.0,
@@ -1236,10 +1161,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 5.0,
@@ -1302,10 +1223,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 5.0,
@@ -1378,11 +1295,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 4700.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": -7.0,
@@ -1437,11 +1349,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 2000.0,
-      "units": "ft"
-    },
     "temperature": null,
     "dew_point": null,
     "pressure": {
@@ -1486,7 +1393,6 @@
     "runway_visual_ranges": [],
     "present_weather": [],
     "clouds": [],
-    "ceiling": null,
     "temperature": {
       "value_type": "exact",
       "value": 3.0,
@@ -1576,11 +1482,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 3600.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 16.0,
@@ -1647,11 +1548,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 1200.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 22.0,
@@ -1714,10 +1610,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 8.0,
@@ -1805,11 +1697,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 2800.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 2.0,
@@ -1876,11 +1763,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 1600.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 2.0,
@@ -1978,11 +1860,6 @@
         "cloud_type": "towering_cumulus"
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 900.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 22.0,
@@ -2049,10 +1926,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 5.0,
@@ -2119,10 +1992,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 5.0,
@@ -2189,10 +2058,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 5.0,
@@ -2255,10 +2120,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 5.0,
@@ -2321,10 +2182,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 5.0,
@@ -2409,10 +2266,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 14.0,
@@ -2497,11 +2350,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 23000.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": -19.0,
@@ -2573,10 +2421,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 8.0,

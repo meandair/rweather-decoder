@@ -14,6 +14,9 @@
 * add decoding and tests for wind shear, #9
 * add decoding and tests for sea state, #10
 * fix a set of known bugs, #11
+* skip rainfall and runway state groups
+* fix failing decoder due to unwraping invalid time
+* remove derived ceiling value
 
 ## v0.1.1
 * move `tempfile` into `[dev-dependencies]`
