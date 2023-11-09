@@ -264,7 +264,12 @@ fn handle_header(text: &str, anchor_time: Option<&NaiveDateTime>) -> Option<(Hea
             let hour = capture["hour"].parse().unwrap();
             let minute = capture["minute"].parse().unwrap();
 
-            let mut time = Some(MetarTime::DayTime(UtcDayTime(day, NaiveTime::from_hms_opt(hour, minute, 0).unwrap())));
+            let naive_time = NaiveTime::from_hms_opt(hour, minute, 0);
+
+            let mut time = match naive_time {
+                Some(nt) => Some(MetarTime::DayTime(UtcDayTime(day, nt))),
+                None => None,
+            };
 
             if let Some(at) = anchor_time {
                 time = time.map(|t| t.to_date_time(at));
