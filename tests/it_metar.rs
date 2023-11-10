@@ -55,6 +55,11 @@ fn it_metar_daytime() -> Result<()> {
 }
 
 #[test]
+fn it_metar_anchor_time() -> Result<()> {
+    it_metar_template("it_anchor_time_input.txt", "it_anchor_time_output.json", "noaa-metar-cycles")
+}
+
+#[test]
 fn it_metar_header() -> Result<()> {
     it_metar_template("it_header_input.txt", "it_header_output.json", "noaa-metar-cycles")
 }

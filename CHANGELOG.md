@@ -18,6 +18,7 @@
 * fix failing decoder due to unwraping invalid time
 * remove derived ceiling value
 * parse some missed non-standard groups
+* add tests for datetime guessing, #21
 
 ## v0.1.1
 * move `tempfile` into `[dev-dependencies]`
