@@ -933,5 +933,63 @@
     "sea_state": null,
     "wave_height": null,
     "report": "CWIL 021200Z AUTO ///// ////SM ////// M31/M33 A3007"
+  },
+  {
+    "station_id": "SVBC",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-11-09T02:00:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 120.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 8.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "above",
+      "value": 10000.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [],
+    "clouds": [
+      {
+        "cover": "broken",
+        "height": {
+          "value_type": "exact",
+          "value": 1300.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "temperature": {
+      "value_type": "exact",
+      "value": 27.0,
+      "units": "degC"
+    },
+    "dew_point": null,
+    "pressure": {
+      "value_type": "exact",
+      "value": 1011.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "report": "SVBC 090200Z 12008KT 9999 BKN013 27/XX Q1011"
   }
 ]

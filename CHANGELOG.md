@@ -17,6 +17,7 @@
 * skip rainfall and runway state groups
 * fix failing decoder due to unwraping invalid time
 * remove derived ceiling value
+* parse some missed non-standard groups
 
 ## v0.1.1
 * move `tempfile` into `[dev-dependencies]`

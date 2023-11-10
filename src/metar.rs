@@ -45,7 +45,7 @@ lazy_static! {
     ").unwrap();
 
     static ref VISIBILITY_RE: Regex = Regex::new(r"(?x)
-        ^(?P<prevailing>[MP]?(\d+\s)?\d/\d{1,2}|[MP]?\d{1,4}|////|[CK]AVOK)
+        ^(?P<prevailing>[MP]?(\d+\s)?\d/\d{1,2}|[MP]?\d{1,5}|////|[CK]AVOK)
         (NDV)?
         \s?
         (?P<units>SM|KM)?
@@ -83,15 +83,15 @@ lazy_static! {
     ").unwrap();
 
     static ref TEMPERATURE_RE: Regex = Regex::new(r"(?x)
-        ^(?P<temperature>M?\d{1,2}|//)
+        ^(?P<temperature>M?\d{1,2}|//|XX)
         /
-        (?P<dew_point>M?\d{1,2}|//)?
+        (?P<dew_point>M?\d{1,2}|//|XX)?
         (?P<end>\s)
     ").unwrap();
 
     static ref PRESSURE_RE: Regex = Regex::new(r"(?x)
         ^(?P<units>A|Q)
-        (?P<pressure>\d\d\d\d|////)
+        (?P<pressure>\d{3,4}|////)
         (?P<end>\s)
     ").unwrap();
 
@@ -109,7 +109,7 @@ lazy_static! {
     ").unwrap();
 
     static ref SEA_RE: Regex = Regex::new(r"(?x)
-        ^W(?P<temperature>M?\d{1,2}|//)
+        ^W(?P<temperature>M?\d{1,2}|//|XX)
         /
         (S(?P<state>\d|/))?
         (H(?P<height>\d{1,3}|///))?
@@ -987,12 +987,12 @@ fn handle_temperature(text: &str) -> Option<(Temperature, usize)> {
     TEMPERATURE_RE.captures(text)
         .map(|capture| {
             let temperature_value = match &capture["temperature"] {
-                "//" => None,
+                "//" | "XX" => None,
                 s => Some(Value::from_str(&s.replace('M', "-")).unwrap()),
             };
 
             let dew_point_value = capture.name("dew_point").and_then(|c| match c.as_str() {
-                "//" => None,
+                "//" | "XX" => None,
                 s => Some(Value::from_str(&s.replace('M', "-")).unwrap()),
             });
 
@@ -1114,7 +1114,7 @@ fn handle_sea(text: &str) -> Option<(Sea, usize)> {
     SEA_RE.captures(text)
         .map(|capture| {
             let temperature_value = match &capture["temperature"] {
-                "//" => None,
+                "//" | "XX" => None,
                 s => Some(Value::from_str(&s.replace('M', "-")).unwrap()),
             };
 
