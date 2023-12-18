@@ -63,6 +63,23 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [
+      {
+        "indicator": "no_significant_change",
+        "from_time": null,
+        "to_time": null,
+        "at_time": null,
+        "wind_from_direction": null,
+        "wind_from_direction_range": null,
+        "wind_speed": null,
+        "wind_gust": null,
+        "prevailing_visibility": null,
+        "minimum_visibility": null,
+        "directional_visibilites": [],
+        "weather": [],
+        "clouds": []
+      }
+    ],
     "report": "GCTS 121600Z 07023KT 9999 FEW030 24/14 Q1015 WS R07 NOSIG"
   },
   {
@@ -142,6 +159,23 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [
+      {
+        "indicator": "no_significant_change",
+        "from_time": null,
+        "to_time": null,
+        "at_time": null,
+        "wind_from_direction": null,
+        "wind_from_direction_range": null,
+        "wind_speed": null,
+        "wind_gust": null,
+        "prevailing_visibility": null,
+        "minimum_visibility": null,
+        "directional_visibilites": [],
+        "weather": [],
+        "clouds": []
+      }
+    ],
     "report": "LEMD 121600Z 04011KT 340V120 9999 FEW050TCU 16/03 Q1016 WS R32R NOSIG"
   },
   {
@@ -217,6 +251,23 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [
+      {
+        "indicator": "no_significant_change",
+        "from_time": null,
+        "to_time": null,
+        "at_time": null,
+        "wind_from_direction": null,
+        "wind_from_direction_range": null,
+        "wind_speed": null,
+        "wind_gust": null,
+        "prevailing_visibility": null,
+        "minimum_visibility": null,
+        "directional_visibilites": [],
+        "weather": [],
+        "clouds": []
+      }
+    ],
     "report": "UUBW 131400Z 01004MPS 300V050 CAVOK 23/02 Q1019 WS ALL RWY R30/010060 NOSIG"
   },
   {
@@ -296,6 +347,34 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [
+      {
+        "indicator": "becoming",
+        "from_time": null,
+        "to_time": {
+          "value_type": "date_time",
+          "value": "2023-05-13T11:00:00Z"
+        },
+        "at_time": null,
+        "wind_from_direction": {
+          "value_type": "exact",
+          "value": 190.0,
+          "units": "degT"
+        },
+        "wind_from_direction_range": null,
+        "wind_speed": {
+          "value_type": "exact",
+          "value": 12.0,
+          "units": "kt"
+        },
+        "wind_gust": null,
+        "prevailing_visibility": null,
+        "minimum_visibility": null,
+        "directional_visibilites": [],
+        "weather": [],
+        "clouds": []
+      }
+    ],
     "report": "LTAI 130936Z 33010KT 260V010 9999 FEW030 28/12 Q1013 WS R36R BECMG TL1100 19012KT"
   }
 ]

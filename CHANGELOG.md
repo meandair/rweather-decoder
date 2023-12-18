@@ -19,6 +19,8 @@
 * remove derived ceiling value
 * parse some missed non-standard groups
 * add tests for datetime guessing, #21
+* fix failing decoder when parsing `P<xxxx>VP<xxxx>` range
+* decode TREND forecast and add tests, #14
 
 ## v0.1.1
 * move `tempfile` into `[dev-dependencies]`

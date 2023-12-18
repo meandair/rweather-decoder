@@ -69,7 +69,7 @@ fn decode_noaa_metar_cycles_file(path: &Path) -> Result<Vec<metar::Metar>> {
     for (time_str, report) in data.iter().step_by(2).zip(data.iter().skip(1).step_by(2)) {
         let obs_time = NaiveDateTime::parse_from_str(time_str, "%Y/%m/%d %H:%M")?;
 
-        match metar::decode_metar(report, Some(&obs_time)) {
+        match metar::decode_metar(report, Some(obs_time)) {
             Ok(metar_data) => all_metar_data.push(metar_data),
             Err(e) => warn!("{}", e),
         }
@@ -79,7 +79,7 @@ fn decode_noaa_metar_cycles_file(path: &Path) -> Result<Vec<metar::Metar>> {
 }
 
 /// Decode METAR reports in a file with plain format.
-fn decode_plain_file(path: &Path, anchor_time: Option<&NaiveDateTime>) -> Result<Vec<metar::Metar>> {
+fn decode_plain_file(path: &Path, anchor_time: Option<NaiveDateTime>) -> Result<Vec<metar::Metar>> {
     let file = File::open(path)?;
     let buf_reader = BufReader::new(file);
 
@@ -153,7 +153,7 @@ fn main() -> Result<()> {
     for input_path in input_paths.iter() {
         let metars = match args.file_format {
             MetarFileFormat::NoaaMetarCycles => decode_noaa_metar_cycles_file(input_path)?,
-            MetarFileFormat::Plain => decode_plain_file(input_path, args.anchor_time.as_ref())?,
+            MetarFileFormat::Plain => decode_plain_file(input_path, args.anchor_time)?,
         };
 
         for metar in metars.into_iter() {

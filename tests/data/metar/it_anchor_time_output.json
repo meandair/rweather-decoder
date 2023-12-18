@@ -77,6 +77,7 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [],
     "report": "VEJH 130930Z 09008KT 5000 HZ SCT020 BKN100 39/12 Q1003"
   },
   {
@@ -131,6 +132,7 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [],
     "report": "K7W4 130935Z AUTO 10SM OVC110 20/16 A3004 RMK AO1 T02000159"
   },
   {
@@ -185,6 +187,7 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [],
     "report": "KMHP 130935Z AUTO 00000KT 10SM OVC004 19/ A3009 RMK AO2 T0193////"
   },
   {
@@ -248,6 +251,7 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [],
     "report": "KSBO 130935Z AUTO 29003KT 4SM HZ OVC003 A3010 RMK AO2"
   },
   {
@@ -311,6 +315,7 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [],
     "report": "KSBO 131215Z AUTO 29003KT 2SM BR OVC003 A3016 RMK AO2"
   },
   {
@@ -359,6 +364,7 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [],
     "report": "CWDQ 231200Z AUTO 30009G15KT 08/02 RMK AO1 SLP175 T00800020 51006"
   },
   {
@@ -422,6 +428,7 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [],
     "report": "KMDQ 122035Z AUTO 10SM -RA OVC100 21/19 A3018 RMK A02 T02100193"
   },
   {
@@ -485,6 +492,7 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [],
     "report": "KD73 241155Z AUTO 00000KT 3/4SM BR OVC003 18/ A3017 RMK AO2 T0180//// 10189 20179 70005"
   },
   {
@@ -544,6 +552,7 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [],
     "report": "MHLE 311200Z 00000KT 3000 BR NSC 16/15"
   }
 ]

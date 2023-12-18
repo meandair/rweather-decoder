@@ -55,6 +55,7 @@
     },
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [],
     "report": "ENHM 130350Z AUTO 33007KT //// NCD 06/06 Q1028 W08/S/"
   },
   {
@@ -117,6 +118,7 @@
     "sea_temperature": null,
     "sea_state": "slight",
     "wave_height": null,
+    "trend_changes": [],
     "report": "ENLA 130350Z AUTO 35011KT 9999NDV OVC003/// 07/07 Q1027 W///S3"
   },
   {
@@ -188,6 +190,7 @@
     },
     "sea_state": "slight",
     "wave_height": null,
+    "trend_changes": [],
     "report": "ENQA 130350Z AUTO 34016KT 0200NDV FG NCD 06/06 Q1028 W10/S3"
   }
 ]

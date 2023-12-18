@@ -8,8 +8,9 @@ The decoders are binary applications that store decoded reports in JSON files, w
 
 * [x] METAR / SPECI
   * [x] header, wind, visibility, clouds, temperature, dew point, pressure
-  * [x] RVR, present/recent weather, wind shear, sea
-  * [ ] TREND, REMARK
+  * [x] runway visual range, present and recent weather, wind shear, sea
+  * [x] TREND
+  * [ ] REMARK
 * [ ] TAF
 * [ ] SYNOP
 * [ ] ACARS

@@ -101,6 +101,42 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [
+      {
+        "indicator": "temporary",
+        "from_time": null,
+        "to_time": null,
+        "at_time": null,
+        "wind_from_direction": null,
+        "wind_from_direction_range": null,
+        "wind_speed": null,
+        "wind_gust": null,
+        "prevailing_visibility": null,
+        "minimum_visibility": null,
+        "directional_visibilites": [],
+        "weather": [],
+        "clouds": [
+          {
+            "cover": "scattered",
+            "height": {
+              "value_type": "exact",
+              "value": 500.0,
+              "units": "ft"
+            },
+            "cloud_type": null
+          },
+          {
+            "cover": "broken",
+            "height": {
+              "value_type": "exact",
+              "value": 800.0,
+              "units": "ft"
+            },
+            "cloud_type": null
+          }
+        ]
+      }
+    ],
     "report": "LOWG 130550Z AUTO 08004KT 050V110 9999 -SHRA FEW005 BKN010 10/09 Q1019 REDZ TEMPO SCT005 BKN008"
   },
   {
@@ -194,6 +230,7 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [],
     "report": "LICB 130550Z AUTO 11006KT 090V150 9999 -RA BKN037/// 17/16 Q1014 RERA"
   },
   {
@@ -285,6 +322,7 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [],
     "report": "LTAR 130550Z 30006KT 9999 SCT003 BKN030 BKN080 08/07 Q1017 RESHRA"
   },
   {
@@ -380,6 +418,7 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [],
     "report": "EHAK 130555Z AUTO 02020KT 330V060 0150 -RA VV000 07/07 Q1027 RERAUPRA"
   },
   {
@@ -462,6 +501,7 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [],
     "report": "LTCK 130550Z 17006KT 9000 SCT030 BKN070 14/10 Q1013 RETSRA"
   },
   {
@@ -555,6 +595,32 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [
+      {
+        "indicator": "temporary",
+        "from_time": null,
+        "to_time": null,
+        "at_time": null,
+        "wind_from_direction": null,
+        "wind_from_direction_range": null,
+        "wind_speed": null,
+        "wind_gust": null,
+        "prevailing_visibility": null,
+        "minimum_visibility": null,
+        "directional_visibilites": [],
+        "weather": [
+          {
+            "intensity": "moderate",
+            "is_in_vicinity": false,
+            "descriptors": [
+              "thunderstorm"
+            ],
+            "phenomena": []
+          }
+        ],
+        "clouds": []
+      }
+    ],
     "report": "UTDD 130600Z 08003MPS 040V130 9999 SCT066CB BKN100 22/11 Q1019 RETS R09/CLRD// TEMPO TS RMK QFE696/0928"
   },
   {
@@ -654,6 +720,7 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [],
     "report": "DABC 121630Z 05005KT 9999 TS SCT016 FEW026CB SCT040 17/16 Q1011 REGRRA"
   },
   {
@@ -767,6 +834,23 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [
+      {
+        "indicator": "no_significant_change",
+        "from_time": null,
+        "to_time": null,
+        "at_time": null,
+        "wind_from_direction": null,
+        "wind_from_direction_range": null,
+        "wind_speed": null,
+        "wind_gust": null,
+        "prevailing_visibility": null,
+        "minimum_visibility": null,
+        "directional_visibilites": [],
+        "weather": [],
+        "clouds": []
+      }
+    ],
     "report": "FKYS 122100Z 14004KT 090V160 6000 -TSRA FEW003 BKN006 SCT016CB 21/21 Q1019 RESQ NOSIG"
   },
   {
@@ -843,6 +927,7 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [],
     "report": "LIVP 122255Z 20009KT 0000 FG VV/// 00/M01 Q1016 RESN"
   },
   {
@@ -952,6 +1037,7 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [],
     "report": "EHAK 130255Z AUTO 02018KT 320V070 0350 RA VV000 07/07 Q1026 REUP RERA REDZ"
   },
   {
@@ -1047,6 +1133,7 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [],
     "report": "EHAK 130055Z AUTO 02018KT 320V060 0450 RADZ VV000 07/07 Q1026 REUPRA"
   },
   {
@@ -1127,6 +1214,7 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [],
     "report": "EKVG 130120Z AUTO VRB04KT 1500 BR OVC002/// 09/08 Q1022 REDZRA RMK OVC001/// WIND SKEID VRB05G22KT"
   },
   {
@@ -1232,6 +1320,7 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [],
     "report": "LTCT 131250Z 10005KT 060V160 9999 FEW025CB BKN035 BKN080 20/10 Q1010 RESHRATS"
   },
   {
@@ -1312,6 +1401,23 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [
+      {
+        "indicator": "no_significant_change",
+        "from_time": null,
+        "to_time": null,
+        "at_time": null,
+        "wind_from_direction": null,
+        "wind_from_direction_range": null,
+        "wind_speed": null,
+        "wind_gust": null,
+        "prevailing_visibility": null,
+        "minimum_visibility": null,
+        "directional_visibilites": [],
+        "weather": [],
+        "clouds": []
+      }
+    ],
     "report": "UTTT 131330Z 26004KT 9999 TS BKN066CB 26/11 Q1014 REDS R26R/CLRD70 NOSIG"
   },
   {
@@ -1402,6 +1508,7 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [],
     "report": "ESNN 122350Z AUTO VRB03KT 9999 -RA BKN076/// OVC094/// 10/08 Q1026 RESHUP"
   },
   {
@@ -1469,6 +1576,7 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [],
     "report": "HKEM 130000Z 21002KT 9999 BKN017 18/17 RESH"
   },
   {
@@ -1575,6 +1683,7 @@
     "sea_temperature": null,
     "sea_state": null,
     "wave_height": null,
+    "trend_changes": [],
     "report": "LERS 121730Z 05011KT 6000 2000 TSRA FEW010 SCT020 SCT025CB 13/11 Q1014 RESHGR"
   }
 ]

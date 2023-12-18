@@ -71,7 +71,7 @@ lazy_static! {
 
     static ref PRESENT_WEATHER_RE: Regex = Regex::new(r"(?x)
         ^(?P<intensity>[-\+])?
-        (?P<code>(VC|MI|BC|PR|DR|BL|SH|TS|FZ|DZ|RA|SN|SG|PL|GR|GS|UP|BR|FG|FU|VA|DU|SA|HZ|PO|SQ|FC|SS|DS|IC|PY)+)
+        (?P<code>(VC|MI|BC|PR|DR|BL|SH|TS|FZ|DZ|RA|SN|SG|PL|GR|GS|UP|BR|FG|FU|VA|DU|SA|HZ|PO|SQ|FC|SS|DS|IC|PY|NSW)+)
         (?P<end>\s)
     ").unwrap();
 
@@ -97,7 +97,7 @@ lazy_static! {
 
     static ref RECENT_WEATHER_RE: Regex = Regex::new(r"(?x)
         ^RE(?P<intensity>[-\+])?
-        (?P<code>(VC|MI|BC|PR|DR|BL|SH|TS|FZ|DZ|RA|SN|SG|PL|GR|GS|UP|BR|FG|FU|VA|DU|SA|HZ|PO|SQ|FC|SS|DS|IC|PY)+)
+        (?P<code>(VC|MI|BC|PR|DR|BL|SH|TS|FZ|DZ|RA|SN|SG|PL|GR|GS|UP|BR|FG|FU|VA|DU|SA|HZ|PO|SQ|FC|SS|DS|IC|PY|NSW)+)
         (?P<end>\s)
     ").unwrap();
 
@@ -130,12 +130,21 @@ lazy_static! {
         ^R\d\d[A-Z]?/([\d/]{6}|CLRD[\d/]{2})
         (?P<end>\s)
     ").unwrap();
+
+    static ref TREND_TIME_RE: Regex = Regex::new(r"(?x)
+        ^(?P<indicator>FM|TL|AT)
+        \s?
+        (?P<hour>\d\d)
+        (?P<minute>\d\d)Z?
+        (?P<end>\s)
+    ").unwrap();
 }
 
 #[non_exhaustive]
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 enum Trend {
+    #[default]
     NoSignificantChange,
     Temporary,
     Becoming,
@@ -197,20 +206,20 @@ enum MetarTime {
 }
 
 impl MetarTime {
-    fn to_date_time(&self, anchor_time: &NaiveDateTime) -> MetarTime {
+    fn to_date_time(&self, anchor_time: NaiveDateTime) -> MetarTime {
         match self {
             MetarTime::DateTime(utc_dt) => MetarTime::DateTime(*utc_dt),
             MetarTime::DayTime(utc_d_t) => {
                 let first_guess_opt = anchor_time.date().with_day(utc_d_t.0).map(|nd| nd.and_time(utc_d_t.1));
-                let second_guess_opt = (*anchor_time + RelativeDuration::months(-1)).date().with_day(utc_d_t.0).map(|nd| nd.and_time(utc_d_t.1));
-                let third_guess_opt = (*anchor_time + RelativeDuration::months(1)).date().with_day(utc_d_t.0).map(|nd| nd.and_time(utc_d_t.1));
+                let second_guess_opt = (anchor_time + RelativeDuration::months(-1)).date().with_day(utc_d_t.0).map(|nd| nd.and_time(utc_d_t.1));
+                let third_guess_opt = (anchor_time + RelativeDuration::months(1)).date().with_day(utc_d_t.0).map(|nd| nd.and_time(utc_d_t.1));
 
                 let mut final_guess_opt = None;
                 let mut final_delta = i64::MAX;
 
                 for guess_opt in [first_guess_opt, second_guess_opt, third_guess_opt] {
                     if let Some(guess) = guess_opt {
-                        let delta = guess.signed_duration_since(*anchor_time).num_seconds().abs();
+                        let delta = guess.signed_duration_since(anchor_time).num_seconds().abs();
                         if delta < final_delta {
                             final_guess_opt = guess_opt;
                             final_delta = delta;
@@ -220,7 +229,6 @@ impl MetarTime {
 
                 match final_guess_opt {
                     Some(final_guess) => MetarTime::DateTime(UtcDateTime(final_guess)),
-                    // TODO: Make date guessing more robust and correctly handle the error.
                     None => panic!("{}", format!("Date guessing failed, given time {:?} and anchor time {}", self, anchor_time))
                 }
             },
@@ -230,10 +238,10 @@ impl MetarTime {
                 let third_guess = first_guess + Duration::days(1);
 
                 let mut final_guess = first_guess;
-                let mut final_delta = final_guess.signed_duration_since(*anchor_time).num_seconds().abs();
+                let mut final_delta = final_guess.signed_duration_since(anchor_time).num_seconds().abs();
 
                 for guess in [second_guess, third_guess] {
-                    let delta = guess.signed_duration_since(*anchor_time).num_seconds().abs();
+                    let delta = guess.signed_duration_since(anchor_time).num_seconds().abs();
                     if delta < final_delta {
                         final_guess = guess;
                         final_delta = delta;
@@ -255,7 +263,13 @@ struct Header {
     is_automated: Option<bool>,
 }
 
-fn handle_header(text: &str, anchor_time: Option<&NaiveDateTime>) -> Option<(Header, usize)> {
+impl Header {
+    fn is_empty(&self) -> bool {
+        self.station_id.is_none() && self.observation_time.is_none() && self.is_corrected.is_none() && self.is_automated.is_none()
+    }
+}
+
+fn handle_header(text: &str, anchor_time: Option<NaiveDateTime>) -> Option<(Header, usize)> {
     HEADER_RE.captures(text)
         .map(|capture| {
             let station_id = Some(capture["station_id"].to_string());
@@ -265,11 +279,7 @@ fn handle_header(text: &str, anchor_time: Option<&NaiveDateTime>) -> Option<(Hea
             let minute = capture["minute"].parse().unwrap();
 
             let naive_time = NaiveTime::from_hms_opt(hour, minute, 0);
-
-            let mut time = match naive_time {
-                Some(nt) => Some(MetarTime::DayTime(UtcDayTime(day, nt))),
-                None => None,
-            };
+            let mut time = naive_time.map(|nt| MetarTime::DayTime(UtcDayTime(day, nt)));
 
             if let Some(at) = anchor_time {
                 time = time.map(|t| t.to_date_time(at));
@@ -417,17 +427,17 @@ impl FromStr for Value {
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         if s == "VRB" {
             Ok(Value::Variable)
+        } else if s.contains('V') {
+            let mut split = s.split('V');
+            let value1 = ValueInRange::from_str(split.next().unwrap()).unwrap();
+            let value2 = ValueInRange::from_str(split.next().unwrap()).unwrap();
+            Ok(Value::Range(value1, value2))
         } else if let Some(stripped) = s.strip_prefix('P') {
             let value = parse_value(stripped).unwrap();
             Ok(Value::Above(value))
         } else if let Some(stripped) = s.strip_prefix('M') {
             let value = parse_value(stripped).unwrap();
             Ok(Value::Below(value))
-        } else if s.contains('V') {
-            let mut split = s.split('V');
-            let value1 = ValueInRange::from_str(split.next().unwrap()).unwrap();
-            let value2 = ValueInRange::from_str(split.next().unwrap()).unwrap();
-            Ok(Value::Range(value1, value2))
         } else {
             let value = parse_value(s).unwrap();
             Ok(Value::Exact(value))
@@ -489,6 +499,12 @@ struct Wind {
     wind_from_direction_range: Option<Quantity>,
     wind_speed: Option<Quantity>,
     wind_gust: Option<Quantity>,
+}
+
+impl Wind {
+    fn is_empty(&self) -> bool {
+        self.wind_from_direction.is_none() && self.wind_from_direction_range.is_none() && self.wind_speed.is_none() && self.wind_gust.is_none()
+    }
 }
 
 fn handle_wind(text: &str) -> Option<(Wind, usize)> {
@@ -577,6 +593,12 @@ struct Visibility {
     prevailing_visibility: Option<Quantity>,
     minimum_visibility: Option<Quantity>,
     directional_visibilites: Vec<DirectionalVisibility>,
+}
+
+impl Visibility {
+    fn is_empty(&self) -> bool {
+        self.prevailing_visibility.is_none() && self.minimum_visibility.is_none() && self.directional_visibilites.is_empty()
+    }
 }
 
 fn handle_visibility(text: &str) -> Option<(Visibility, bool, usize)> {
@@ -758,6 +780,7 @@ enum WeatherPhenomena {
     Duststorm,
     IceCrystals,
     Spray,
+    NilSignificantWeather,
 }
 
 impl FromStr for WeatherPhenomena {
@@ -787,6 +810,7 @@ impl FromStr for WeatherPhenomena {
             "DS" => Ok(WeatherPhenomena::Duststorm),
             "IC" => Ok(WeatherPhenomena::IceCrystals),
             "PY" => Ok(WeatherPhenomena::Spray),
+            "NSW" => Ok(WeatherPhenomena::NilSignificantWeather),
             _ => Err(anyhow!("Invalid weather phenomena, given {}", s))
         }
     }
@@ -808,11 +832,15 @@ fn handle_weather(weather_re: &Regex, text: &str) -> Option<(WeatherCondition, u
                 .map(|c| WeatherIntensity::from_str(c.as_str()).unwrap())
                 .unwrap_or(WeatherIntensity::Moderate);
 
-            let groups = capture["code"].chars()
-                .collect::<Vec<_>>()
-                .chunks(2)
-                .map(String::from_iter)
-                .collect::<Vec<_>>();
+            let groups = if &capture["code"] == "NSW" {
+                vec!["NSW".to_string()]
+            } else {
+                capture["code"].chars()
+                    .collect::<Vec<_>>()
+                    .chunks(2)
+                    .map(String::from_iter)
+                    .collect::<Vec<_>>()
+            };
 
             let mut is_in_vicinity = false;
             let mut descriptors = Vec::new();
@@ -1013,6 +1041,12 @@ struct Pressure {
     pressure: Option<Quantity>,
 }
 
+impl Pressure {
+    fn is_empty(&self) -> bool {
+        self.pressure.is_none()
+    }
+}
+
 fn handle_pressure(text: &str) -> Option<(Pressure, usize)> {
     PRESSURE_RE.captures(text)
         .map(|capture| {
@@ -1059,10 +1093,10 @@ fn handle_wind_shear(text: &str) -> Option<(WindShear, usize)> {
         })
 }
 
+/// Sea state from WMO Code Table 3700.
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
-/// Sea state from WMO Code Table 3700.
 enum SeaState {
     Glassy,
     Rippled,
@@ -1160,9 +1194,81 @@ fn handle_runway_state(text: &str) -> Option<usize> {
         })
 }
 
-/// A decoded METAR report.
+#[non_exhaustive]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+enum TrendTimeIndicator {
+    From,
+    Until,
+    At,
+}
+
+impl FromStr for TrendTimeIndicator {
+    type Err = Error;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s {
+            "FM" => Ok(TrendTimeIndicator::From),
+            "TL" => Ok(TrendTimeIndicator::Until),
+            "AT" => Ok(TrendTimeIndicator::At),
+            _ => Err(anyhow!("Invalid trend time indicator, given {}", s))
+        }
+    }
+}
+
 #[non_exhaustive]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+struct TrendTime {
+    indicator: TrendTimeIndicator,
+    time: Option<MetarTime>,
+}
+
+fn handle_trend_time(text: &str, anchor_time: Option<NaiveDateTime>) -> Option<(TrendTime, usize)> {
+    TREND_TIME_RE.captures(text)
+        .map(|capture| {
+            let indicator = TrendTimeIndicator::from_str(&capture["indicator"]).unwrap();
+            let mut hour = capture["hour"].parse().unwrap();
+            let minute = capture["minute"].parse().unwrap();
+
+            if hour == 24 {
+                hour = 0;
+            }
+
+            let naive_time = NaiveTime::from_hms_opt(hour, minute, 0);
+            let mut time = naive_time.map(|nt| MetarTime::Time(UtcTime(nt)));
+
+            if let Some(at) = anchor_time {
+                time = time.map(|t| t.to_date_time(at));
+            }
+
+            let end = capture.name("end").unwrap().end();
+
+            let trend_time = TrendTime { indicator, time };
+
+            (trend_time, end)
+        })
+}
+
+/// Significant changes in the meteorological conditions in the TREND forecast.
+/// Only elements for which a significant change is expected are [Option::Some].
+#[non_exhaustive]
+#[derive(Debug, Clone, Default, PartialEq, Serialize, Deserialize)]
+struct TrendChange {
+    indicator: Trend,
+    from_time: Option<MetarTime>,
+    to_time: Option<MetarTime>,
+    at_time: Option<MetarTime>,
+    #[serde(flatten)]
+    wind: Wind,
+    #[serde(flatten)]
+    visibility: Visibility,
+    weather: Vec<WeatherCondition>,
+    clouds: Vec<CloudLayer>,
+}
+
+/// Decoded METAR report.
+#[non_exhaustive]
+#[derive(Debug, Clone, Default, PartialEq, Serialize, Deserialize)]
 pub struct Metar {
     #[serde(flatten)]
     header: Header,
@@ -1181,6 +1287,7 @@ pub struct Metar {
     wind_shears: Vec<WindShear>,
     #[serde(flatten)]
     sea: Sea,
+    trend_changes: Vec<TrendChange>,
     pub report: String,
 }
 
@@ -1189,23 +1296,18 @@ pub struct Metar {
 /// The optional `anchor_time` specifies a day close the the one when the report was collected.
 /// If given, the decoded METAR day and time will be matched against it to create [UtcDateTime]
 /// struct which fully describes date and time.
-pub fn decode_metar(report: &str, anchor_time: Option<&NaiveDateTime>) -> Result<Metar> {
+pub fn decode_metar(report: &str, anchor_time: Option<NaiveDateTime>) -> Result<Metar> {
     let mut sanitized = report.to_uppercase().trim().replace('\x00', "");
     sanitized = WHITESPACE_REPLACE_RE.replace_all(&sanitized, *WHITESPACE_REPLACE_OUT).to_string();
     let report = END_REPLACE_RE.replace_all(&sanitized, *END_REPLACE_OUT).to_string();
 
     let mut section = Section::Main;
-    let mut header = None;
-    let mut wind = None;
-    let mut visibility = None;
-    let mut runway_visual_ranges = Vec::new();
-    let mut present_weather_conditions = Vec::new();
-    let mut clouds = Vec::new();
-    let mut temperature = None;
-    let mut pressure = None;
-    let mut recent_weather_conditions = Vec::new();
-    let mut wind_shears = Vec::new();
-    let mut sea = None;
+
+    let mut metar = Metar::default();
+    metar.report = report.trim().to_string();
+
+    let mut processing_trend_change = false;
+    let mut trend_change = TrendChange::default();
 
     let mut unparsed_groups = Vec::new();
 
@@ -1217,34 +1319,46 @@ pub fn decode_metar(report: &str, anchor_time: Option<&NaiveDateTime>) -> Result
         if let Some((sec, relative_end)) = handle_section(sub_report) {
             section = sec;
             idx += relative_end;
+
+            if processing_trend_change {
+                metar.trend_changes.push(trend_change.clone());
+                processing_trend_change = false;
+                trend_change = TrendChange::default();
+            }
+
+            if let Section::Trend(trend) = section {
+                processing_trend_change = true;
+                trend_change.indicator = trend;
+            }
+
             continue;
         }
 
         match section {
             Section::Main => {
-                if header.is_none() {
-                    if let Some((h, relative_end)) = handle_header(sub_report, anchor_time) {
-                        header = Some(h);
+                if metar.header.is_empty() {
+                    if let Some((header, relative_end)) = handle_header(sub_report, anchor_time) {
+                        metar.header = header;
                         idx += relative_end;
                         continue;
                     }
                 }
 
-                if wind.is_none() {
-                    if let Some((w, relative_end)) = handle_wind(sub_report) {
-                        wind = Some(w);
+                if metar.wind.is_empty() {
+                    if let Some((wind, relative_end)) = handle_wind(sub_report) {
+                        metar.wind = wind;
                         idx += relative_end;
                         continue;
                     }
                 }
 
-                if visibility.is_none() {
-                    if let Some((vis, is_cavok, relative_end)) = handle_visibility(sub_report) {
-                        visibility = Some(vis);
+                if metar.visibility.is_empty() {
+                    if let Some((visibility, is_cavok, relative_end)) = handle_visibility(sub_report) {
+                        metar.visibility = visibility;
 
                         if is_cavok {
-                            let cl = CloudLayer { cover: Some(CloudCover::CeilingOk) , height: None, cloud_type: None };
-                            clouds.push(cl);
+                            let cloud_layer = CloudLayer { cover: Some(CloudCover::CeilingOk) , height: None, cloud_type: None };
+                            metar.clouds.push(cloud_layer);
                         }
 
                         idx += relative_end;
@@ -1252,121 +1366,165 @@ pub fn decode_metar(report: &str, anchor_time: Option<&NaiveDateTime>) -> Result
                     }
                 }
 
-                if let Some((pw, relative_end)) = handle_present_weather(sub_report) {
-                    present_weather_conditions.push(pw);
+                if let Some((weather_condition, relative_end)) = handle_present_weather(sub_report) {
+                    metar.present_weather.push(weather_condition);
                     idx += relative_end;
                     continue;
                 }
 
-                if let Some((rvr, relative_end)) = handle_runway_visual_range(sub_report) {
-                    runway_visual_ranges.push(rvr);
+                if let Some((runway_visual_range, relative_end)) = handle_runway_visual_range(sub_report) {
+                    metar.runway_visual_ranges.push(runway_visual_range);
                     idx += relative_end;
                     continue;
                 }
 
-                if let Some((cl, relative_end)) = handle_cloud_layer(sub_report) {
-                    if !cl.is_empty() {
-                        clouds.push(cl);
+                if let Some((cloud_layer, relative_end)) = handle_cloud_layer(sub_report) {
+                    if !cloud_layer.is_empty() {
+                        metar.clouds.push(cloud_layer);
                     }
+
                     idx += relative_end;
                     continue;
                 }
 
-                if temperature.is_none() {
-                    if let Some((temp, relative_end)) = handle_temperature(sub_report) {
-                        if !temp.is_empty() {
-                            temperature = Some(temp);
+                if metar.temperature.is_empty() {
+                    if let Some((temperature, relative_end)) = handle_temperature(sub_report) {
+                        if !temperature.is_empty() {
+                            metar.temperature = temperature;
                         }
+
                         idx += relative_end;
                         continue;
                     }
                 }
 
-                if pressure.is_none() {
-                    if let Some((p, relative_end)) = handle_pressure(sub_report) {
-                        pressure = Some(p);
+                if metar.pressure.is_empty() {
+                    if let Some((pressure, relative_end)) = handle_pressure(sub_report) {
+                        metar.pressure = pressure;
                         idx += relative_end;
                         continue;
                     }
                 }
 
-                if let Some((rw, relative_end)) = handle_recent_weather(sub_report) {
-                    recent_weather_conditions.push(rw);
+                if let Some((weather_condition, relative_end)) = handle_recent_weather(sub_report) {
+                    metar.recent_weather.push(weather_condition);
                     idx += relative_end;
                     continue;
                 }
 
-                if let Some((ws, relative_end)) = handle_wind_shear(sub_report) {
-                    wind_shears.push(ws);
+                if let Some((wind_shear, relative_end)) = handle_wind_shear(sub_report) {
+                    metar.wind_shears.push(wind_shear);
                     idx += relative_end;
                     continue;
                 }
 
-                if sea.is_none() {
-                    if let Some((s, relative_end)) = handle_sea(sub_report) {
-                        if !s.is_empty() {
-                            sea = Some(s);
+                if metar.sea.is_empty() {
+                    if let Some((sea, relative_end)) = handle_sea(sub_report) {
+                        if !sea.is_empty() {
+                            metar.sea = sea;
                         }
+
                         idx += relative_end;
                         continue;
                     }
                 }
 
-                // Colour state, will not store,
-                // for more info see <https://en.wikipedia.org/wiki/Colour_state>
+                // Colour state, won't store. For more info check:
+                // <https://en.wikipedia.org/wiki/Colour_state>
                 if let Some(relative_end) = handle_color(sub_report) {
                     idx += relative_end;
                     continue;
                 }
 
-                // Rainfall in last 10min / since 0900 local time, will not store,
-                // for more info see <http://www.bom.gov.au/aviation/Aerodrome/metar-speci.pdf>
+                // Rainfall in last 10min / since 0900 local time, won't store. For more info check:
+                // <http://www.bom.gov.au/aviation/Aerodrome/metar-speci.pdf>
                 if let Some(relative_end) = handle_rainfall(sub_report) {
                     idx += relative_end;
                     continue;
                 }
 
-                // Runway state (should be part of SNOWTAM), will not store,
-                // for more info see <https://www.icao.int/WACAF/Documents/Meetings/2021/GRF/2.%20Provisions%20on%20GRF.pdf>
+                // Runway state (should be part of SNOWTAM), won't store. For more info check:
+                // <https://www.icao.int/WACAF/Documents/Meetings/2021/GRF/2.%20Provisions%20on%20GRF.pdf>
                 if let Some(relative_end) = handle_runway_state(sub_report) {
                     idx += relative_end;
                     continue;
                 }
             },
-            Section::Trend(_) => (), // TODO: https://github.com/meandair/rweather-decoder/issues/14
+            Section::Trend(_) => {
+                if let Some((trend_time, relative_end)) = handle_trend_time(sub_report, anchor_time) {
+                    match trend_time.indicator {
+                        TrendTimeIndicator::From => {
+                            trend_change.from_time = trend_time.time;
+                        },
+                        TrendTimeIndicator::Until => {
+                            trend_change.to_time = trend_time.time;
+                        },
+                        TrendTimeIndicator::At => {
+                            trend_change.at_time = trend_time.time;
+                        },
+                    }
+
+                    idx += relative_end;
+                    continue;
+                }
+
+                if trend_change.wind.is_empty() {
+                    if let Some((wind, relative_end)) = handle_wind(sub_report) {
+                        trend_change.wind = wind;
+                        idx += relative_end;
+                        continue;
+                    }
+                }
+
+                if trend_change.visibility.is_empty() {
+                    if let Some((visibility, is_cavok, relative_end)) = handle_visibility(sub_report) {
+                        trend_change.visibility = visibility;
+
+                        if is_cavok {
+                            let cloud_layer = CloudLayer { cover: Some(CloudCover::CeilingOk) , height: None, cloud_type: None };
+                            trend_change.clouds.push(cloud_layer);
+                        }
+
+                        idx += relative_end;
+                        continue;
+                    }
+                }
+
+                if let Some((weather_condition, relative_end)) = handle_present_weather(sub_report) {
+                    trend_change.weather.push(weather_condition);
+                    idx += relative_end;
+                    continue;
+                }
+
+                if let Some((cloud_layer, relative_end)) = handle_cloud_layer(sub_report) {
+                    if !cloud_layer.is_empty() {
+                        trend_change.clouds.push(cloud_layer);
+                    }
+
+                    idx += relative_end;
+                    continue;
+                }
+            },
             Section::Remark => (), // TODO: https://github.com/meandair/rweather-decoder/issues/15
         }
 
         let relative_end = sub_report.find(' ').unwrap();
 
-        if section == Section::Main { // TODO: Push from all sections that are being decoded.
-            let unparsed = &report[idx..idx + relative_end];
-            if unparsed.chars().any(|c| c != '/') {
-                unparsed_groups.push(unparsed);
-            }
+        let unparsed = &report[idx..idx + relative_end];
+        if unparsed.chars().any(|c| c != '/') {
+            unparsed_groups.push(unparsed);
         }
 
         idx += relative_end + 1;
     }
 
-    let report = report.trim().to_string();
+    if processing_trend_change {
+        metar.trend_changes.push(trend_change);
+    }
 
     if !unparsed_groups.is_empty() {
         debug!("Unparsed data: {}, report: {}", unparsed_groups.join(" "), report);
     }
 
-    Ok(Metar {
-        header: header.unwrap_or_default(),
-        wind: wind.unwrap_or_default(),
-        visibility: visibility.unwrap_or_default(),
-        present_weather: present_weather_conditions,
-        runway_visual_ranges,
-        clouds,
-        temperature: temperature.unwrap_or_default(),
-        pressure: pressure.unwrap_or_default(),
-        recent_weather: recent_weather_conditions,
-        wind_shears,
-        sea: sea.unwrap_or_default(),
-        report,
-    })
+    Ok(metar)
 }
