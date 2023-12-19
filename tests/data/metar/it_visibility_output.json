@@ -39,11 +39,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 1600.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 2.0,
@@ -60,6 +55,11 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [],
     "report": "KC62 021215Z AUTO 30007KT 10SM OVC016 02/00 A2985 RMK AO2 T00200003"
   },
   {
@@ -111,10 +111,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 27.0,
@@ -131,6 +127,11 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [],
     "report": "PTKK 021151Z 04007KT 15SM FEW014 SCT300 27/23 A2981 RMK SLP098 8/101 T02740234 10294 20274 52015"
   },
   {
@@ -169,10 +170,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 23.0,
@@ -189,6 +186,11 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [],
     "report": "KEZP 021145Z AUTO 00000KT 8SM SCT014 23/22 A2978 RMK A01"
   },
   {
@@ -223,7 +225,7 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "snow"
         ]
@@ -249,11 +251,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 500.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": -0.0,
@@ -270,6 +267,11 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [],
     "report": "CYHU 021147Z AUTO 04010KT 3SM -SN BKN005 OVC022 M00/M01 A2968 RMK SLP052"
   },
   {
@@ -304,7 +306,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "mist"
         ]
@@ -321,11 +323,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 400.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 1.0,
@@ -342,6 +339,11 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [],
     "report": "KPTK 021208Z COR 29011KT 1 SM BR OVC004 01/01 A2977 RMK AO2 SFC VIS 1 3/4 T00110006"
   },
   {
@@ -376,7 +378,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "mist"
         ]
@@ -393,11 +395,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 300.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 5.0,
@@ -414,6 +411,11 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [],
     "report": "KLDJ 021155Z AUTO 36004KT 1 1/4SM BR OVC003 05/04 A2973 RMK AO2 T00450040 10056 20043"
   },
   {
@@ -448,7 +450,7 @@
       {
         "intensity": "heavy",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "rain"
         ]
@@ -483,11 +485,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 4300.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 18.0,
@@ -504,6 +501,11 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [],
     "report": "KNFE 021145Z AUTO 23005KT 2 1/2SM +RA FEW008 BKN043 OVC060 18/15 A2979 RMK AO2 TSE23 P0021 T01780150 $"
   },
   {
@@ -544,7 +546,7 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "rain"
         ]
@@ -552,7 +554,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "fog"
         ]
@@ -569,11 +571,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 300.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 2.0,
@@ -590,6 +587,11 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [],
     "report": "KSWF 021145Z 00000KT 1/2SM R09/5000FT -RA FG OVC003 02/02 A2967 RMK PRESFR"
   },
   {
@@ -624,7 +626,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "mist"
         ]
@@ -641,11 +643,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 300.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": -3.0,
@@ -662,6 +659,11 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [],
     "report": "CYKF 021152Z AUTO 32007KT 5/8SM BR OVC003 M03/M03 A2974 RMK SLP087"
   },
   {
@@ -692,7 +694,7 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "rain"
         ]
@@ -709,11 +711,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 100.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 16.0,
@@ -730,6 +727,11 @@
       "units": "inHg"
     },
     "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [],
     "report": "KINF 021155Z AUTO 00000KT M1/4SM -RA OVC001 16/16 A3001 RMK AO2"
   },
   {
@@ -781,11 +783,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 1400.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 26.0,
@@ -802,6 +799,11 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [],
     "report": "YPTN 021145Z AUTO 33009KT 9999 // BKN014 OVC039 26/24 Q1004"
   },
   {
@@ -836,7 +838,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "haze"
         ]
@@ -849,10 +851,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 26.0,
@@ -869,6 +867,27 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [
+      {
+        "indicator": "no_significant_change",
+        "from_time": null,
+        "to_time": null,
+        "at_time": null,
+        "wind_from_direction": null,
+        "wind_from_direction_range": null,
+        "wind_speed": null,
+        "wind_gust": null,
+        "prevailing_visibility": null,
+        "minimum_visibility": null,
+        "directional_visibilites": [],
+        "weather": [],
+        "clouds": []
+      }
+    ],
     "report": "OJAI 021200Z 27004KT 5000 HZ NSC 26/M02 Q1016 NOSIG"
   },
   {
@@ -922,7 +941,9 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": "freezing",
+        "descriptors": [
+          "freezing"
+        ],
         "phenomena": [
           "fog"
         ]
@@ -935,10 +956,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "indefinite",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": -1.0,
@@ -955,6 +972,11 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [],
     "report": "EDBC 021150Z 35007KT 0450 0400S R07/0600U FZFG VV/// M01/M01 Q1024"
   },
   {
@@ -1002,7 +1024,7 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "snow"
         ]
@@ -1010,7 +1032,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "fog"
         ]
@@ -1023,10 +1045,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "indefinite",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 2.0,
@@ -1043,6 +1061,11 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [],
     "report": "LIBQ 021155Z 26006KT 220V290 0000 -SN FG VV/// 02/00 Q1013"
   },
   {
@@ -1063,11 +1086,15 @@
     "runway_visual_ranges": [],
     "present_weather": [],
     "clouds": [],
-    "ceiling": null,
     "temperature": null,
     "dew_point": null,
     "pressure": null,
     "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [],
     "report": "KEMV 021155Z AUTO RMK AO2 6//// 7//// 10145 20071 PWINO PNO TSNO"
   },
   {
@@ -1106,7 +1133,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "rain"
         ]
@@ -1137,11 +1164,6 @@
         "cloud_type": "towering_cumulus"
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 3600.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 11.0,
@@ -1158,6 +1180,70 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [
+      {
+        "indicator": "temporary",
+        "from_time": null,
+        "to_time": null,
+        "at_time": null,
+        "wind_from_direction": null,
+        "wind_from_direction_range": null,
+        "wind_speed": null,
+        "wind_gust": null,
+        "prevailing_visibility": {
+          "value_type": "exact",
+          "value": 4500.0,
+          "units": "m"
+        },
+        "minimum_visibility": null,
+        "directional_visibilites": [],
+        "weather": [
+          {
+            "intensity": "moderate",
+            "is_in_vicinity": false,
+            "descriptors": [
+              "shower"
+            ],
+            "phenomena": [
+              "rain"
+            ]
+          }
+        ],
+        "clouds": [
+          {
+            "cover": "broken",
+            "height": {
+              "value_type": "exact",
+              "value": 3000.0,
+              "units": "ft"
+            },
+            "cloud_type": null
+          },
+          {
+            "cover": "scattered",
+            "height": {
+              "value_type": "exact",
+              "value": 4500.0,
+              "units": "ft"
+            },
+            "cloud_type": "cumulonimbus"
+          },
+          {
+            "cover": "overcast",
+            "height": {
+              "value_type": "exact",
+              "value": 6000.0,
+              "units": "ft"
+            },
+            "cloud_type": null
+          }
+        ]
+      }
+    ],
     "report": "LFKF 021200Z AUTO 23007KT 9000 4400 RA BKN036/// OVC044/// ///TCU 11/08 Q1012 TEMPO 4500 SHRA BKN030 SCT045CB OVC060"
   },
   {
@@ -1206,7 +1292,9 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": "shower",
+        "descriptors": [
+          "shower"
+        ],
         "phenomena": [
           "snow"
         ]
@@ -1223,11 +1311,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 700.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 1.0,
@@ -1247,12 +1330,19 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": "shower",
+        "descriptors": [
+          "shower"
+        ],
         "phenomena": [
           "rain"
         ]
       }
     ],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [],
     "report": "EFVA 021220Z AUTO 34005KT 2100 1100 R34/2000D -SHSN OVC007 01/M00 Q1004 RESHRA"
   },
   {
@@ -1304,10 +1394,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 5.0,
@@ -1324,6 +1410,11 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [],
     "report": "EDGS 021150Z 07009KT 030V090 CAVOK 05/M05 Q1019"
   },
   {
@@ -1375,10 +1466,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 12.0,
@@ -1395,6 +1482,27 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [
+      {
+        "indicator": "no_significant_change",
+        "from_time": null,
+        "to_time": null,
+        "at_time": null,
+        "wind_from_direction": null,
+        "wind_from_direction_range": null,
+        "wind_speed": null,
+        "wind_gust": null,
+        "prevailing_visibility": null,
+        "minimum_visibility": null,
+        "directional_visibilites": [],
+        "weather": [],
+        "clouds": []
+      }
+    ],
     "report": "LFMY 021200Z AUTO 35009KT 320V020 CAVOK 12/02 Q1015 NOSIG"
   },
   {
@@ -1451,7 +1559,9 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": "shower",
+        "descriptors": [
+          "shower"
+        ],
         "phenomena": [
           "snow",
           "rain"
@@ -1478,11 +1588,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 2000.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 1.0,
@@ -1499,6 +1604,52 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [
+      {
+        "indicator": "temporary",
+        "from_time": null,
+        "to_time": null,
+        "at_time": null,
+        "wind_from_direction": null,
+        "wind_from_direction_range": null,
+        "wind_speed": null,
+        "wind_gust": null,
+        "prevailing_visibility": {
+          "value_type": "exact",
+          "value": 1000.0,
+          "units": "m"
+        },
+        "minimum_visibility": null,
+        "directional_visibilites": [],
+        "weather": [
+          {
+            "intensity": "moderate",
+            "is_in_vicinity": false,
+            "descriptors": [
+              "shower"
+            ],
+            "phenomena": [
+              "snow"
+            ]
+          }
+        ],
+        "clouds": [
+          {
+            "cover": "vertical_visibility",
+            "height": {
+              "value_type": "exact",
+              "value": 700.0,
+              "units": "ft"
+            },
+            "cloud_type": null
+          }
+        ]
+      }
+    ],
     "report": "ENDU 021150Z 23005KT 170V270 9000 4000N -SHSNRA FEW008 BKN020 01/M01 Q0997 TEMPO 1000 SHSN VV007 RMK WIND 1100FT 23010KT WIND 2200FT 26019KT"
   },
   {
@@ -1546,10 +1697,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "unlimited",
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 21.0,
@@ -1566,6 +1713,27 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [
+      {
+        "indicator": "no_significant_change",
+        "from_time": null,
+        "to_time": null,
+        "at_time": null,
+        "wind_from_direction": null,
+        "wind_from_direction_range": null,
+        "wind_speed": null,
+        "wind_gust": null,
+        "prevailing_visibility": null,
+        "minimum_visibility": null,
+        "directional_visibilites": [],
+        "weather": [],
+        "clouds": []
+      }
+    ],
     "report": "SPJC 021200Z 19003KT 9999 3300SE NSC 21/19 Q1010 NOSIG RMK TN20.9 FU W PP000"
   },
   {
@@ -1609,7 +1777,9 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": "patches",
+        "descriptors": [
+          "patches"
+        ],
         "phenomena": [
           "fog"
         ]
@@ -1635,11 +1805,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 8000.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 14.0,
@@ -1656,6 +1821,53 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [
+      {
+        "indicator": "becoming",
+        "from_time": null,
+        "to_time": null,
+        "at_time": {
+          "value_type": "date_time",
+          "value": "2023-03-02T12:40:00Z"
+        },
+        "wind_from_direction": null,
+        "wind_from_direction_range": null,
+        "wind_speed": null,
+        "wind_gust": null,
+        "prevailing_visibility": {
+          "value_type": "above",
+          "value": 10000.0,
+          "units": "m"
+        },
+        "minimum_visibility": null,
+        "directional_visibilites": [],
+        "weather": [
+          {
+            "intensity": "moderate",
+            "is_in_vicinity": false,
+            "descriptors": [],
+            "phenomena": [
+              "nil_significant_weather"
+            ]
+          }
+        ],
+        "clouds": [
+          {
+            "cover": "scattered",
+            "height": {
+              "value_type": "exact",
+              "value": 1300.0,
+              "units": "ft"
+            },
+            "cloud_type": null
+          }
+        ]
+      }
+    ],
     "report": "SKRG 021200Z 36003KT 9999 5000S BCFG FEW010 BKN080 14/14 Q1024 BECMG AT1240 9999 NSW SCT013 RMK A3025"
   },
   {
@@ -1708,7 +1920,7 @@
       {
         "intensity": "moderate",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "mist"
         ]
@@ -1734,11 +1946,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 500.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 4.0,
@@ -1755,6 +1962,27 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [
+      {
+        "indicator": "no_significant_change",
+        "from_time": null,
+        "to_time": null,
+        "at_time": null,
+        "wind_from_direction": null,
+        "wind_from_direction_range": null,
+        "wind_speed": null,
+        "wind_gust": null,
+        "prevailing_visibility": null,
+        "minimum_visibility": null,
+        "directional_visibilites": [],
+        "weather": [],
+        "clouds": []
+      }
+    ],
     "report": "LQBK 021200Z VRB01KT 2500 1000N R16/0400N BR SCT002 OVC005 04/04 Q1020 NOSIG"
   },
   {
@@ -1798,7 +2026,7 @@
       {
         "intensity": "light",
         "is_in_vicinity": false,
-        "descriptor": null,
+        "descriptors": [],
         "phenomena": [
           "snow"
         ]
@@ -1815,11 +2043,6 @@
         "cloud_type": null
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 900.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 0.0,
@@ -1836,6 +2059,321 @@
       "units": "hPa"
     },
     "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [],
     "report": "ENSK 021220Z 28011KT 4000 2000NE -SN VV009 00/M00 Q1001"
+  },
+  {
+    "station_id": "LOXT",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-03-02T11:50:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 40.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 8.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 20.0,
+      "units": "km"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [],
+    "clouds": [
+      {
+        "cover": "sky_clear",
+        "height": null,
+        "cloud_type": null
+      }
+    ],
+    "temperature": {
+      "value_type": "exact",
+      "value": 10.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": -0.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1020.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [
+      {
+        "indicator": "no_significant_change",
+        "from_time": null,
+        "to_time": null,
+        "at_time": null,
+        "wind_from_direction": null,
+        "wind_from_direction_range": null,
+        "wind_speed": null,
+        "wind_gust": null,
+        "prevailing_visibility": null,
+        "minimum_visibility": null,
+        "directional_visibilites": [],
+        "weather": [],
+        "clouds": []
+      }
+    ],
+    "report": "LOXT 021150Z 04008KT 20KM SKC 10/M00 Q1020 NOSIG RMK WIND INFO EST/SKC"
+  },
+  {
+    "station_id": "OSLK",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-05-02T12:00:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 240.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 4.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "above",
+      "value": 10000.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [],
+    "clouds": [
+      {
+        "cover": "ceiling_ok",
+        "height": null,
+        "cloud_type": null
+      }
+    ],
+    "temperature": {
+      "value_type": "exact",
+      "value": 26.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 6.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1012.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [],
+    "report": "OSLK 021200Z 24004KT KAVOK 26/06 Q1012"
+  },
+  {
+    "station_id": "KMWN",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-05-02T11:53:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 210.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 33.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 0.0625,
+      "units": "mi"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [
+      {
+        "intensity": "light",
+        "is_in_vicinity": false,
+        "descriptors": [],
+        "phenomena": [
+          "snow"
+        ]
+      },
+      {
+        "intensity": "moderate",
+        "is_in_vicinity": false,
+        "descriptors": [
+          "freezing"
+        ],
+        "phenomena": [
+          "fog"
+        ]
+      },
+      {
+        "intensity": "moderate",
+        "is_in_vicinity": false,
+        "descriptors": [
+          "blowing"
+        ],
+        "phenomena": [
+          "snow"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "vertical_visibility",
+        "height": {
+          "value_type": "exact",
+          "value": 100.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "temperature": {
+      "value_type": "exact",
+      "value": -6.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": -6.0,
+      "units": "degC"
+    },
+    "pressure": null,
+    "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [],
+    "report": "KMWN 021153Z 21033KT 1/16SM -SN FZFG BLSN VV001 M06/M06 RMK VRY LGT ICG 60001 70002 4/030 931001 11058 21100"
+  },
+  {
+    "station_id": "UTAM",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2023-11-08T14:00:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 290.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 8.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 60000.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [
+      {
+        "intensity": "moderate",
+        "is_in_vicinity": false,
+        "descriptors": [],
+        "phenomena": [
+          "haze"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "few",
+        "height": {
+          "value_type": "exact",
+          "value": 23000.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "temperature": {
+      "value_type": "exact",
+      "value": 16.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 5.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1024.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [
+      {
+        "indicator": "no_significant_change",
+        "from_time": null,
+        "to_time": null,
+        "at_time": null,
+        "wind_from_direction": null,
+        "wind_from_direction_range": null,
+        "wind_speed": null,
+        "wind_gust": null,
+        "prevailing_visibility": null,
+        "minimum_visibility": null,
+        "directional_visibilites": [],
+        "weather": [],
+        "clouds": []
+      }
+    ],
+    "report": "UTAM 081400Z 29008KT 60000 HZ FEW230 16/05 Q1024 R88/CLRD70 NOSIG"
   }
 ]

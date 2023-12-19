@@ -55,6 +55,11 @@ fn it_metar_daytime() -> Result<()> {
 }
 
 #[test]
+fn it_metar_anchor_time() -> Result<()> {
+    it_metar_template("it_anchor_time_input.txt", "it_anchor_time_output.json", "noaa-metar-cycles")
+}
+
+#[test]
 fn it_metar_header() -> Result<()> {
     it_metar_template("it_header_input.txt", "it_header_output.json", "noaa-metar-cycles")
 }
@@ -67,4 +72,49 @@ fn it_metar_wind() -> Result<()> {
 #[test]
 fn it_metar_visibility() -> Result<()> {
     it_metar_template("it_visibility_input.txt", "it_visibility_output.json", "noaa-metar-cycles")
+}
+
+#[test]
+fn it_metar_present_weather() -> Result<()> {
+    it_metar_template("it_present_weather_input.txt", "it_present_weather_output.json", "noaa-metar-cycles")
+}
+
+#[test]
+fn it_metar_rvr() -> Result<()> {
+    it_metar_template("it_rvr_input.txt", "it_rvr_output.json", "noaa-metar-cycles")
+}
+
+#[test]
+fn it_metar_cloud() -> Result<()> {
+    it_metar_template("it_cloud_input.txt", "it_cloud_output.json", "noaa-metar-cycles")
+}
+
+#[test]
+fn it_metar_temperature() -> Result<()> {
+    it_metar_template("it_temperature_input.txt", "it_temperature_output.json", "noaa-metar-cycles")
+}
+
+#[test]
+fn it_metar_pressure() -> Result<()> {
+    it_metar_template("it_pressure_input.txt", "it_pressure_output.json", "noaa-metar-cycles")
+}
+
+#[test]
+fn it_metar_recent_weather() -> Result<()> {
+    it_metar_template("it_recent_weather_input.txt", "it_recent_weather_output.json", "noaa-metar-cycles")
+}
+
+#[test]
+fn it_metar_wind_shear() -> Result<()> {
+    it_metar_template("it_wind_shear_input.txt", "it_wind_shear_output.json", "noaa-metar-cycles")
+}
+
+#[test]
+fn it_metar_sea() -> Result<()> {
+    it_metar_template("it_sea_input.txt", "it_sea_output.json", "noaa-metar-cycles")
+}
+
+#[test]
+fn it_metar_trend() -> Result<()> {
+    it_metar_template("it_trend_input.txt", "it_trend_output.json", "noaa-metar-cycles")
 }

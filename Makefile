@@ -1,22 +1,22 @@
-check:
-	cargo check
+SHELL = /bin/sh
 
-debug:
-	cargo build
+bindir := bin
+INSTALLDIR := $(DESTDIR)$(bindir)
 
-release:
+.PHONY: all check install clean distclean
+
+all:
 	cargo build --release
 
-test:
+check:
 	cargo test --release
 
-docs:
-	cargo doc
-
-install: release test docs
-	mkdir install
-	cp target/release/decode-metar install/.
+install: all check
+	mkdir -p $(INSTALLDIR)
+	cp target/release/decode-metar $(INSTALLDIR)/.
 
 clean:
-	cargo clean
+	rm -rf target
+
+distclean: clean
 	rm -f Cargo.lock
