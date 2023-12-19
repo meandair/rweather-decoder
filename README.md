@@ -1,8 +1,8 @@
 # rweather-decoder
 
-Decoders for various weather reports.
+Decoders of various weather reports.
 
-The decoders are binary applications that store decoded reports in JSON files, which are suitable for further machine processing.
+The decoders are command-line interface (CLI) applications that store decoded reports in JSON files, which are suitable for further machine processing.
 
 ## Roadmap
 
@@ -18,23 +18,23 @@ The decoders are binary applications that store decoded reports in JSON files, w
 
 ## Installation
 
-To use this crate, you need to have Rust and Cargo installed on your machine. To install Rust, visit the official Rust website at https://www.rust-lang.org/learn/get-started and follow the installation instructions for your operating system. Rust provides an installer that will install both Rust and Cargo.
+To use this crate, you need to have Rust and Cargo installed on your machine. To install Rust, visit the official Rust website at https://www.rust-lang.org/learn/get-started and follow the installation instructions for the given operating system. Rust provides an installer that will install both Rust and Cargo.
 
-After, you can easily install the decoders by running the following command:
+After, run the following command:
 
 ```shell
 [filip@fractal ~]$ cargo install rweather-decoder
 ```
 
-Cargo will download the crate from the Rust package repository and compile it on your system. After the installation is complete, you can start using the command-line decoder tools.
+Cargo will download the crate from the Rust package repository and compile it on your system. After the installation is complete, you can start using the CLI decoders.
 
 ## Usage
 
-To decode METAR reports, use the `decode-metar` binary application, see its help:
+To decode METAR reports, use the `decode-metar` CLI application, see the help:
 
 ```shell
-[filip@fractal ~]$ decode-metar -h
-rweather-decoder 0.1.2
+[filip@fractal ~]$ decode-metar --help
+rweather-decoder 0.2.0
 CLI decoder of METAR reports
 
 USAGE:
@@ -57,22 +57,23 @@ ARGS:
     <output>            Output JSON file. Same input reports will be deduplicated
 ```
 
-The tool supports two METAR file formats:
+The `decode-metar` tool supports right now two METAR file formats:
 
-1. **noaa-metar-cycles** (default) - METAR reports in files downloaded from the NOAA METAR cycles page located at https://tgftp.nws.noaa.gov/data/observations/metar/cycles/.
-2. **plain** - METAR reports in files with one report per row.
+1. **noaa-metar-cycles** (default) - METAR reports stored in text files downloaded from the NOAA METAR cycles page located at https://tgftp.nws.noaa.gov/data/observations/metar/cycles/.
+2. **plain** - METAR reports stored in text files with one report per row.
 
 ## Examples
 
-To check for the latest METAR reports, visit https://tgftp.nws.noaa.gov/data/observations/metar/cycles/. You can download a specific file, such as `16Z.TXT` (cycle 16Z), and use the `decode-metar` command-line tool as follows:
+To check for the latest METAR reports, visit https://tgftp.nws.noaa.gov/data/observations/metar/cycles/. From there you can download a specific file, for example `16Z.TXT` (cycle 16Z), and use the `decode-metar` CLI tool as follows:
 
 ```shell
 [filip@fractal ~]$ decode-metar -p 16Z.TXT 16Z.json
 ```
 
-The decoded reports will be saved in the JSON file `16Z.json`. The `-p` option enables pretty-printing of the output JSON file for improved readability. The output file contains an array of decoded reports. Here is an example of a decoded METAR report for the LFBD airport (Bordeaux–Mérignac Airport):
+The decoded METAR reports will be saved to a JSON file `16Z.json`. The `-p` option enables pretty-printing of the output JSON file for improved readability. The output file contains an array of decoded reports. Here is an example of a decoded METAR report for the LFBD airport (Bordeaux–Mérignac Airport):
 
 ```json
+[
   {
     "station_id": "LFBD",
     "observation_time": {
@@ -206,11 +207,6 @@ The decoded reports will be saved in the JSON file `16Z.json`. The `-p` option e
         "cloud_type": "cumulonimbus"
       }
     ],
-    "ceiling": {
-      "value_type": "exact",
-      "value": 3800.0,
-      "units": "ft"
-    },
     "temperature": {
       "value_type": "exact",
       "value": 15.0,
@@ -227,6 +223,71 @@ The decoded reports will be saved in the JSON file `16Z.json`. The `-p` option e
       "units": "hPa"
     },
     "recent_weather": [],
-    "report": "LFBD 121600Z AUTO 33016G32KT 270V040 9999 0600 R23/1100D R05/P2300 R29/1800D +TSRA BCFG FEW024/// BKN038/// BKN044/// ///CB 15/11 Q1018 TEMPO 3000 SHRA BKN010 SCT020CB BKN030TCU"
-  },
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [
+      {
+        "indicator": "temporary",
+        "from_time": null,
+        "to_time": null,
+        "at_time": null,
+        "wind_from_direction": null,
+        "wind_from_direction_range": null,
+        "wind_speed": null,
+        "wind_gust": null,
+        "prevailing_visibility": {
+          "value_type": "exact",
+          "value": 3000.0,
+          "units": "m"
+        },
+        "minimum_visibility": null,
+        "directional_visibilites": [],
+        "weather": [
+          {
+            "intensity": "moderate",
+            "is_in_vicinity": false,
+            "descriptors": [
+              "shower"
+            ],
+            "phenomena": [
+              "rain"
+            ]
+          }
+        ],
+        "clouds": [
+          {
+            "cover": "broken",
+            "height": {
+              "value_type": "exact",
+              "value": 1000.0,
+              "units": "ft"
+            },
+            "cloud_type": null
+          },
+          {
+            "cover": "scattered",
+            "height": {
+              "value_type": "exact",
+              "value": 2000.0,
+              "units": "ft"
+            },
+            "cloud_type": "cumulonimbus"
+          },
+          {
+            "cover": "broken",
+            "height": {
+              "value_type": "exact",
+              "value": 3000.0,
+              "units": "ft"
+            },
+            "cloud_type": "towering_cumulus"
+          }
+        ]
+      }
+    ],
+    "report": "LFBD 121600Z AUTO 33016G32KT 270V040 9999 0600 R23/1100D R05/P2300 R29/1800D +TSRA BCFG FEW024/// BKN038/// BKN044/// //////CB 15/11 Q1018 TEMPO 3000 SHRA BKN010 SCT020CB BKN030TCU"
+  }
+]
 ```
