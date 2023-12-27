@@ -34,7 +34,7 @@ To decode METAR reports, use the `decode-metar` CLI application, see the help:
 
 ```shell
 [filip@fractal ~]$ decode-metar --help
-rweather-decoder 0.2.0
+rweather-decoder 0.2.1
 CLI decoder of METAR reports
 
 USAGE:
@@ -47,9 +47,9 @@ FLAGS:
     -V, --version         Prints version information
 
 OPTIONS:
-    -a, --anchor-time <anchor-time>    Anchor time (YYYY-MM-DD) for the plain file format. Specifies a day close to the
-                                       one when the reports were collected. If given, the individual METAR day will be
-                                       matched against it to create a proper datetime representation
+    -a, --anchor-time <anchor-time>    Anchor time (YYYY-MM-DD) for the plain file format. Specifies a datetime that is
+                                       ideally close to that one when the report was actually published. If given, the
+                                       decoded METAR day and time will be converted to a full datetime
     -f, --file-format <file-format>    METAR file format (noaa-metar-cycles, plain) [default: noaa-metar-cycles]
 
 ARGS:
@@ -62,6 +62,8 @@ The `decode-metar` tool supports right now two METAR file formats:
 1. **noaa-metar-cycles** (default) - METAR reports stored in text files downloaded from the NOAA METAR cycles page located at https://tgftp.nws.noaa.gov/data/observations/metar/cycles/.
 2. **plain** - METAR reports stored in text files with one report per row.
 
+The decoded METAR reports will be saved to the output JSON file as an array of objects. For further details on the structure of the output, please check the "Examples" section below. You can also refer to documentation available at https://docs.rs/rweather-decoder which includes differences between Rust data types and the JSON output.
+
 ## Examples
 
 To check for the latest METAR reports, visit https://tgftp.nws.noaa.gov/data/observations/metar/cycles/. From there you can download a specific file, for example `16Z.TXT` (cycle 16Z), and use the `decode-metar` CLI tool as follows:
@@ -70,7 +72,7 @@ To check for the latest METAR reports, visit https://tgftp.nws.noaa.gov/data/obs
 [filip@fractal ~]$ decode-metar -p 16Z.TXT 16Z.json
 ```
 
-The decoded METAR reports will be saved to a JSON file `16Z.json`. The `-p` option enables pretty-printing of the output JSON file for improved readability. The output file contains an array of decoded reports. Here is an example of a decoded METAR report for the LFBD airport (Bordeaux–Mérignac Airport):
+The decoded METAR reports were saved to the JSON file `16Z.json`. The `-p` option enabled pretty-printing of the output for improved readability. Here is an example of a decoded METAR report for the LFBD airport (Bordeaux–Mérignac Airport):
 
 ```json
 [
