@@ -62,7 +62,7 @@ The `decode-metar` tool supports right now two METAR file formats:
 1. **noaa-metar-cycles** (default) - METAR reports stored in text files downloaded from the NOAA METAR cycles page located at https://tgftp.nws.noaa.gov/data/observations/metar/cycles/.
 2. **plain** - METAR reports stored in text files with one report per row.
 
-The decoded METAR reports will be saved to the output JSON file as an array of objects. For further details on the structure of the output, please check the "Examples" section below. You can also refer to documentation available at https://docs.rs/rweather-decoder which includes differences between Rust data types and the JSON output.
+The decoded METAR reports will be saved to the output JSON file as an array of objects. For further details on the structure of the output, please check the "Examples" section below and refer to the documentation available at https://docs.rs/rweather-decoder which also includes differences between Rust data types and the JSON output.
 
 ## Examples
 

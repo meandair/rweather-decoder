@@ -1504,12 +1504,12 @@ pub fn decode_metar(report: &str, anchor_time: Option<NaiveDateTime>) -> Result<
     let mut unparsed_groups = Vec::new();
 
     // Handlers return mostly `Option<(some struct, end index)>` which gives us:
-    // - None => the handler didn't parse the group which often leads to trying another handler
-    // - Some(some struct, end index) => the handler parsed the group (to some struct) and also returned index of group end
+    // - None => the handler didn't parse the group which often leads to trying an another handler
+    // - Some(some struct, end index) => the handler parsed the group (to some struct) and also returned an index of the group end
     //                                   which enables to further slice the report for other handlers to work with
     //
-    // In certain cases, some struct may be empty (determined by `is_empty()`) because all fields are missing.
-    // This typically happens when clouds are unknown (//////) and such struct will be skipped.
+    // In certain cases, some struct may be empty (determined by `.is_empty()`) because all of its fields are missing.
+    // For example, this typically happens when clouds are unknown (//////) and such empty struct will be skipped.
 
     let mut idx = 0;
 
