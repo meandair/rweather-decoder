@@ -1,4 +1,4 @@
-//! Custom datetime module representing dates and times in the UTC standard.
+//! Module for handling UTC date and time representations.
 
 use anyhow::Result;
 use chrono::{NaiveTime, NaiveDateTime};
@@ -7,7 +7,12 @@ use serde::{de, Serialize, Deserialize, Deserializer, ser::SerializeTuple};
 const UTC_DATE_TIME_FORMAT: &str = "%Y-%m-%dT%H:%M:%SZ";
 const UTC_TIME_FORMAT: &str = "%H:%M:%SZ";
 
-/// UTC datetime wrapper around [chrono]'s [`NaiveDateTime`].
+/// Wrapper for UTC-based [`NaiveDateTime`].
+///
+/// Example JSON representation:
+/// ```json
+/// "2023-12-27T08:30:00Z"
+/// ```
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct UtcDateTime(pub NaiveDateTime);
@@ -31,7 +36,12 @@ impl<'de> Deserialize<'de> for UtcDateTime {
     }
 }
 
-/// UTC day-time wrapper around integer day and [chrono]'s [`NaiveTime`].
+/// Wrapper for integer day and UTC-based [`NaiveTime`].
+///
+/// Example JSON representation:
+/// ```json
+/// [27, "08:30:00Z"]
+/// ```
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct UtcDayTime(pub u32, pub NaiveTime);
@@ -63,7 +73,12 @@ impl<'de> Deserialize<'de> for UtcDayTime {
     }
 }
 
-/// UTC time wrapper around [chrono]'s [`NaiveTime`].
+/// Wrapper for UTC-based [`NaiveTime`].
+///
+/// Example JSON representation:
+/// ```json
+/// "08:30:00Z"
+/// ```
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct UtcTime(pub NaiveTime);

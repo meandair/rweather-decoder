@@ -22,6 +22,11 @@ use rweather_decoder::metar;
 enum MetarFileFormat {
     /// NOAA METAR cycle format as used at
     /// <https://tgftp.nws.noaa.gov/data/observations/metar/cycles/>.
+    ///
+    /// The format uses 3 rows per report:
+    /// - anchor time (e.g. 2023/05/13 06:30)
+    /// - METAR report (e.g. LFMC 130630Z AUTO VRB01KT 8000 ////// 11/10 Q1016)
+    /// - empty row
     NoaaMetarCycles,
     /// Plain TXT format where each row represents one METAR report.
     Plain,
@@ -103,8 +108,8 @@ fn naive_date_time_from_yyyy_mm_dd_str(s: &str) -> Result<NaiveDateTime, ParseEr
     NaiveDateTime::parse_from_str(s, "%Y-%m-%d")
 }
 
-#[derive(StructOpt)]
 /// CLI decoder of METAR reports
+#[derive(StructOpt)]
 struct Cli {
     /// Quiet
     #[structopt(short, long)]
@@ -116,9 +121,8 @@ struct Cli {
     #[structopt(short, long)]
     pretty_print: bool,
     /// Anchor time (YYYY-MM-DD) for the plain file format.
-    /// Specifies a day close to the one when the reports were collected.
-    /// If given, the individual METAR day will be matched against it
-    /// to create a proper datetime representation.
+    /// Specifies a datetime that is ideally close to that one when the report was actually published.
+    /// If given, the decoded METAR day and time will be converted to a full datetime.
     #[structopt(short, long, parse(try_from_str = naive_date_time_from_yyyy_mm_dd_str))]
     anchor_time: Option<NaiveDateTime>,
     /// Input files (glob patterns separated by space)

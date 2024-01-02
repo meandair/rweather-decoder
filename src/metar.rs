@@ -1,4 +1,9 @@
-//! METAR decoding module.
+//! Module for decoding METAR reports.
+//!
+//! The decoding is written based on the following publications:
+//! - World Meteorological Organization (2022). Aerodrome reports and forecasts: A Users’ Handbook to the Codes. Available: <https://library.wmo.int/idurl/4/30224>.
+//! - World Meteorological Organization (2019). Manual on Codes, Volume I.1 – International Codes. Available: <https://library.wmo.int/idurl/4/35713>.
+//! - World Meteorological Organization (2018). Manual on Codes, Volume II – Regional Codes and National Coding Practices. Available: <https://library.wmo.int/idurl/4/35717>.
 
 use std::{ops::{Div, Mul}, str::FromStr};
 
@@ -140,13 +145,19 @@ lazy_static! {
     ").unwrap();
 }
 
+/// TREND forecast change indicator.
+///
+/// JSON representation is in lowercase snake case.
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
-enum Trend {
+pub enum Trend {
+    /// No significant changes are expected.
     #[default]
     NoSignificantChange,
+    /// Expected temporary fluctuations in the meteorological conditions.
     Temporary,
+    /// Expected changes which reach or pass specified values.
     Becoming,
 }
 
@@ -196,17 +207,34 @@ fn handle_section(text: &str) -> Option<(Section, usize)> {
         })
 }
 
+/// METAR date and time combinations.
+///
+/// JSON representation is adjacently tagged and in lowercase snake case. Example:
+/// ```json
+/// {
+///     "value_type": "date_time",
+///     "value": "2023-12-27T08:30:00Z"
+/// }
+/// ```
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(tag = "value_type", content = "value", rename_all = "snake_case")]
-enum MetarTime {
+pub enum MetarTime {
+    /// Date and time.
     DateTime(UtcDateTime),
+    /// Day and time.
     DayTime(UtcDayTime),
+    /// Time only.
     Time(UtcTime),
 }
 
 impl MetarTime {
-    fn to_date_time(&self, anchor_time: NaiveDateTime) -> MetarTime {
+    /// Converts any [MetarTime] into [MetarTime::DateTime].
+    ///
+    /// Using `anchor_time`, any [MetarTime] will be converted to a [MetarTime::DateTime] that is nearest
+    /// to the specified `anchor_time` while preserving all the datetime information in the input [MetarTime].
+    /// This conversion correctly handles months with different number of days and also leap years.
+    pub fn to_date_time(&self, anchor_time: NaiveDateTime) -> MetarTime {
         match self {
             MetarTime::DateTime(utc_dt) => MetarTime::DateTime(*utc_dt),
             MetarTime::DayTime(utc_d_t) => {
@@ -254,13 +282,18 @@ impl MetarTime {
     }
 }
 
+/// Identification groups.
 #[non_exhaustive]
 #[derive(Debug, Clone, PartialEq, Eq, Default, Serialize, Deserialize)]
-struct Header {
-    station_id: Option<String>,
-    observation_time: Option<MetarTime>,
-    is_corrected: Option<bool>,
-    is_automated: Option<bool>,
+pub struct Header {
+    /// ICAO airport code.
+    pub station_id: Option<String>,
+    /// Observation time of the report.
+    pub observation_time: Option<MetarTime>,
+    /// Flag if the report is corrected.
+    pub is_corrected: Option<bool>,
+    /// Flag if the report comes from a fully automated observation.
+    pub is_automated: Option<bool>,
 }
 
 impl Header {
@@ -297,27 +330,90 @@ fn handle_header(text: &str, anchor_time: Option<NaiveDateTime>) -> Option<(Head
         })
 }
 
+/// Unit of a physical quantity.
+///
+/// JSON representation is using common symbols.
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
-enum Unit {
+pub enum Unit {
+    /// True degree.
+    ///
+    /// JSON representation:
+    /// ```json
+    /// "degT"
+    /// ```
     #[serde(rename = "degT")]
     DegreeTrue,
+    /// Knot.
+    ///
+    /// JSON representation:
+    /// ```json
+    /// "kt"
+    /// ```
     #[serde(rename = "kt")]
     Knot,
+    /// Metre per second.
+    ///
+    /// JSON representation:
+    /// ```json
+    /// "m/s"
+    /// ```
     #[serde(rename = "m/s")]
     MetrePerSecond,
+    /// Kilometre.
+    ///
+    /// JSON representation:
+    /// ```json
+    /// "km"
+    /// ```
     #[serde(rename = "km")]
     KiloMetre,
+    /// Metre.
+    ///
+    /// JSON representation:
+    /// ```json
+    /// "m"
+    /// ```
     #[serde(rename = "m")]
     Metre,
+    /// Statute mile.
+    ///
+    /// JSON representation:
+    /// ```json
+    /// "mi"
+    /// ```
     #[serde(rename = "mi")]
     StatuteMile,
+    /// Foot.
+    ///
+    /// JSON representation:
+    /// ```json
+    /// "ft"
+    /// ```
     #[serde(rename = "ft")]
     Foot,
+    /// Degree Celsius.
+    ///
+    /// JSON representation:
+    /// ```json
+    /// "degC"
+    /// ```
     #[serde(rename = "degC")]
     DegreeCelsius,
+    /// Hectopascal.
+    ///
+    /// JSON representation:
+    /// ```json
+    /// "hPa"
+    /// ```
     #[serde(rename = "hPa")]
     HectoPascal,
+    /// Inch of mercury.
+    ///
+    /// JSON representation:
+    /// ```json
+    /// "inHg"
+    /// ```
     #[serde(rename = "inHg")]
     InchOfMercury,
 }
@@ -360,12 +456,24 @@ fn parse_value(s: &str) -> Result<f32> {
     }
 }
 
+/// Value in range variants.
+///
+/// JSON representation is adjacently tagged and in lowercase snake case. Example:
+/// ```json
+/// {
+///     "value_type": "above",
+///     "value": 3.5
+/// }
+/// ```
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "value_type", content = "value", rename_all = "snake_case")]
-enum ValueInRange {
+pub enum ValueInRange {
+    /// Above specified number.
     Above(f32),
+    /// Below specified number.
     Below(f32),
+    /// Same as specified number.
     Exact(f32),
 }
 
@@ -410,14 +518,28 @@ impl Mul<f32> for ValueInRange {
     }
 }
 
+/// Value variants.
+///
+/// JSON representation is adjacently tagged and in lowercase snake case. Example:
+/// ```json
+/// {
+///     "value_type": "below",
+///     "value": 3.5
+/// }
+/// ```
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "value_type", content = "value", rename_all = "snake_case")]
-enum Value {
+pub enum Value {
+    /// Variable number.
     Variable,
+    /// Above specified number.
     Above(f32),
+    /// Below specified number.
     Below(f32),
+    /// Between specified [`ValueInRange`] values.
     Range(ValueInRange, ValueInRange),
+    /// Same as specified number.
     Exact(f32),
 }
 
@@ -473,13 +595,16 @@ impl Mul<f32> for Value {
     }
 }
 
+/// Physical quantity.
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
-struct Quantity {
+pub struct Quantity {
+    /// Value.
+    ///
+    /// JSON representation is flattened once.
     #[serde(flatten)]
-    value: Value,
-    units: Unit,
+    pub value: Value,
+    pub units: Unit,
 }
 
 impl Quantity {
@@ -492,13 +617,17 @@ impl Quantity {
     }
 }
 
+/// Surface wind groups.
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Default, Serialize, Deserialize)]
-struct Wind {
-    wind_from_direction: Option<Quantity>,
-    wind_from_direction_range: Option<Quantity>,
-    wind_speed: Option<Quantity>,
-    wind_gust: Option<Quantity>,
+pub struct Wind {
+    /// Wind direction. Reported by the direction from which the wind originates.
+    pub wind_from_direction: Option<Quantity>,
+    /// Range of wind directions if they vary significantly.
+    /// Reported by the direction from which the wind originates.
+    pub wind_from_direction_range: Option<Quantity>,
+    pub wind_speed: Option<Quantity>,
+    pub wind_gust: Option<Quantity>,
 }
 
 impl Wind {
@@ -548,10 +677,13 @@ fn handle_wind(text: &str) -> Option<(Wind, usize)> {
         })
 }
 
+/// Direction octant.
+///
+/// JSON representation is in lowercase snake case.
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
-enum DirectionOctant {
+pub enum DirectionOctant {
     North,
     NorthEast,
     East,
@@ -580,19 +712,21 @@ impl FromStr for DirectionOctant {
     }
 }
 
+/// Directional visibility.
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
-struct DirectionalVisibility {
-    visibility: Quantity,
-    direction: DirectionOctant,
+pub struct DirectionalVisibility {
+    pub visibility: Quantity,
+    pub direction: DirectionOctant,
 }
 
+/// Visibility groups.
 #[non_exhaustive]
 #[derive(Debug, Clone, PartialEq, Default, Serialize, Deserialize)]
-struct Visibility {
-    prevailing_visibility: Option<Quantity>,
-    minimum_visibility: Option<Quantity>,
-    directional_visibilites: Vec<DirectionalVisibility>,
+pub struct Visibility {
+    pub prevailing_visibility: Option<Quantity>,
+    pub minimum_visibility: Option<Quantity>,
+    pub directional_visibilites: Vec<DirectionalVisibility>,
 }
 
 impl Visibility {
@@ -647,10 +781,13 @@ fn handle_visibility(text: &str) -> Option<(Visibility, bool, usize)> {
         })
 }
 
+/// Runway visual range (RVR) trend.
+///
+/// JSON representation is in lowercase snake case.
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
-enum RunwayVisualRangeTrend {
+pub enum RunwayVisualRangeTrend {
     Increasing,
     Decreasing,
     NoChange,
@@ -669,12 +806,13 @@ impl FromStr for RunwayVisualRangeTrend {
     }
 }
 
+/// Runway visual range (RVR).
 #[non_exhaustive]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-struct RunwayVisualRange {
-    runway: String,
-    visual_range: Quantity,
-    trend: Option<RunwayVisualRangeTrend>,
+pub struct RunwayVisualRange {
+    pub runway: String,
+    pub visual_range: Quantity,
+    pub trend: Option<RunwayVisualRangeTrend>,
 }
 
 fn handle_runway_visual_range(text: &str) -> Option<(RunwayVisualRange, usize)> {
@@ -701,10 +839,13 @@ fn handle_runway_visual_range(text: &str) -> Option<(RunwayVisualRange, usize)> 
         })
 }
 
+/// Weather intensity.
+///
+/// JSON representation is in lowercase snake case.
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
-enum WeatherIntensity {
+pub enum WeatherIntensity {
     Light,
     Moderate,
     Heavy,
@@ -722,10 +863,13 @@ impl FromStr for WeatherIntensity {
     }
 }
 
+/// Weather descriptor.
+///
+/// JSON representation is in lowercase snake case.
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
-enum WeatherDescriptor {
+pub enum WeatherDescriptor {
     Shallow,
     Patches,
     Partial,
@@ -754,10 +898,13 @@ impl FromStr for WeatherDescriptor {
     }
 }
 
+/// Weather phenomena.
+///
+/// JSON representation is in lowercase snake case.
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
-enum WeatherPhenomena {
+pub enum WeatherPhenomena {
     Drizzle,
     Rain,
     Snow,
@@ -816,13 +963,16 @@ impl FromStr for WeatherPhenomena {
     }
 }
 
+/// Weather condition.
 #[non_exhaustive]
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-struct WeatherCondition {
-    intensity: WeatherIntensity,
-    is_in_vicinity: bool,
-    descriptors: Vec<WeatherDescriptor>,
-    phenomena: Vec<WeatherPhenomena>,
+pub struct WeatherCondition {
+    pub intensity: WeatherIntensity,
+    /// Flag if the specified weather condition occurs only in the vicinity
+    /// of the aerodrome but not at/above the aerodrome.
+    pub is_in_vicinity: bool,
+    pub descriptors: Vec<WeatherDescriptor>,
+    pub phenomena: Vec<WeatherPhenomena>,
 }
 
 fn handle_weather(weather_re: &Regex, text: &str) -> Option<(WeatherCondition, usize)> {
@@ -872,10 +1022,13 @@ fn handle_recent_weather(text: &str) -> Option<(WeatherCondition, usize)> {
     handle_weather(&RECENT_WEATHER_RE, text)
 }
 
+/// Cloud cover.
+///
+/// JSON representation is in lowercase snake case.
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
-enum CloudCover {
+pub enum CloudCover {
     Clear,
     SkyClear,
     NilSignificantCloud,
@@ -884,7 +1037,9 @@ enum CloudCover {
     Scattered,
     Broken,
     Overcast,
+    /// Obscured sky but vertical visibility is available.
     VerticalVisibility,
+    /// No cloud of operational significance in CAVOK conditions.
     CeilingOk,
 }
 
@@ -907,10 +1062,13 @@ impl FromStr for CloudCover {
     }
 }
 
+/// Cloud type.
+///
+/// JSON representation is in lowercase snake case.
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
-enum CloudType {
+pub enum CloudType {
     Altocumulus,
     AltocumulusCastellanus,
     AltocumulusLenticularis,
@@ -955,13 +1113,14 @@ impl FromStr for CloudType {
     }
 }
 
+/// Cloud layer.
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
-struct CloudLayer {
-    cover: Option<CloudCover>,
-    /// Height above ground level (AGL).
-    height: Option<Quantity>,
-    cloud_type: Option<CloudType>,
+pub struct CloudLayer {
+    pub cover: Option<CloudCover>,
+    /// Height above the ground level (AGL).
+    pub height: Option<Quantity>,
+    pub cloud_type: Option<CloudType>,
 }
 
 impl CloudLayer {
@@ -998,11 +1157,12 @@ fn handle_cloud_layer(text: &str) -> Option<(CloudLayer, usize)> {
         })
 }
 
+/// Temperature groups.
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Default, Serialize, Deserialize)]
-struct Temperature {
-    temperature: Option<Quantity>,
-    dew_point: Option<Quantity>,
+pub struct Temperature {
+    pub temperature: Option<Quantity>,
+    pub dew_point: Option<Quantity>,
 }
 
 impl Temperature {
@@ -1035,10 +1195,11 @@ fn handle_temperature(text: &str) -> Option<(Temperature, usize)> {
         })
 }
 
+/// Pressure group.
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Default, Serialize, Deserialize)]
-struct Pressure {
-    pressure: Option<Quantity>,
+pub struct Pressure {
+    pub pressure: Option<Quantity>,
 }
 
 impl Pressure {
@@ -1071,10 +1232,11 @@ fn handle_pressure(text: &str) -> Option<(Pressure, usize)> {
         })
 }
 
+/// Wind shear group.
 #[non_exhaustive]
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-struct WindShear {
-    runway: String,
+pub struct WindShear {
+    pub runway: String,
 }
 
 fn handle_wind_shear(text: &str) -> Option<(WindShear, usize)> {
@@ -1094,10 +1256,12 @@ fn handle_wind_shear(text: &str) -> Option<(WindShear, usize)> {
 }
 
 /// Sea state from WMO Code Table 3700.
+///
+/// JSON representation is in lowercase snake case.
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
-enum SeaState {
+pub enum SeaState {
     Glassy,
     Rippled,
     Smooth,
@@ -1130,12 +1294,13 @@ impl FromStr for SeaState {
     }
 }
 
+/// Sea groups.
 #[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Default, Serialize, Deserialize)]
-struct Sea {
-    sea_temperature: Option<Quantity>,
-    sea_state: Option<SeaState>,
-    wave_height: Option<Quantity>,
+pub struct Sea {
+    pub sea_temperature: Option<Quantity>,
+    pub sea_state: Option<SeaState>,
+    pub wave_height: Option<Quantity>,
 }
 
 impl Sea {
@@ -1250,52 +1415,79 @@ fn handle_trend_time(text: &str, anchor_time: Option<NaiveDateTime>) -> Option<(
 }
 
 /// Significant changes in the meteorological conditions in the TREND forecast.
+///
 /// Only elements for which a significant change is expected are [Option::Some].
 #[non_exhaustive]
 #[derive(Debug, Clone, Default, PartialEq, Serialize, Deserialize)]
-struct TrendChange {
-    indicator: Trend,
-    from_time: Option<MetarTime>,
-    to_time: Option<MetarTime>,
-    at_time: Option<MetarTime>,
+pub struct TrendChange {
+    pub indicator: Trend,
+    pub from_time: Option<MetarTime>,
+    pub to_time: Option<MetarTime>,
+    pub at_time: Option<MetarTime>,
+    /// Surface wind groups.
+    ///
+    /// JSON representation is flattened once.
     #[serde(flatten)]
-    wind: Wind,
+    pub wind: Wind,
+    /// Visibility groups.
+    ///
+    /// JSON representation is flattened once.
     #[serde(flatten)]
-    visibility: Visibility,
-    weather: Vec<WeatherCondition>,
-    clouds: Vec<CloudLayer>,
+    pub visibility: Visibility,
+    pub weather: Vec<WeatherCondition>,
+    pub clouds: Vec<CloudLayer>,
 }
 
 /// Decoded METAR report.
 #[non_exhaustive]
 #[derive(Debug, Clone, Default, PartialEq, Serialize, Deserialize)]
 pub struct Metar {
+    /// Identification groups.
+    ///
+    /// JSON representation is flattened once.
     #[serde(flatten)]
-    header: Header,
+    pub header: Header,
+    /// Surface wind groups.
+    ///
+    /// JSON representation is flattened once.
     #[serde(flatten)]
-    wind: Wind,
+    pub wind: Wind,
+    /// Visibility groups.
+    ///
+    /// JSON representation is flattened once.
     #[serde(flatten)]
-    visibility: Visibility,
-    runway_visual_ranges: Vec<RunwayVisualRange>,
-    present_weather: Vec<WeatherCondition>,
-    clouds: Vec<CloudLayer>,
+    pub visibility: Visibility,
+    pub runway_visual_ranges: Vec<RunwayVisualRange>,
+    pub present_weather: Vec<WeatherCondition>,
+    pub clouds: Vec<CloudLayer>,
+    /// Temperature groups.
+    ///
+    /// JSON representation is flattened once.
     #[serde(flatten)]
-    temperature: Temperature,
+    pub temperature: Temperature,
+    /// Pressure group.
+    ///
+    /// JSON representation is flattened once.
     #[serde(flatten)]
-    pressure: Pressure,
-    recent_weather: Vec<WeatherCondition>,
-    wind_shears: Vec<WindShear>,
+    pub pressure: Pressure,
+    pub recent_weather: Vec<WeatherCondition>,
+    pub wind_shears: Vec<WindShear>,
+    /// Sea groups.
+    ///
+    /// JSON representation is flattened once.
     #[serde(flatten)]
-    sea: Sea,
-    trend_changes: Vec<TrendChange>,
+    pub sea: Sea,
+    pub trend_changes: Vec<TrendChange>,
     pub report: String,
 }
 
-/// Decodes METAR report into [Metar] struct.
+/// Decodes a METAR report into a [Metar] struct.
 ///
-/// The optional `anchor_time` specifies a day close the the one when the report was collected.
-/// If given, the decoded METAR day and time will be matched against it to create [UtcDateTime]
-/// struct which fully describes date and time.
+/// # Arguments
+///
+/// * `report` - METAR report to decode.
+/// * `anchor_time` - Specifies a datetime that is ideally close to that one when the report was actually published.
+///                   If given, the decoded METAR day and time will be converted to a full datetime. See also [MetarTime::to_date_time()].
 pub fn decode_metar(report: &str, anchor_time: Option<NaiveDateTime>) -> Result<Metar> {
     let mut sanitized = report.to_uppercase().trim().replace('\x00', "");
     sanitized = WHITESPACE_REPLACE_RE.replace_all(&sanitized, *WHITESPACE_REPLACE_OUT).to_string();
@@ -1310,6 +1502,14 @@ pub fn decode_metar(report: &str, anchor_time: Option<NaiveDateTime>) -> Result<
     let mut trend_change = TrendChange::default();
 
     let mut unparsed_groups = Vec::new();
+
+    // Handlers return mostly `Option<(some struct, end index)>` which gives us:
+    // - None => the handler didn't parse the group which often leads to trying an another handler
+    // - Some(some struct, end index) => the handler parsed the group (to some struct) and also returned an index of the group end
+    //                                   which enables to further slice the report for other handlers to work with
+    //
+    // In certain cases, some struct may be empty (determined by `.is_empty()`) because all of its fields are missing.
+    // For example, this typically happens when clouds are unknown (//////) and such empty struct will be skipped.
 
     let mut idx = 0;
 
