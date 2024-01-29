@@ -11,7 +11,6 @@ use anyhow::{anyhow, Error, Result};
 use chrono::{NaiveDateTime, NaiveTime, Datelike, Duration};
 use chronoutil::RelativeDuration;
 use lazy_static::lazy_static;
-use log::debug;
 use regex::Regex;
 use serde::{Serialize, Deserialize};
 
@@ -1723,7 +1722,7 @@ pub fn decode_metar(report: &str, anchor_time: Option<NaiveDateTime>) -> Result<
     }
 
     if !unparsed_groups.is_empty() {
-        debug!("Unparsed data: {}, report: {}", unparsed_groups.join(" "), report);
+        log::debug!("Unparsed data: {}, report: {}", unparsed_groups.join(" "), report);
     }
 
     Ok(metar)
