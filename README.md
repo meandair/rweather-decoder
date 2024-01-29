@@ -34,7 +34,7 @@ To decode METAR reports, use the `decode-metar` CLI application, see the help:
 
 ```shell
 [filip@fractal ~]$ decode-metar --help
-rweather-decoder 0.2.1
+rweather-decoder 0.2.2
 CLI decoder of METAR reports
 
 USAGE:
