@@ -118,3 +118,8 @@ fn it_metar_sea() -> Result<()> {
 fn it_metar_trend() -> Result<()> {
     it_metar_template("it_trend_input.txt", "it_trend_output.json", "noaa-metar-cycles")
 }
+
+#[test]
+fn it_metar_null() -> Result<()> {
+    it_metar_template("it_null_input.txt", "it_null_output.json", "noaa-metar-cycles")
+}

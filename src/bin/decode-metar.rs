@@ -11,7 +11,6 @@ use std::{
 use anyhow::{anyhow, Error, Result};
 use chrono::{NaiveDateTime, ParseError};
 use glob::glob;
-use log::{info, warn};
 use structopt::StructOpt;
 use encoding_rs::WINDOWS_1252;
 use encoding_rs_io::DecodeReaderBytesBuilder;
@@ -52,31 +51,24 @@ fn decode_noaa_metar_cycles_file(path: &Path) -> Result<Vec<metar::Metar>> {
         .build(file);
     let buf_reader = BufReader::new(enc_reader);
 
-    let mut data = Vec::new();
-    let mut is_header = true; // some files start with garbage rows
-
-    for row in buf_reader.lines() {
-        let row = row?.trim().to_string();
-
-        if is_header {
-            let time_as_number = row.replace(['/', ' ', ':'], "");
-            if time_as_number.parse::<usize>().is_ok() {
-                data.push(row);
-                is_header = false;
-            }
-        } else if !row.is_empty() {
-            data.push(row);
-        }
-    }
-
+    let mut obs_time_opt = None;
     let mut all_metar_data = Vec::new();
 
-    for (time_str, report) in data.iter().step_by(2).zip(data.iter().skip(1).step_by(2)) {
-        let obs_time = NaiveDateTime::parse_from_str(time_str, "%Y/%m/%d %H:%M")?;
+    for row in buf_reader.lines() {
+        let row = row?.replace(char::from(0), " ");
+        let row = row.trim();
 
-        match metar::decode_metar(report, Some(obs_time)) {
-            Ok(metar_data) => all_metar_data.push(metar_data),
-            Err(e) => warn!("{}", e),
+        if row.is_empty() {
+            continue;
+        }
+
+        if let Ok(obs_time) = NaiveDateTime::parse_from_str(row, "%Y/%m/%d %H:%M") {
+            obs_time_opt = Some(obs_time);
+        } else if obs_time_opt.is_some() {
+            match metar::decode_metar(row, obs_time_opt) {
+                Ok(metar_data) => all_metar_data.push(metar_data),
+                Err(e) => log::warn!("{:#}", e),
+            }
         }
     }
 
@@ -91,13 +83,16 @@ fn decode_plain_file(path: &Path, anchor_time: Option<NaiveDateTime>) -> Result<
     let mut all_metar_data = Vec::new();
 
     for row in buf_reader.lines() {
-        let row = row?.trim().to_string();
+        let row = row?.replace(char::from(0), " ");
+        let row = row.trim();
 
-        if !row.is_empty() {
-            match metar::decode_metar(&row, anchor_time) {
-                Ok(metar_data) => all_metar_data.push(metar_data),
-                Err(e) => warn!("{}", e),
-            }
+        if row.is_empty() {
+            continue;
+        }
+
+        match metar::decode_metar(&row, anchor_time) {
+            Ok(metar_data) => all_metar_data.push(metar_data),
+            Err(e) => log::warn!("{:#}", e),
         }
     }
 
@@ -139,7 +134,7 @@ fn main() -> Result<()> {
         env_logger::init();
     }
 
-    info!("Reading input glob patterns");
+    log::info!("Reading input glob patterns");
 
     let mut input_paths = HashSet::new();
 
@@ -149,7 +144,7 @@ fn main() -> Result<()> {
         }
     }
 
-    info!("Found {} file(s)", input_paths.len());
+    log::info!("Found {} file(s)", input_paths.len());
 
     let mut unique_reports = HashSet::new();
     let mut all_metars = Vec::new();
@@ -170,7 +165,7 @@ fn main() -> Result<()> {
         }
     }
 
-    info!("Saving to file {:?}", &args.output);
+    log::info!("Saving to file {}", &args.output.display());
 
     let file = File::create(&args.output)?;
     let mut writer = BufWriter::new(file);

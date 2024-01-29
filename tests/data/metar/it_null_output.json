@@ -1,0 +1,216 @@
+[
+  {
+    "station_id": "KNPA",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2024-01-17T06:56:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": true,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 350.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 9.0,
+      "units": "kt"
+    },
+    "wind_gust": {
+      "value_type": "exact",
+      "value": 16.0,
+      "units": "kt"
+    },
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 10.0,
+      "units": "mi"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [],
+    "clouds": [],
+    "temperature": null,
+    "dew_point": null,
+    "pressure": null,
+    "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [],
+    "report": "KNPA 170656Z AUTO 35009G16KT 10SM 7:00"
+  },
+  {
+    "station_id": "FMNM",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2024-01-17T07:00:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 340.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 18.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "exact",
+      "value": 8000.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [
+      {
+        "intensity": "light",
+        "is_in_vicinity": false,
+        "descriptors": [],
+        "phenomena": [
+          "rain"
+        ]
+      }
+    ],
+    "clouds": [
+      {
+        "cover": "few",
+        "height": {
+          "value_type": "exact",
+          "value": 1000.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      },
+      {
+        "cover": "scattered",
+        "height": {
+          "value_type": "exact",
+          "value": 1700.0,
+          "units": "ft"
+        },
+        "cloud_type": "cumulonimbus"
+      }
+    ],
+    "temperature": {
+      "value_type": "exact",
+      "value": 28.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 26.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1006.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [
+      {
+        "indicator": "no_significant_change",
+        "from_time": null,
+        "to_time": null,
+        "at_time": null,
+        "wind_from_direction": null,
+        "wind_from_direction_range": null,
+        "wind_speed": null,
+        "wind_gust": null,
+        "prevailing_visibility": null,
+        "minimum_visibility": null,
+        "directional_visibilites": [],
+        "weather": [],
+        "clouds": []
+      }
+    ],
+    "report": "FMNM 170700Z 34018KT 8000 -RA FEW010 SCT017CB 28/26 Q1006 NOSIG"
+  },
+  {
+    "station_id": "FMSD",
+    "observation_time": {
+      "value_type": "date_time",
+      "value": "2024-01-17T07:00:00Z"
+    },
+    "is_corrected": false,
+    "is_automated": false,
+    "wind_from_direction": {
+      "value_type": "exact",
+      "value": 180.0,
+      "units": "degT"
+    },
+    "wind_from_direction_range": null,
+    "wind_speed": {
+      "value_type": "exact",
+      "value": 6.0,
+      "units": "kt"
+    },
+    "wind_gust": null,
+    "prevailing_visibility": {
+      "value_type": "above",
+      "value": 10000.0,
+      "units": "m"
+    },
+    "minimum_visibility": null,
+    "directional_visibilites": [],
+    "runway_visual_ranges": [],
+    "present_weather": [],
+    "clouds": [
+      {
+        "cover": "few",
+        "height": {
+          "value_type": "exact",
+          "value": 1700.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      },
+      {
+        "cover": "broken",
+        "height": {
+          "value_type": "exact",
+          "value": 2000.0,
+          "units": "ft"
+        },
+        "cloud_type": null
+      }
+    ],
+    "temperature": {
+      "value_type": "exact",
+      "value": 28.0,
+      "units": "degC"
+    },
+    "dew_point": {
+      "value_type": "exact",
+      "value": 24.0,
+      "units": "degC"
+    },
+    "pressure": {
+      "value_type": "exact",
+      "value": 1008.0,
+      "units": "hPa"
+    },
+    "recent_weather": [],
+    "wind_shears": [],
+    "sea_temperature": null,
+    "sea_state": null,
+    "wave_height": null,
+    "trend_changes": [],
+    "report": "FMSD 170700Z 18006KT 9999 FEW017 BKN020 28/24 Q1008"
+  }
+]
